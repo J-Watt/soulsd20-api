@@ -1,1 +1,7 @@
-/soulsd20-venv
+# Python
+*.pyc
+env/
+venv/
+
+# Databases
+*.sqlite3
