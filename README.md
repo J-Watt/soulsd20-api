@@ -1,8 +1,8 @@
 # soulsd20-api
 API for the Souls D20 System
 
-Built using
-Python version 3.11.5
+Built using  
+Python version 3.11.5  
 Django version 4.2
 
 ## Setup
@@ -10,11 +10,10 @@ Django version 4.2
 [Install Python](https://www.python.org/downloads/) if not done already.
 
 Create a Python Virtual Environment:  
-`py -m venv soulsd20-venv`  
-(Note: this venv name is in the git ingore.)
+`py -m venv venv`  
 
 Activate the venv  
-`soulsd20-venv\Scripts\activate.bat`  
+`venv\Scripts\activate.bat`  
 If using git bash: `. activate`
 
 Install Django and dependancies using:  
