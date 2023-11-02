@@ -1,11 +1,11 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from compendium.serializers import (UserSerializer, GroupSerializer, UsageFormulaSerializer, 
+from compendium.serializers import (UserSerializer, GroupSerializer, UsageFormulaSerializer,
                                     WeaponProfFeatSerializer, DestinyFeatSerializer, ItemSerializer,
-                                    RingSerializer, ArtifactSerializer)
+                                    RingSerializer, ArtifactSerializer, ArmorSerializer, WeaponSerializer)
 
-from compendium.models import UsageFormula, WeaponProfFeat, DestinyFeat, Item, Ring, Artifact
+from compendium.models import UsageFormula, WeaponProfFeat, DestinyFeat, Item, Ring, Artifact, Armor, Weapon
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -49,12 +49,14 @@ class DestinyFeatViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = DestinyFeat.objects.all()
     serializer_class = DestinyFeatSerializer
 
+
 class ItemViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows Items to be viewed.
     """
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+
 
 class RingViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -63,9 +65,24 @@ class RingViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Ring.objects.all()
     serializer_class = RingSerializer
 
+
 class ArtifactViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows artifacts to be viewed.
     """
     queryset = Artifact.objects.all()
     serializer_class = ArtifactSerializer
+
+class ArmorViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows armor to be viewed.
+    """
+    queryset = Armor.objects.all()
+    serializer_class = ArmorSerializer
+
+class WeaponViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows weapons to be viewed.
+    """
+    queryset = Weapon.objects.all()
+    serializer_class = WeaponSerializer

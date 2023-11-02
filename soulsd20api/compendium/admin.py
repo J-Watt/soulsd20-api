@@ -16,6 +16,8 @@ admin.site.register(models.DestinyFeat)
 admin.site.register(models.Item)
 admin.site.register(models.Ring, RingAdmin)
 admin.site.register(models.Artifact)
+admin.site.register(models.Armor)
+admin.site.register(models.Weapon)
 
 # admin.site.register(models.WeaponProfBonuses)
 # admin.site.register(models.DestinyFeatBonuses)

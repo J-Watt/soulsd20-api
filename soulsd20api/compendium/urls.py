@@ -11,6 +11,8 @@ router.register(r'destinyFeat', views.DestinyFeatViewSet)
 router.register(r'item', views.ItemViewSet)
 router.register(r'ring', views.RingViewSet)
 router.register(r'artifact', views.ArtifactViewSet)
+router.register(r'armor', views.ArmorViewSet)
+router.register(r'weapon', views.WeaponViewSet)
 
 # The API URLs are now determined automatically by the router.
 # Additionally, we include the login URLs for the browsable API.
