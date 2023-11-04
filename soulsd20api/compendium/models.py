@@ -148,7 +148,7 @@ class WeaponProfFeat(models.Model):
 
 class WeaponProfSubFeat(models.Model):
     parent = models.ForeignKey(
-        WeaponProfFeat, models.CASCADE, related_name="child_feat")
+        WeaponProfFeat, models.CASCADE, related_name="sub_feat")
     extends = models.ForeignKey(
         WeaponProfFeat, models.CASCADE, related_name="extended")
     usage_formula = models.ForeignKey(
@@ -329,7 +329,7 @@ class SpellScaling(models.Model):
     requirement = models.IntegerField(default=0)
     value = models.CharField(max_length=2, choices=ScalingValue.choices)
     weapon = models.ForeignKey(
-        Weapon, on_delete=models.CASCADE, related_name="scaling_spell")
+        Weapon, on_delete=models.CASCADE, related_name="spell_scaling")
 
     def __str__(self) -> str:
         return f"{self.value}-{self.stat} | Req: {self.requirement} "
