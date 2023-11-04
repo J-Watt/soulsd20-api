@@ -2,8 +2,9 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from compendium.models import (UsageFormula, WeaponProfFeat, DestinyFeat, Item, Ring, Artifact,
                                Armor, Weapon,
-                               WeaponProfBonuses, DestinyFeatBonuses, RingBonuses, ArtifactBonuses,
-                               ArmorBonuses, WeaponBonuses)
+                               WeaponProfBonuses, DestinyBonuses, RingBonuses, ArtifactBonuses,
+                               ArmorBonuses, WeaponBonuses,
+                               WeaponScaling)
 
 baseBonuses = ['max_hp', 'max_fp', 'max_ap', 'attunement_slots', 'free_movement', 'vitality',
                'endurance', 'strength', 'dexterity', 'attunement', 'intelligence', 'faith',
@@ -51,7 +52,7 @@ class WeaponProfFeatSerializer(serializers.HyperlinkedModelSerializer):
 
 class DestinyBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = DestinyFeatBonuses
+        model = DestinyBonuses
         fields = baseBonuses.copy()
 
 
@@ -125,13 +126,19 @@ class WeaponBonusesSerializer(serializers.HyperlinkedModelSerializer):
         model = WeaponBonuses
         fields = baseBonuses.copy()
 
+class WeaponScalingSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = WeaponScaling
+        fields = ['type', 'stat', 'value']
+
 
 class WeaponSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
     bonuses = WeaponBonusesSerializer()
+    scaling = WeaponScalingSerializer(many=True)
 
     class Meta:
         model = Weapon
         fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin',
-                  'weapon_type', 'second_type', 'ap', 'skill', 'second_skill', 'usage_formula',
+                  'weapon_type', 'second_type', 'ap', 'skill', 'second_skill', 'scaling', 'usage_formula',
                   'description', 'durability', 'infusion', 'bonuses']

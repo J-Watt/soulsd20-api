@@ -5,6 +5,93 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
+class ScalingValue(models.TextChoices):
+    SS = "SS", _("SS")
+    S = "S", _("S")
+    A = "A", _("A")
+    B = "B", _("B")
+    C = "C", _("C")
+    D = "D", _("D")
+    E = "E", _("E")
+
+
+class Stats(models.TextChoices):
+    VITALITY = "VIT", _("Vitality")
+    ENDURANCE = "END", _("Endurance")
+    STRENGTH = "STR", _("Strength")
+    DEXTERITY = "DEX", _("Dexterity")
+    ATTUNEMENT = "ATT", _("Attunement")
+    INTELLIGENCE = "INT", _("Intelligence")
+    FAITH = "FAI", _("Faith")
+
+
+class ScalingStat(models.TextChoices):
+    STRENGTH = "STR", _("Strength")
+    DEXTERITY = "DEX", _("Dexterity")
+    INTELLIGENCE = "INT", _("Intelligence")
+    FAITH = "FAI", _("Faith")
+
+
+class ElementType(models.TextChoices):
+    MAGIC = "MAGIC", _("Magic")
+    FIRE = "FIRE", _("Fire")
+    LIGHTNING = "LIGHTNING", _("Lightning")
+    DARK = "DARK", _("Dark")
+
+
+class ElementTypePhys(models.TextChoices):
+    PHYSICAL = "PHYSICAL", _("Physical")
+    MAGIC = "MAGIC", _("Magic")
+    FIRE = "FIRE", _("Fire")
+    LIGHTNING = "LIGHTNING", _("Lightning")
+    DARK = "DARK", _("Dark")
+
+
+class ElementTypeExpanded(models.TextChoices):
+    PHYSICAL = "PHYSICAL", _("Physical")
+    MAGIC = "MAGIC", _("Magic")
+    FIRE = "FIRE", _("Fire")
+    LIGHTNING = "LIGHTNING", _("Lightning")
+    DARK = "DARK", _("Dark")
+    TRUE = "TRUE", _("True Damage")
+    VARYING = "VARYING", _("Varying Damage Type")
+    REDUCE = "REDUCE", _("Damage Reduction")
+    HEAL = "HEAL", _("HP Healing")
+    FOCUS = "FOCUS", _("FP Regeneration")
+    FROST = "FROST", _("Frostbite")
+    BLEED = "BLEED", _("Bleed")
+    POISON = "POISON", _("Poison")
+    TOXIC = "TOXIC", _("Toxic")
+    CURSE = "CURSE", _("Curse")
+    POISE = "POISE", _("Poise")
+    DURABILITY = "DURABILITY", _("Durability")
+
+
+class WeaponProfTree(models.TextChoices):
+    FIST = "FIST", _("Fist")
+    DAGGER = "DAGGER", _("Dagger")
+    STRAIGHT_THRUST = "STRAIGHT_THRUST", _("Straight Sword/Thrusting Sword")
+    KATANA_CURVED = "KATANA_CURVED", _("Katana/Curved Sword")
+    ULTRA_GREAT_SWORD = "ULTRA_GREAT_SWORD", _("Great Sword/Ultra Great Sword")
+    GREAT_AXE = "GREAT_AXE", _("Axe/Great Axe")
+    GREAT_HAMMER = "GREAT_HAMMER", _("Hammer/Great Hammer")
+    TWINBLADE = "TWINBLADE", _("Twinblade")
+    SPEAR = "SPEAR", _("Spear")
+    HALBERD = "HALBERD", _("Halberd")
+    REAPER = "REAPER", _("Reaper")
+    WHIP = "WHIP", _("Whip")
+    CROSS_BOW = "CROSS_BOW", _("Bow/Crossbow")
+    GREAT_BOW_BALLISTA = "GREAT_BOW_BALLISTA", _("Great Bow/Ballista")
+    GUN = "GUN", _("Gun Sidearm")
+    SHIELD = "SHIELD", _("Shield")
+    SORCERY = "SORCERY", _("Sorcery")
+    MIRACLE = "MIRACLE", _("Miracle")
+    PYROMANCY = "PYROMANCY", _("Pyromancy")
+    HEX = "HEX", _("Hex")
+    SPIRIT_SUMMONING = "SPIRIT_SUMMONING", _("Spirit Summoning")
+    DUAL_WIELDING = "DUAL_WIELDING", _("Dual Wielding")
+
+
 class UsageFormula(models.Model):
     class Modifier(models.TextChoices):
         NONE = "NON", _("None")
@@ -45,31 +132,6 @@ class UsageFormula(models.Model):
 
 
 class WeaponProfFeat(models.Model):
-    class WeaponProfTree(models.TextChoices):
-        FIST = "FIST", _("Fist")
-        DAGGER = "DAGGER", _("Dagger")
-        STRAIGHT_THRUST = "STRAIGHT_THRUST", _(
-            "Straight Sword/Thrusting Sword")
-        KATANA_CURVED = "KATANA_CURVED", _("Katana/Curved Sword")
-        ULTRA_GREAT_SWORD = "ULTRA_GREAT_SWORD", _(
-            "Great Sword/Ultra Great Sword")
-        GREAT_AXE = "GREAT_AXE", _("Axe/Great Axe")
-        GREAT_HAMMER = "GREAT_HAMMER", _("Hammer/Great Hammer")
-        TWINBLADE = "TWINBLADE", _("Twinblade")
-        SPEAR = "SPEAR", _("Spear")
-        HALBERD = "HALBERD", _("Halberd")
-        REAPER = "REAPER", _("Reaper")
-        WHIP = "WHIP", _("Whip")
-        CROSS_BOW = "CROSS_BOW", _("Bow/Crossbow")
-        GREAT_BOW_BALLISTA = "GREAT_BOW_BALLISTA", _("Great Bow/Ballista")
-        GUN = "GUN", _("Gun Sidearm")
-        SHIELD = "SHIELD", _("Shield")
-        SORCERY = "SORCERY", _("Sorcery")
-        MIRACLE = "MIRACLE", _("Miracle")
-        PYROMANCY = "PYROMANCY", _("Pyromancy")
-        HEX = "HEX", _("Hex")
-        SPIRIT_SUMMONING = "SPIRIT_SUMMONING", _("Spirit Summoning")
-        DUAL_WIELDING = "DUAL_WIELDING", _("Dual Wielding")
     name = models.CharField(max_length=60)
     weapon_tree = models.CharField(
         max_length=18,
@@ -82,6 +144,19 @@ class WeaponProfFeat(models.Model):
 
     def __str__(self) -> str:
         return f"{self.weapon_tree}: (Lv{self.level}) {self.name}"
+
+
+class WeaponProfSubFeat(models.Model):
+    parent = models.ForeignKey(
+        WeaponProfFeat, models.CASCADE, related_name="child_feat")
+    extends = models.ForeignKey(
+        WeaponProfFeat, models.CASCADE, related_name="extended")
+    usage_formula = models.ForeignKey(
+        UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
+    description = models.TextField(max_length=4096)
+
+    def __str__(self) -> str:
+        return f"{self.parent.name} -> {self.extends.name}"
 
 
 class DestinyFeat(models.Model):
@@ -129,6 +204,8 @@ class Item(models.Model):
         max_length=8,
         choices=ItemType.choices
     )
+    range = models.CharField(max_length=20, blank=True, default="")
+    duration = models.CharField(max_length=20, blank=True, default="")
     description = models.TextField(max_length=2048)
 
     def __str__(self) -> str:
@@ -215,12 +292,6 @@ class Weapon(models.Model):
         PYRO = "PYRO", _("Pyromancy Flame")
         CRUCIBLE = "CRUCIBLE", _("Crucible")
 
-    class ElementType(models.TextChoices):
-        MAGIC = "MAGIC", _("Magic")
-        FIRE = "FIRE", _("Fire")
-        LIGHTNING = "LIGHTNING", _("Lightning")
-        DARK = "DARK", _("Dark")
-
     name = models.CharField(max_length=200)
     created_at = models.DateTimeField("date created")
     created_by = models.CharField(max_length=200)
@@ -236,7 +307,7 @@ class Weapon(models.Model):
     skill = models.ForeignKey(
         WeaponSkill, models.SET_NULL, blank=True, null=True, default=None)
     second_skill = models.ForeignKey(
-        WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="SecondWeaponSkill")
+        WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="weapon_second_skill")
 
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
@@ -250,85 +321,132 @@ class Weapon(models.Model):
         return self.name
 
 
-class Damage(models.Model):
-    class Meta:
-        abstract = True
-    die_count_phys = models.IntegerField(default=0)
-    die_value_phys = models.IntegerField(default=0)
-    die_count_magic = models.IntegerField(default=0)
-    die_value_magic = models.IntegerField(default=0)
-    die_count_fire = models.IntegerField(default=0)
-    die_value_fire = models.IntegerField(default=0)
-    die_count_lightning = models.IntegerField(default=0)
-    die_value_lightning = models.IntegerField(default=0)
-    die_count_dark = models.IntegerField(default=0)
-    die_value_dark = models.IntegerField(default=0)
-    die_count_frost = models.IntegerField(default=0)
-    die_value_frost = models.IntegerField(default=0)
-    die_count_bleed = models.IntegerField(default=0)
-    die_value_bleed = models.IntegerField(default=0)
-    die_count_poison = models.IntegerField(default=0)
-    die_value_poison = models.IntegerField(default=0)
-    die_count_toxic = models.IntegerField(default=0)
-    die_value_toxic = models.IntegerField(default=0)
-
-
-class WeaponDamage(Damage):
-    class Scaling(models.TextChoices):
-        SS = "SS", _("SS")
-        S = "S", _("S")
-        A = "A", _("A")
-        B = "B", _("B")
-        C = "C", _("C")
-        D = "D", _("D")
-        E = "E", _("E")
-
-    weapon = models.OneToOneField(
-        Weapon, on_delete=models.CASCADE, primary_key=True, related_name="damage")
-
-    scaling_phys_str = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_phys_dex = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_phys_int = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_phys_fai = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_element_str = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_element_dex = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_element_int = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    scaling_element_fai = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-
-    spell_int_SS = models.IntegerField(default=None, blank=True, null=True)
-    spell_int_S = models.IntegerField(default=None, blank=True, null=True)
-    spell_int_A = models.IntegerField(default=None, blank=True, null=True)
-    spell_int_B = models.IntegerField(default=None, blank=True, null=True)
-    spell_int_C = models.IntegerField(default=None, blank=True, null=True)
-    spell_int_D = models.IntegerField(default=None, blank=True, null=True)
-    spell_int_E = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_SS = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_S = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_A = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_B = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_C = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_D = models.IntegerField(default=None, blank=True, null=True)
-    spell_fai_E = models.IntegerField(default=None, blank=True, null=True)
-
-    summon_tier_one = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    summon_tier_two = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    summon_tier_three = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
-    summon_tier_four = models.CharField(
-        max_length=2, choices=Scaling.choices, default=None, blank=True, null=True)
+class SpellScaling(models.Model):
+    class SpellStat(models.TextChoices):
+        INTELLIGENCE = "INT", _("Intelligence")
+        FAITH = "FAI", _("Faith")
+    stat = models.CharField(max_length=3, choices=SpellStat.choices)
+    requirement = models.IntegerField(default=0)
+    value = models.CharField(max_length=2, choices=ScalingValue.choices)
+    weapon = models.ForeignKey(
+        Weapon, on_delete=models.CASCADE, related_name="scaling_spell")
 
     def __str__(self) -> str:
-        return f"{self.weapon.name} Damage"
+        return f"{self.value}-{self.stat} | Req: {self.requirement} "
+
+
+class Scaling(models.Model):
+    class Meta:
+        abstract = True
+    type = models.CharField(max_length=10, choices=ElementTypeExpanded.choices)
+    stat = models.CharField(max_length=3, choices=Stats.choices)
+    value = models.CharField(max_length=2, choices=ScalingValue.choices)
+
+    def __str__(self) -> str:
+        return f"{self.type}: {self.value}-{self.stat}"
+
+
+class WeaponScaling(Scaling):
+    class ScalingType(models.TextChoices):
+        PHYSICAL = "PHYSICAL", _("Physical")
+        MAGIC = "MAGIC", _("Magic")
+        FIRE = "FIRE", _("Fire")
+        LIGHTNING = "LIGHTNING", _("Lightning")
+        DARK = "DARK", _("Dark")
+        TONE = "TONE", _("Tier One Summon")
+        TTWO = "TTWO", _("Tier Two Summon")
+        TTHREE = "TTHREE", _("Tier Three Summon")
+        TFOUR = "TFOUR", _("Tier Four Summon")
+    type = models.CharField(max_length=9, choices=ScalingType.choices)
+    stat = models.CharField(max_length=3, choices=ScalingStat.choices)
+    weapon = models.ForeignKey(
+        Weapon, on_delete=models.CASCADE, related_name="scaling")
+
+
+class WeaponProfScaling(Scaling):
+    weapon_prof = models.ForeignKey(
+        WeaponProfFeat, on_delete=models.CASCADE, related_name="scaling")
+
+
+class WeaponProfSubScaling(Scaling):
+    weapon_prof = models.ForeignKey(
+        WeaponProfSubFeat, on_delete=models.CASCADE, related_name="scaling")
+
+
+class DestinyScaling(Scaling):
+    destiny_feat = models.ForeignKey(
+        DestinyFeat, on_delete=models.CASCADE, related_name="scaling")
+
+
+class WeaponSkillScaling(Scaling):
+    weapon_skill = models.ForeignKey(
+        WeaponSkill, on_delete=models.CASCADE, related_name="scaling")
+
+
+class RingScaling(Scaling):
+    ring = models.ForeignKey(
+        Ring, on_delete=models.CASCADE, related_name="scaling")
+
+
+class ArtifactScaling(Scaling):
+    artifact = models.ForeignKey(
+        Artifact, on_delete=models.CASCADE, related_name="scaling")
+
+
+class ItemScaling(Scaling):
+    item = models.ForeignKey(
+        Item, on_delete=models.CASCADE, related_name="scaling")
+
+
+class Dice(models.Model):
+    class Meta:
+        abstract = True
+    count = models.IntegerField(default=0)
+    value = models.IntegerField(default=0)
+    type = models.CharField(max_length=10, choices=ElementTypeExpanded.choices)
+
+    def __str__(self) -> str:
+        return f"{self.type} - {self.count}d{self.value}"
+
+
+class WeaponDice(Dice):
+    weapon = models.ForeignKey(
+        Weapon, on_delete=models.CASCADE, related_name="dice")
+
+
+class WeaponProfDice(Dice):
+    weapon_prof = models.ForeignKey(
+        WeaponProfFeat, on_delete=models.CASCADE, related_name="dice")
+
+
+class WeaponProfSubDice(Dice):
+    weapon_prof = models.ForeignKey(
+        WeaponProfSubFeat, on_delete=models.CASCADE, related_name="dice")
+
+
+class DestinyDice(Dice):
+    destiny_feat = models.ForeignKey(
+        DestinyFeat, on_delete=models.CASCADE, related_name="dice")
+
+
+class WeaponSkillDice(Dice):
+    weapon_skill = models.ForeignKey(
+        WeaponSkill, on_delete=models.CASCADE, related_name="dice")
+
+
+class RingDice(Dice):
+    ring = models.ForeignKey(
+        Ring, on_delete=models.CASCADE, related_name="dice")
+
+
+class ArtifactDice(Dice):
+    artifact = models.ForeignKey(
+        Artifact, on_delete=models.CASCADE, related_name="dice")
+
+
+class ItemDice(Dice):
+    item = models.ForeignKey(
+        Item, on_delete=models.CASCADE, related_name="dice")
 
 
 class Requirements(models.Model):
@@ -416,13 +534,32 @@ class WeaponProfBonuses(Bonuses):
         return f"{self.weapon_prof.name} Bonuses"
 
 
-class DestinyFeatBonuses(Bonuses):
+class WeaponProfSubBonuses(Bonuses):
+    weapon_prof = models.OneToOneField(
+        WeaponProfSubFeat, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+
+
+class DestinyBonuses(Bonuses):
     destiny_feat = models.OneToOneField(
         DestinyFeat, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.destiny_feat.name} Bonuses"
+    
+class WeaponSkillBonuses(Bonuses):
+    weapon_skill = models.OneToOneField(
+        WeaponSkill, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
 
+    def __str__(self) -> str:
+        return f"{self.weapon_skill.name} Bonuses"
+
+
+class ItemBonuses(Bonuses):
+    item = models.OneToOneField(
+        Item, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+
+    def __str__(self) -> str:
+        return f"{self.ring.name} Bonuses"
 
 class RingBonuses(Bonuses):
     ring = models.OneToOneField(
