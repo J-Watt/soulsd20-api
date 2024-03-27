@@ -1,5 +1,7 @@
 import datetime
 
+from django.contrib.auth.models import User
+
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -39,12 +41,12 @@ class ElementType(models.TextChoices):
     DARK = "DARK", _("Dark")
 
 
-class ElementTypePhys(models.TextChoices):
-    PHYSICAL = "PHYSICAL", _("Physical")
-    MAGIC = "MAGIC", _("Magic")
-    FIRE = "FIRE", _("Fire")
-    LIGHTNING = "LIGHTNING", _("Lightning")
-    DARK = "DARK", _("Dark")
+# class ElementTypePhys(models.TextChoices):
+#     PHYSICAL = "PHYSICAL", _("Physical")
+#     MAGIC = "MAGIC", _("Magic")
+#     FIRE = "FIRE", _("Fire")
+#     LIGHTNING = "LIGHTNING", _("Lightning")
+#     DARK = "DARK", _("Dark")
 
 
 class ElementTypeExpanded(models.TextChoices):
@@ -179,6 +181,7 @@ class WeaponSkill(models.Model):
         MCAST = "MCAST", _("Melee and Casting Implements")
         RCAST = "RCAST", _("Ranged and Casting Implements")
         BCAST = "BCAST", _("Both and Casting Implements")
+        STANCE = "STANCE", _("Power Stance")
     name = models.CharField(max_length=60)
     cost_fp = models.IntegerField(default=0)
     is_slow = models.BooleanField(default=False)
@@ -197,8 +200,10 @@ class Item(models.Model):
         BOOK = "BOOK", _("Spell or Weapon Skill Book")
         MISC = "MISC", _("Miscellaneous")
     name = models.CharField(max_length=60)
-    created_at = models.DateTimeField("date created")
-    created_by = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="item_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="item_updated_by")
     is_official = models.BooleanField(default=False)
     item_type = models.CharField(
         max_length=8,
@@ -214,8 +219,10 @@ class Item(models.Model):
 
 class Ring(models.Model):
     name = models.CharField(max_length=60)
-    created_at = models.DateTimeField("date created")
-    created_by = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="ring_created_by")
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="ring_updated_by")
     tier = models.IntegerField(default=1)
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
@@ -223,12 +230,14 @@ class Ring(models.Model):
 
     def __str__(self) -> str:
         return self.name
-
+  
 
 class Artifact(models.Model):
     name = models.CharField(max_length=60)
-    created_at = models.DateTimeField("date created")
-    created_by = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="artifact_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="artifact_updated_by")
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
     description = models.TextField(max_length=2048)
@@ -243,8 +252,10 @@ class Armor(models.Model):
         MEDIUM = "MEDIUM", _("Medium")
         HEAVY = "HEAVY", _("Heavy")
     name = models.CharField(max_length=60)
-    created_at = models.DateTimeField("date created")
-    created_by = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="armor_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="armor_updated_by")
     is_official = models.BooleanField(default=False)
     armor_type = models.CharField(
         max_length=6,
@@ -293,8 +304,10 @@ class Weapon(models.Model):
         CRUCIBLE = "CRUCIBLE", _("Crucible")
 
     name = models.CharField(max_length=200)
-    created_at = models.DateTimeField("date created")
-    created_by = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_updated_by")
     is_official = models.BooleanField(default=False)
 
     is_trick = models.BooleanField(default=False)
@@ -304,10 +317,10 @@ class Weapon(models.Model):
         max_length=20, choices=WeaponType.choices, blank=True, null=True, default=None)
 
     ap = models.IntegerField(default=3)
-    skill = models.ForeignKey(
+    skill_primary = models.ForeignKey(
         WeaponSkill, models.SET_NULL, blank=True, null=True, default=None)
-    second_skill = models.ForeignKey(
-        WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="weapon_second_skill")
+    skill_secondary = models.ForeignKey(
+        WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="weapon_skill_secondary")
 
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)

@@ -342,5 +342,5 @@ class WeaponSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Weapon
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type', 'ap', 'skill',
-                  'second_skill', 'usage_formula', 'description', 'durability', 'infusion', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type', 'ap', 'skill_primary',
+                  'skill_secondary', 'usage_formula', 'description', 'durability', 'infusion', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']

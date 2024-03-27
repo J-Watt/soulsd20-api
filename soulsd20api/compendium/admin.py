@@ -135,6 +135,7 @@ class ItemBonusesInline(admin.StackedInline):
 
 
 class ItemAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'item_type',
                     'is_official', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
@@ -162,6 +163,7 @@ class RingBonusesInline(admin.StackedInline):
 
 
 class RingAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'tier', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     inlines = [RingScalingInline, RingDiceInline, RingBonusesInline]
@@ -188,6 +190,7 @@ class ArtifactBonusesInline(admin.StackedInline):
 
 
 class ArtifactAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     inlines = [ArtifactScalingInline,
@@ -210,6 +213,7 @@ class ArmorBonusesInline(admin.StackedInline):
 
 
 class ArmorAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'armor_type',
                     'is_official', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
@@ -247,6 +251,7 @@ class WeaponBonusesInline(admin.StackedInline):
 
 
 class WeaponAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'weapon_type', 'second_type',
                     'is_official', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
