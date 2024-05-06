@@ -115,6 +115,36 @@ class WeaponSkillAdmin(admin.ModelAdmin):
 
 
 """
+Spells
+"""
+
+
+class SpellReqInline(admin.TabularInline):
+    model = models.SpellRequirements
+    extra = 0
+
+
+class SpellDiceInline(admin.TabularInline):
+    model = models.SpellDice
+    extra = 0
+
+
+class SpellBonusesInline(admin.StackedInline):
+    model = models.SpellBonuses
+    extra = 0
+
+class SpellChargedInline(admin.TabularInline):
+    model = models.SpellCharged
+    extra = 0
+
+class SpellAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
+    list_display = ['id', 'name', 'category', 'ap', 'fp']
+    list_display_links = ['id', 'name']
+    inlines = [SpellReqInline, SpellDiceInline, SpellBonusesInline, SpellChargedInline]
+
+
+"""
 Items
 """
 
@@ -264,6 +294,7 @@ admin.site.register(models.WeaponProfFeat, WeaponProfFeatAdmin)
 admin.site.register(models.WeaponProfSubFeat, WeaponProfSubAdmin)
 admin.site.register(models.DestinyFeat, DestinyAdmin)
 admin.site.register(models.WeaponSkill, WeaponSkillAdmin)
+admin.site.register(models.Spell, SpellAdmin)
 admin.site.register(models.Item, ItemAdmin)
 admin.site.register(models.Ring, RingAdmin)
 admin.site.register(models.Artifact, ArtifactAdmin)

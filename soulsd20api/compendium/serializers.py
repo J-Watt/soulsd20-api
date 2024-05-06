@@ -2,15 +2,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from . import models
 
-baseBonuses = ['max_hp', 'max_fp', 'max_ap', 'attunement_slots', 'free_movement', 'vitality',
-               'endurance', 'strength', 'dexterity', 'attunement', 'intelligence', 'faith',
-               'athletics', 'acrobatics', 'perception', 'firekeeping', 'sanity', 'stealth',
-               'precision', 'diplomacy', 'knowledge_magics', 'knowledge_history',
-               'knowledge_monsters', 'knowledge_cosmic', 'resist_physical', 'resist_magic',
-               'resist_fire', 'resist_lightning', 'resist_dark', 'flat_physical', 'flat_magic',
-               'flat_fire', 'flat_lightning', 'flat_dark', 'curse', 'frost', 'bleed', 'poison',
-               'toxic', 'poise']
-
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -38,7 +29,7 @@ Weapon Proficiency Feats
 class WeaponProfBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponProfBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class WeaponProfScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -56,7 +47,7 @@ class WeaponProfDiceSerializer(serializers.HyperlinkedModelSerializer):
 class WeaponProfSubBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponProfSubBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class WeaponProfSubScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -73,7 +64,7 @@ class WeaponProfSubDiceSerializer(serializers.HyperlinkedModelSerializer):
 
 class WeaponProfSubSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = WeaponProfSubBonusesSerializer()
+    bonuses = WeaponProfSubBonusesSerializer(many=True)
     scaling = WeaponProfSubScalingSerializer(many=True)
     dice = WeaponProfSubDiceSerializer(many=True)
 
@@ -85,7 +76,7 @@ class WeaponProfSubSerializer(serializers.HyperlinkedModelSerializer):
 
 class WeaponProfFeatSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = WeaponProfBonusesSerializer()
+    bonuses = WeaponProfBonusesSerializer(many=True)
     scaling = WeaponProfScalingSerializer(many=True)
     dice = WeaponProfDiceSerializer(many=True)
     sub_feat = WeaponProfSubSerializer(many=True)
@@ -104,7 +95,7 @@ Feats of Destiny
 class DestinyBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.DestinyBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class DestinyScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -121,7 +112,7 @@ class DestinyDiceSerializer(serializers.HyperlinkedModelSerializer):
 
 class DestinySerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = DestinyBonusesSerializer()
+    bonuses = DestinyBonusesSerializer(many=True)
     scaling = DestinyScalingSerializer(many=True)
     dice = DestinyDiceSerializer(many=True)
 
@@ -139,7 +130,7 @@ Weapon Skill
 class WeaponSkillBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponSkillBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class WeaponSkillScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -155,7 +146,7 @@ class WeaponSkillDiceSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class WeaponSkillSerializer(serializers.HyperlinkedModelSerializer):
-    bonuses = WeaponSkillBonusesSerializer()
+    bonuses = WeaponSkillBonusesSerializer(many=True)
     scaling = WeaponSkillScalingSerializer(many=True)
     dice = WeaponSkillDiceSerializer(many=True)
 
@@ -166,6 +157,61 @@ class WeaponSkillSerializer(serializers.HyperlinkedModelSerializer):
 
 
 """
+Spell
+"""
+
+
+class SpellReqSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellRequirements
+        fields = ['int', 'fai']
+
+
+class SpellBonusesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellBonuses
+        fields = ['type', 'value']
+
+
+class SpellDiceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellDice
+        fields = ['type', 'count', 'value']
+
+
+class SpellChargedBonusesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellChargedBonuses
+        fields = ['type', 'value']
+
+
+class SpellChargedDiceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellChargedDice
+        fields = ['type', 'count', 'value']
+
+
+class SpellChargedSerializer(serializers.HyperlinkedModelSerializer):
+    bonuses = SpellBonusesSerializer(many=True)
+    dice = SpellDiceSerializer(many=True)
+
+    class Meta:
+        model = models.SpellCharged
+        fields = ['cast_time', 'ap', 'fp', 'range', 'duration', 'description', 'dice', 'bonuses']
+
+class SpellSerializer(serializers.HyperlinkedModelSerializer):
+    requirements = SpellReqSerializer()
+    bonuses = SpellBonusesSerializer(many=True)
+    dice = SpellDiceSerializer(many=True)
+    charged = SpellChargedSerializer()
+
+    class Meta:
+        model = models.Spell
+        fields = ['id', 'name', 'cast_time', 'ap', 'fp', 'range', 'duration', 'description', 'is_official',
+                  'category', 'is_slow', 'att_cost', 'requirements', 'dice', 'bonuses', 'charged']
+
+
+"""
 Item
 """
 
@@ -173,7 +219,7 @@ Item
 class ItemBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.ItemBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class ItemScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -189,7 +235,7 @@ class ItemDiceSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ItemSerializer(serializers.HyperlinkedModelSerializer):
-    bonuses = ItemBonusesSerializer()
+    bonuses = ItemBonusesSerializer(many=True)
     scaling = ItemScalingSerializer(many=True)
     dice = ItemDiceSerializer(many=True)
 
@@ -207,7 +253,7 @@ Ring
 class RingBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.RingBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class RingScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -224,7 +270,7 @@ class RingDiceSerializer(serializers.HyperlinkedModelSerializer):
 
 class RingSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = RingBonusesSerializer()
+    bonuses = RingBonusesSerializer(many=True)
     scaling = RingScalingSerializer(many=True)
     dice = RingDiceSerializer(many=True)
 
@@ -242,7 +288,7 @@ Artifact
 class ArtifactBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.ArtifactBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class ArtifactScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -259,7 +305,7 @@ class ArtifactDiceSerializer(serializers.HyperlinkedModelSerializer):
 
 class ArtifactSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = ArtifactBonusesSerializer()
+    bonuses = ArtifactBonusesSerializer(many=True)
     scaling = ArtifactScalingSerializer(many=True)
     dice = ArtifactDiceSerializer(many=True)
 
@@ -277,7 +323,7 @@ Armor
 class ArmorBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.ArmorBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class ArmorReqSerializer(serializers.HyperlinkedModelSerializer):
@@ -288,7 +334,7 @@ class ArmorReqSerializer(serializers.HyperlinkedModelSerializer):
 
 class ArmorSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = ArmorBonusesSerializer()
+    bonuses = ArmorBonusesSerializer(many=True)
     requirements = ArmorReqSerializer()
 
     class Meta:
@@ -305,7 +351,7 @@ Weapon
 class WeaponBonusesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponBonuses
-        fields = baseBonuses.copy()
+        fields = ['type', 'value']
 
 
 class WeaponScalingSerializer(serializers.HyperlinkedModelSerializer):
@@ -334,7 +380,7 @@ class WeaponReqSerializer(serializers.HyperlinkedModelSerializer):
 
 class WeaponSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
-    bonuses = WeaponBonusesSerializer()
+    bonuses = WeaponBonusesSerializer(many=True)
     scaling = WeaponScalingSerializer(many=True)
     spell_scaling = SpellScalingSerializer(many=True)
     dice = WeaponDiceSerializer(many=True)

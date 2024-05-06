@@ -192,6 +192,61 @@ class WeaponSkill(models.Model):
         return self.name
 
 
+class SpellBase(models.Model):
+    class Meta:
+        abstract = True
+    cast_time = models.CharField(max_length=200)
+    ap = models.IntegerField(default=0)
+    fp = models.IntegerField(default=0)
+    range = models.CharField(max_length=200)
+    duration = models.CharField(max_length=200)
+    description = models.TextField(max_length=1024)
+
+class Spell(SpellBase):
+    class SpellType(models.TextChoices):
+        SOUL_CRYSTAL = "SOUL_CRYSTAL", _("Soul/Crystal Sorcery")
+        FROST = "FROST", _("Frost Sorcery")
+        ASSASSIN_LIGHT = "ASSASSIN_LIGHT", _("Assassin/Light Sorcery")
+        COSMIC = "COSMIC", _("Cosmic Sorcery")
+        DARK = "DARK", _("Dark Hex")
+        DEBUFF_HEX = "DEBUFF_HEX", _("Debuffing Hex")
+        BLOOD = "BLOOD", _("Blood Hex")
+        DEATH = "DEATH", _("Death Hex")
+        TIME = "TIME", _("Time Magic")
+        HEALING = "HEALING", _("Healing Miracle")
+        LIGHTNING = "LIGHTNING", _("Lightning Miracle")
+        BUFF_DEF_MIRACLE = "BUFF_DEF_MIRACLE", _(
+            "Buffing and Defensive Miracle")
+        FORCE = "FORCE", _("Force Miracle")
+        FIRE = "FIRE", _("Fire Pyromancy")
+        DRAGON = "DRAGON", _("Dragon Pyromancy")
+        PESTILENCE = "PESTILENCE", _("Pestilence Pyromancy")
+        BUFF_DEBUFF_PYRO = "BUFF_DEBUFF_PYRO", _(
+            "Buffing and Debuffing Pyromancy")
+        DARKFROST_BLACKFIRE = "DARKFROST_BLACKFIRE", _(
+            "Darkfrost/Blackfire Hex")
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="spell_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="spell_updated_by")
+    name = models.CharField(max_length=200)
+    is_official = models.BooleanField(default=False)
+    category = models.CharField(max_length=20, choices=SpellType.choices)
+    is_slow = models.BooleanField(default=False)
+    att_cost = models.IntegerField(default=1)
+    def __str__(self) -> str:
+        return f"{self.name} - {self.get_category_display()}"
+
+class SpellCharged(SpellBase):
+    base_spell = models.OneToOneField(
+        Spell, on_delete=models.CASCADE, primary_key=True, related_name="charged")
+
+    def __str__(self) -> str:
+        return f"{self.base_spell.name} (Charged Version) - {self.base_spell.get_category_display()}"
+
+
 class Item(models.Model):
     class ItemType(models.TextChoices):
         TOOL = "TOOL", _("Tool")
@@ -201,9 +256,11 @@ class Item(models.Model):
         MISC = "MISC", _("Miscellaneous")
     name = models.CharField(max_length=60)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="item_created_by")
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="item_created_by")
     updated_at = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="item_updated_by")
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="item_updated_by")
     is_official = models.BooleanField(default=False)
     item_type = models.CharField(
         max_length=8,
@@ -220,9 +277,11 @@ class Item(models.Model):
 class Ring(models.Model):
     name = models.CharField(max_length=60)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
-    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="ring_created_by")
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="ring_created_by")
     updated_at = models.DateTimeField(auto_now=True, null=True)
-    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="ring_updated_by")
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="ring_updated_by")
     tier = models.IntegerField(default=1)
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
@@ -230,14 +289,16 @@ class Ring(models.Model):
 
     def __str__(self) -> str:
         return self.name
-  
+
 
 class Artifact(models.Model):
     name = models.CharField(max_length=60)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="artifact_created_by")
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="artifact_created_by")
     updated_at = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="artifact_updated_by")
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="artifact_updated_by")
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
     description = models.TextField(max_length=2048)
@@ -253,9 +314,11 @@ class Armor(models.Model):
         HEAVY = "HEAVY", _("Heavy")
     name = models.CharField(max_length=60)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="armor_created_by")
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="armor_created_by")
     updated_at = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="armor_updated_by")
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="armor_updated_by")
     is_official = models.BooleanField(default=False)
     armor_type = models.CharField(
         max_length=6,
@@ -305,9 +368,11 @@ class Weapon(models.Model):
 
     name = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_created_by")
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_created_by")
     updated_at = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_updated_by")
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_updated_by")
     is_official = models.BooleanField(default=False)
 
     is_trick = models.BooleanField(default=False)
@@ -445,6 +510,14 @@ class DestinyDice(Dice):
 class WeaponSkillDice(Dice):
     weapon_skill = models.ForeignKey(
         WeaponSkill, on_delete=models.CASCADE, related_name="dice")
+    
+class SpellDice(Dice):
+    spell = models.ForeignKey(
+        Spell, on_delete=models.CASCADE, related_name="dice")
+    
+class SpellChargedDice(Dice):
+    spell = models.ForeignKey(
+        SpellCharged, on_delete=models.CASCADE, related_name="dice")
 
 
 class RingDice(Dice):
@@ -485,122 +558,167 @@ class WeaponRequirements(Requirements):
 
     def __str__(self) -> str:
         return f"{self.weapon.name} Requirements"
+    
+class SpellRequirements(models.Model):
+    int = models.IntegerField(default=0)
+    fai = models.IntegerField(default=0)
+    spell = models.OneToOneField(
+        Spell, on_delete=models.CASCADE, primary_key=True, related_name="requirements")
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} Requirements"
 
 
 class Bonuses(models.Model):
     class Meta:
         abstract = True
 
-    max_hp = models.IntegerField(default=0)
-    max_fp = models.IntegerField(default=0)
-    max_ap = models.IntegerField(default=0)
-
-    attunement_slots = models.IntegerField(default=0)
-    free_movement = models.IntegerField(default=0)
-
-    vitality = models.IntegerField(default=0)
-    endurance = models.IntegerField(default=0)
-    strength = models.IntegerField(default=0)
-    dexterity = models.IntegerField(default=0)
-    attunement = models.IntegerField(default=0)
-    intelligence = models.IntegerField(default=0)
-    faith = models.IntegerField(default=0)
-
-    athletics = models.IntegerField(default=0)
-    acrobatics = models.IntegerField(default=0)
-    perception = models.IntegerField(default=0)
-    firekeeping = models.IntegerField(default=0)
-    sanity = models.IntegerField(default=0)
-    stealth = models.IntegerField(default=0)
-    precision = models.IntegerField(default=0)
-    diplomacy = models.IntegerField(default=0)
-
-    knowledge_magics = models.IntegerField(default=0)
-    knowledge_history = models.IntegerField(default=0)
-    knowledge_monsters = models.IntegerField(default=0)
-    knowledge_cosmic = models.IntegerField(default=0)
-
-    resist_physical = models.IntegerField(default=0)
-    resist_magic = models.IntegerField(default=0)
-    resist_fire = models.IntegerField(default=0)
-    resist_lightning = models.IntegerField(default=0)
-    resist_dark = models.IntegerField(default=0)
-    flat_physical = models.IntegerField(default=0)
-    flat_magic = models.IntegerField(default=0)
-    flat_fire = models.IntegerField(default=0)
-    flat_lightning = models.IntegerField(default=0)
-    flat_dark = models.IntegerField(default=0)
-
-    curse = models.IntegerField(default=0)
-    frost = models.IntegerField(default=0)
-    bleed = models.IntegerField(default=0)
-    poison = models.IntegerField(default=0)
-    toxic = models.IntegerField(default=0)
-    poise = models.IntegerField(default=0)
+    class BonusType(models.TextChoices):
+        MAX_HP = "MAX_HP", _("Maximum HP")
+        MAX_AP = "MAX_AP", _("Maximum AP")
+        MAX_FP = "MAX_FP", _("Maximum FP")
+        VIT = "VIT", _("Vitality")
+        END = "END", _("Endurance")
+        STR = "STR", _("Strength")
+        DEX = "DEX", _("Dexterity")
+        ATT = "ATT", _("Attunement")
+        INT = "INT", _("Intelligence")
+        FAI = "FAI", _("Faith")
+        ATH = "ATH", _("Athletics")
+        ACR = "ACR", _("Acrobatics")
+        PER = "PER", _("Perception")
+        FIR = "FIR", _("Fire Keeping")
+        SAN = "SAN", _("Sanity")
+        STE = "STE", _("Stealth")
+        PRE = "PRE", _("Precision")
+        DIP = "DIP", _("Diplomacy")
+        TIER_PHYSICAL = "TIER_PHYSICAL", _("Physical Resistance Tier")
+        TIER_MAGIC = "TIER_MAGIC", _("Magic Resistance Tier")
+        TIER_FIRE = "TIER_FIRE", _("Fire Resistance Tier")
+        TIER_LIGHTNING = "TIER_LIGHTNING", _("Lightning Resistance Tier")
+        TIER_DARK = "TIER_DARK", _("Dark Resistance Tier")
+        FLAT_PHYSICAL = "FLAT_PHYSICAL", _("Physical Resistance Flat")
+        FLAT_MAGIC = "FLAT_MAGIC", _("Magic Resistance Flat")
+        FLAT_FIRE = "FLAT_FIRE", _("Fire Resistance Flat")
+        FLAT_LIGHTNING = "FLAT_LIGHTNING", _("Lightning Resistance Flat")
+        FLAT_DARK = "FLAT_DARK", _("Dark Resistance Flat")
+        FLAT_PHYS_PER_TIER = "FLAT_PHYS_PER_TIER", _(
+            "Flat Physical Resistance Per Tier")
+        FLAT_PHYS_PER_COMBAT = "FLAT_PHYS_PER_COMBAT", _(
+            "Flat Physical Resistance Once Per Combat")
+        CURSE = "CURSE", _("Curse")
+        FROST = "FROST", _("Frost")
+        BLEED = "BLEED", _("Bleed")
+        POISON = "POISON", _("Poison")
+        TOXIC = "TOXIC", _("Toxic")
+        POISE = "POISE", _("Poise")
+        KNOW_MAGIC = "KNOW_MAGIC", _("Knowledge Magics")
+        KNOW_HISTORY = "KNOW_HISTORY", _("Knowledge World History")
+        KNOW_MONSTERS = "KNOW_MONSTERS", _("Knowledge Monsters")
+        KNOW_COSMIC = "KNOW_COSMIC", _("Knowledge Cosmic")
+        ATT_SLOTS = "ATT_SLOTS", _("Attunement Slots")
+        FREE_MOVE = "FREE_MOVE", _("Free Movement")
+        REGEN_HP = "REGEN_HP", _("HP Regeneration")
+        REGEN_FP = "REGEN_FP", _("FP Regeneration")
+        DODGE_DIST = "DODGE_DIST", _("Dodge Distance")
+        DODGE_EXTRA = "DODGE_EXTRA", _("Extra Dodges")
+        DODGE_PER_COMBAT = "DODGE_PER_COMBAT", _("Bonus Dodges Per Combat")
+        MAX_INT = "MAX_INT", _("Maximum Intelligence")
+        MAX_FAI = "MAX_FAI", _("Maximum Faith")
+        MAX_FP_VIT_PLUS = "MAX_FP_VIT_PLUS", _("Vit Mod + Bonus To Max FP")
+        MAX_HP_VIT_TIMES = "MAX_HP_VIT_TIMES", _(
+            "Bonus + Bonus * Vit Mod To Max HP")
+        ATH_SUCCESS = "ATH_SUCCESS", _("Auto Succeed Athletics Per Combat")
+        VIT_ATH = "VIT_ATH", _("Vit Mod to Athletics")
+        VIT_ACR = "VIT_ACR", _("Vit Mod to Acrobatics")
+        VIT_PER = "VIT_PER", _("Vit Mod to Perception")
+        VIT_FIR = "VIT_FIR", _("Vit Mod to Fire Keeping")
+        VIT_SAN = "VIT_SAN", _("Vit Mod to Sanity")
+        VIT_STE = "VIT_STE", _("Vit Mod to Stealth")
+        VIT_PRE = "VIT_PRE", _("Vit Mod to Precision")
+        VIT_DIP = "VIT_DIP", _("Vit Mod to Diplomacy")
+    type = models.CharField(max_length=20, choices=BonusType.choices)
+    value = models.IntegerField(default=0)
 
 
 class WeaponProfBonuses(Bonuses):
-    weapon_prof = models.OneToOneField(
-        WeaponProfFeat, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    weapon_prof = models.ForeignKey(
+        WeaponProfFeat, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.weapon_prof.name} Bonuses"
 
 
 class WeaponProfSubBonuses(Bonuses):
-    weapon_prof = models.OneToOneField(
-        WeaponProfSubFeat, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    weapon_prof = models.ForeignKey(
+        WeaponProfSubFeat, on_delete=models.CASCADE, related_name="bonuses")
 
 
 class DestinyBonuses(Bonuses):
-    destiny_feat = models.OneToOneField(
-        DestinyFeat, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    destiny_feat = models.ForeignKey(
+        DestinyFeat, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.destiny_feat.name} Bonuses"
-    
+
+
 class WeaponSkillBonuses(Bonuses):
-    weapon_skill = models.OneToOneField(
-        WeaponSkill, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    weapon_skill = models.ForeignKey(
+        WeaponSkill, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.weapon_skill.name} Bonuses"
+    
+class SpellBonuses(Bonuses):
+    spell = models.ForeignKey(
+        Spell, on_delete=models.CASCADE, related_name="bonuses")
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} Bonuses"
+    
+class SpellChargedBonuses(Bonuses):
+    spell = models.ForeignKey(
+        SpellCharged, on_delete=models.CASCADE, related_name="bonuses")
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} Bonuses"
 
 
 class ItemBonuses(Bonuses):
-    item = models.OneToOneField(
-        Item, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    item = models.ForeignKey(
+        Item, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.ring.name} Bonuses"
 
 class RingBonuses(Bonuses):
-    ring = models.OneToOneField(
-        Ring, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    ring = models.ForeignKey(
+        Ring, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.ring.name} Bonuses"
 
 
 class ArtifactBonuses(Bonuses):
-    artifact = models.OneToOneField(
-        Artifact, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    artifact = models.ForeignKey(
+        Artifact, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.artifact.name} Bonuses"
 
 
 class ArmorBonuses(Bonuses):
-    armor = models.OneToOneField(
-        Armor, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    armor = models.ForeignKey(
+        Armor, on_delete=models.CASCADE, related_name="bonuses")
+    is_innate = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f"{self.armor.name} Bonuses"
 
 
 class WeaponBonuses(Bonuses):
-    weapon = models.OneToOneField(
-        Weapon, on_delete=models.CASCADE, primary_key=True, related_name="bonuses")
+    weapon = models.ForeignKey(
+        Weapon, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
         return f"{self.weapon.name} Bonuses"
@@ -630,37 +748,5 @@ class Character(models.Model):
 
     def __str__(self) -> str:
         return self.name
-    
-class Spell(models.Model):
-    created_at = models.DateTimeField("date created")
-    name = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-
-    req_int = models.IntegerField(default=0)
-    req_fai = models.IntegerField(default=0)
-
-    cost_attunement = models.IntegerField(default=1)
-    cost_ap = models.IntegerField(default=0)
-    cost_fp = models.IntegerField(default=0)
-
-    is_slow = models.BooleanField(default=False)
-    category = models.CharField(max_length=200)
-
-    base_dmg = models.CharField(max_length=200)
-    range = models.CharField(max_length=200)
-    duration = models.CharField(max_length=200)
-
-    charged_spell = models.CharField(max_length=200)
-
-    def __str__(self) -> str:
-        return self.name
-
-
-    class StatusType(models.TextChoices):
-        FROST = "FROST", _("Frost")
-        BLEED = "BLEED", _("Bleed")
-        POISON = "POISON", _("Poison")
-        TOXIC = "TOXIC", _("Toxic")
-
 
 """
