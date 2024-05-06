@@ -24,8 +24,22 @@ More info can be found: [How to install Django](https://docs.djangoproject.com/e
 ## Run Migrations
 
 From within the Django project:  
-`manage.py migrate`
+`py manage.py migrate`
+
+## Load the intial Compendium Data
+  
+`py manage.py loaddata initialdata.json`
+
+## Create an Admin Superuser
+ 
+`py manage.py createsuperuser`  
+Enter your desired username and press enter. Followed by an email address and pw.
 
 ## Run Django dev server
 
-`manage.py runserver`
+`py manage.py runserver`
+
+## Dev access
+
+You can navigate the API at http://127.0.0.1:8000/  
+and the admin console is located at /admin
