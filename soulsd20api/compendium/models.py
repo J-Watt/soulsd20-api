@@ -41,12 +41,14 @@ class ElementType(models.TextChoices):
     DARK = "DARK", _("Dark")
 
 
-# class ElementTypePhys(models.TextChoices):
-#     PHYSICAL = "PHYSICAL", _("Physical")
-#     MAGIC = "MAGIC", _("Magic")
-#     FIRE = "FIRE", _("Fire")
-#     LIGHTNING = "LIGHTNING", _("Lightning")
-#     DARK = "DARK", _("Dark")
+class SizeCategories(models.TextChoices):
+    TINY = "TINY", _("Tiny")
+    SMALL = "SMALL", _("Small")
+    MEDIUM = "MEDIUM", _("Medium")
+    LARGE = "LARGE", _("Large")
+    MASSIVE = "MASSIVE", _("Massive")
+    GARGANTUAN = "GARGANTUAN", _("Gargantuan")
+    ASTRONOMICAL = "ASTRONOMICAL", _("Astronomical")
 
 
 class ElementTypeExpanded(models.TextChoices):
@@ -60,6 +62,7 @@ class ElementTypeExpanded(models.TextChoices):
     REDUCE = "REDUCE", _("Damage Reduction")
     HEAL = "HEAL", _("HP Healing")
     FOCUS = "FOCUS", _("FP Regeneration")
+    UNFOCUS = "UNFOCUS", _("FP Degeneration")
     FROST = "FROST", _("Frostbite")
     BLEED = "BLEED", _("Bleed")
     POISON = "POISON", _("Poison")
@@ -246,6 +249,26 @@ class SpellCharged(SpellBase):
     def __str__(self) -> str:
         return f"{self.base_spell.name} (Charged Version) - {self.base_spell.get_category_display()}"
 
+class Spirit(models.Model):
+    class SpiritTier(models.TextChoices):
+        ONE = "ONE", _("Tier One")
+        TWO = "TWO", _("Tier Two")
+        THREE = "THREE", _("Tier Three")
+        FOUR = "FOUR", _("Tier Four")
+    name = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="spirit_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="spirit_updated_by")
+    is_official = models.BooleanField(default=False)
+    tier = models.CharField(max_length=5, choices=SpiritTier.choices, default=SpiritTier.ONE)
+    creature = models.CharField(max_length=200, blank=True, default="")
+    size = models.CharField(max_length=12, choices=SizeCategories.choices, default=SizeCategories.MEDIUM)
+    range = models.CharField(max_length=200, blank=True, default="")
+    condition = models.CharField(max_length=200, blank=True, default="")
+    description = models.TextField(max_length=1024)
 
 class Item(models.Model):
     class ItemType(models.TextChoices):
@@ -519,6 +542,9 @@ class SpellChargedDice(Dice):
     spell = models.ForeignKey(
         SpellCharged, on_delete=models.CASCADE, related_name="dice")
 
+class SpiritDice(Dice):
+    spirit = models.ForeignKey(
+        Spirit, on_delete=models.CASCADE, related_name="dice")
 
 class RingDice(Dice):
     ring = models.ForeignKey(
@@ -567,7 +593,15 @@ class SpellRequirements(models.Model):
 
     def __str__(self) -> str:
         return f"{self.spell.name} Requirements"
+    
+class SpiritRequirements(models.Model):
+    int = models.IntegerField(default=0)
+    fai = models.IntegerField(default=0)
+    spirit = models.OneToOneField(
+        Spirit, on_delete=models.CASCADE, primary_key=True, related_name="requirements")
 
+    def __str__(self) -> str:
+        return f"{self.spirit.name} Requirements"
 
 class Bonuses(models.Model):
     class Meta:

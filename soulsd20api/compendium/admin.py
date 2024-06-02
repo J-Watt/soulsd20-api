@@ -145,6 +145,27 @@ class SpellAdmin(admin.ModelAdmin):
 
 
 """
+Spirits
+"""
+
+
+class SpiritReqInline(admin.TabularInline):
+    model = models.SpiritRequirements
+    extra = 0
+
+
+class SpiritDiceInline(admin.TabularInline):
+    model = models.SpiritDice
+    extra = 0
+
+
+class SpiritAdmin(admin.ModelAdmin):
+    readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
+    list_display = ['id', 'name', 'tier', 'is_official']
+    list_display_links = ['id', 'name']
+    inlines = [SpiritReqInline, SpiritDiceInline]
+
+"""
 Items
 """
 
@@ -295,13 +316,10 @@ admin.site.register(models.WeaponProfSubFeat, WeaponProfSubAdmin)
 admin.site.register(models.DestinyFeat, DestinyAdmin)
 admin.site.register(models.WeaponSkill, WeaponSkillAdmin)
 admin.site.register(models.Spell, SpellAdmin)
+admin.site.register(models.Spirit, SpiritAdmin)
 admin.site.register(models.Item, ItemAdmin)
 admin.site.register(models.Ring, RingAdmin)
 admin.site.register(models.Artifact, ArtifactAdmin)
 admin.site.register(models.Armor, ArmorAdmin)
 admin.site.register(models.Weapon, WeaponAdmin)
 
-# admin.site.register(models.WeaponProfBonuses)
-# admin.site.register(models.DestinyFeatBonuses)
-# admin.site.register(models.RingBonuses)
-# admin.site.register(models.ArtifactBonuses)

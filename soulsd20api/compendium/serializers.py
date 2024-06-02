@@ -212,6 +212,33 @@ class SpellSerializer(serializers.HyperlinkedModelSerializer):
 
 
 """
+Spirit
+"""
+
+
+class SpiritReqSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpiritRequirements
+        fields = ['int', 'fai']
+
+
+class SpiritDiceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpiritDice
+        fields = ['type', 'count', 'value']
+
+
+class SpiritSerializer(serializers.HyperlinkedModelSerializer):
+    requirements = SpiritReqSerializer()
+    dice = SpiritDiceSerializer(many=True)
+
+    class Meta:
+        model = models.Spell
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'tier', 'creature', 'size', 'range', 'condition', 'description', 'requirements',
+                  'dice']
+
+
+"""
 Item
 """
 

@@ -4,7 +4,7 @@ from rest_framework import permissions
 from . import serializers
 
 from compendium.models import (UsageFormula, WeaponProfFeat, DestinyFeat, Item, Ring,
-                               Artifact, Armor, Weapon, WeaponSkill, Spell)
+                               Artifact, Armor, Weapon, WeaponSkill, Spell, Spirit)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -62,6 +62,13 @@ class SpellViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Spell.objects.all()
     serializer_class = serializers.SpellSerializer
+
+class SpiritViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows Spirits to be viewed.
+    """
+    queryset = Spirit.objects.all()
+    serializer_class = serializers.SpiritSerializer
 
 
 class ItemViewSet(viewsets.ReadOnlyModelViewSet):
