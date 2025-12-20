@@ -1,0 +1,1452 @@
+[
+  {
+    "model": "compendium.spirit",
+    "pk": 1,
+    "fields": {
+      "name": "Leaping Bite",
+      "tier": "ONE",
+      "creature": "small creature",
+      "size": "SMALL",
+      "range": "leaps up to two spaces in any direction, through or over creatures and small obstacles, and bites at a target within 5 feet of where it lands",
+      "condition": "",
+      "description": "Summon the spirit of a small creature which leaps up to two spaces in any direction, through or over creatures and small obstacles, and bites at a target within 5 feet of where it lands. Any creature hit takes 1d4 physical damage and 1d4 poison or bleed, depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.492911+00:00",
+      "updated_at": "2025-12-16T19:05:43.492911+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 2,
+    "fields": {
+      "name": "Flurry of Cuts",
+      "tier": "ONE",
+      "creature": "lesser undead spirit",
+      "size": "MEDIUM",
+      "range": "hitting the spaces directly in front and diagonally in front of itself",
+      "condition": "\"\n- **Description:** Summon a lesser undead spirit which flails its limbs hitting the spaces directly in front and diagonally in front of itself. Deals 4d4 physical damage to ny creature hit if the un",
+      "description": "Summon a lesser undead spirit which flails its limbs hitting the spaces directly in front and diagonally in front of itself. Deals 4d4 physical damage to ny creature hit if the undead spirit is unarmed, and 4d6 if it is.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.492911+00:00",
+      "updated_at": "2025-12-16T19:05:43.492911+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 3,
+    "fields": {
+      "name": "Sharp Rake",
+      "tier": "ONE",
+      "creature": "bloodthirsty creature",
+      "size": "MEDIUM",
+      "range": "attacks up to two spaces adjacent to itself",
+      "condition": "",
+      "description": "Summon the spirit of a bloodthirsty creature which attacks up to two spaces adjacent to itself, of your choosing. Creatures hit take 1d4 physical damage and 1d4 bleed build up.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.492911+00:00",
+      "updated_at": "2025-12-16T19:05:43.492911+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 4,
+    "fields": {
+      "name": "Inspiring Presence",
+      "tier": "ONE",
+      "creature": "inspiring spirit",
+      "size": "MEDIUM",
+      "range": "Any allies of this spirits summoner, which move into the space the spirit occupies",
+      "condition": "The spirit using this ability cannot move while it is active",
+      "description": "Summon an inspiring spirit which poses majestically for a full round and rejuvenates those that bask in its glory. Any allies of this spirits summoner, which move into the space the spirit occupies for the first time while the ability is active, regain 1d2 HP and 1d2 FP. This HP replenishment includes your scaling, but the FP does not. Any summoner that has an active spirit which can use this ability, cannot benefit from its effects. The spirit using this ability cannot move while it is active.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.492911+00:00",
+      "updated_at": "2025-12-16T19:05:43.492911+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 5,
+    "fields": {
+      "name": "Light Weapon Swing",
+      "tier": "ONE",
+      "creature": "lesser undead, or light attacking spirit",
+      "size": "MEDIUM",
+      "range": "within 5 or 10 feet, depending on the spirit",
+      "condition": "",
+      "description": "Summon a lesser undead, or light attacking spirit which attacks with its weapon/appendage, threatening a creature in range. The attack deals 1d4, 1d6 or 1d8 physical damage to a target within 5 or 10 feet, depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 6,
+    "fields": {
+      "name": "Elemental Bolt",
+      "tier": "ONE",
+      "creature": "lesser undead, or spell casting spirit",
+      "size": "MEDIUM",
+      "range": "within 20 feet",
+      "condition": "As well, any creature hit by this ability that has already dodged in that round of combat, is surrounded by spirit energy and loses one tier of physical resistance for one round of combat",
+      "description": "Summon a lesser undead, or spell casting spirit which fires a spectral arrow, crossbow bolt, or projectile spell at a target within 20 feet, threatening them. Creatures hit take 1d6 elemental damage, with the element depending on the spirit. As well, any creature hit by this ability that has already dodged in that round of combat, is surrounded by spirit energy and loses one tier of physical resistance for one round of combat.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 7,
+    "fields": {
+      "name": "Ruined Earth",
+      "tier": "ONE",
+      "creature": "tunneling or stomping spirit",
+      "size": "MEDIUM",
+      "range": "moves up to 15 feet in one direction",
+      "condition": "These spaces of difficult terrain last indefinitely, unless the ground is purposefully restored through magic, hard labor, or a large natural event",
+      "description": "Summon a tunneling or stomping spirit which moves up to 15 feet in one direction before stopping and creating difficult terrain in the space(s) it occupies as well as all adjacent spaces. It then moves once more, up to 15 feet in a direction, before creating another area of difficult terrain in the space(s) it occupies as well as all adjacent spaces. These spaces of difficult terrain last indefinitely, unless the ground is purposefully restored through magic, hard labor, or a large natural event.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 8,
+    "fields": {
+      "name": "Gnawing",
+      "tier": "ONE",
+      "creature": "small beast",
+      "size": "SMALL",
+      "range": "within 5 feet",
+      "condition": "",
+      "description": "Summon the spirit of a small beast which bites down at a target within 5 feet of it. Any creatures hit takes 1d4 physical damage and an additional 1d6 if they were attacked from behind.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 9,
+    "fields": {
+      "name": "Crushing Hold",
+      "tier": "TWO",
+      "creature": "earthen spirit",
+      "size": "MEDIUM",
+      "range": "within melee range",
+      "condition": "If the creature does not dodge, and is a size that is equal to or smaller than the size of the spirit, it takes 1d12 physical damage and must make a DC (11 + your Att mod) athletics check or be inflic",
+      "description": "Summon an earthen spirit which attempts to grab a creature within melee range of it. If the creature does not dodge, and is a size that is equal to or smaller than the size of the spirit, it takes 1d12 physical damage and must make a DC (11 + your Att mod) athletics check or be inflicted with the locked up status condition for one round.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 10,
+    "fields": {
+      "name": "Elemental Slam",
+      "tier": "TWO",
+      "creature": "earthen spirit",
+      "size": "MEDIUM",
+      "range": "all spaces adjacent to it",
+      "condition": "This ability does not threaten or damage the spirits summoner",
+      "description": "Summon an earthen spirit which slams the ground and causes crystal to grow, fire to erupt, lightning to crackle, or dark sediment to spill forth in all spaces adjacent to it, threatening any creature which occupies them. Any creature hit takes 1d12 magic, fire, lightning, or dark damage, depending on the type of spirit. This ability does not threaten or damage the spirits summoner.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 11,
+    "fields": {
+      "name": "Heavy Weapon Swing",
+      "tier": "TWO",
+      "creature": "undead, or heavy attacking spirit",
+      "size": "MEDIUM",
+      "range": "within 5 or 10 feet, depending on the spirit",
+      "condition": "",
+      "description": "Summon an undead, or heavy attacking spirit which attacks with its weapon/appendage, threatening a creature in range. The attack deals 1d10, 1d12 or 1d20 physical damage to a target within 5 or 10 feet, depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 12,
+    "fields": {
+      "name": "Status Spray",
+      "tier": "TWO",
+      "creature": "tricky spirit",
+      "size": "MEDIUM",
+      "range": "in a cone up to 20 feet away from itself",
+      "condition": "",
+      "description": "Summon a tricky spirit which sprays a mist of poison, toxic, frost, or bleed inducing particles in a cone up to 20 feet away from itself, threatening all creatures within those spaces. The particles deal 2d6 poison, 2d6 bleed, 2d6 frost or 1d6 toxic build up to any creature they hit depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 13,
+    "fields": {
+      "name": "Pincushion Grab",
+      "tier": "TWO",
+      "creature": "entangling spirit",
+      "size": "MEDIUM",
+      "range": "within 10 feet",
+      "condition": "Creatures larger than the size of the spirit are immune to the restrain, and some other creatures may also be immune to the restrain",
+      "description": "Summon an entangling spirit which grabs at a nearby creature within 10 feet of itself, threatening it. If the creature does not dodge out of the way, it takes 1d8 physical damage and 1d6 poison, frost, bleed, or toxic build up (depending on the spirit), and must make a DC (9 + your Att mod) acrobatics check or be restrained by the spirit for one round. Creatures larger than the size of the spirit are immune to the restrain, and some other creatures may also be immune to the restrain.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 14,
+    "fields": {
+      "name": "Inhuman Shuffle",
+      "tier": "TWO",
+      "creature": "shambling twisted undead",
+      "size": "MEDIUM",
+      "range": "runs forward four spaces",
+      "condition": "This also frightens some creatures with a low Int stat (less than or equal to 8) forcing them to move away from the spirit on their next turn for half of their total AP. The spirit may also surprise c",
+      "description": "Summon a shambling twisted undead which runs forward four spaces in one direction of your choice while shambling strangely. Any creature that it runs through instantly becomes confused, losing 1d2 FP and taking 1d4 true damage. This also frightens some creatures with a low Int stat (less than or equal to 8) forcing them to move away from the spirit on their next turn for half of their total AP. The spirit may also surprise creatures with a higher Int stat, but it does not force them to run from it in fear. The true damage of this ability does not benefit from scaling, and some creatures may be immune to the frighten.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 15,
+    "fields": {
+      "name": "Attention Grabbing Annoyance",
+      "tier": "TWO",
+      "creature": "infuriating and annoying spirit",
+      "size": "MEDIUM",
+      "range": "can move five spaces per round",
+      "condition": "This ability cannot be used if this spirit has already moved in the round. Any creature the spirit passes through must make a DC (9 + your Att mod) diplomacy check or be forced to turn and face the sp",
+      "description": "Summon an infuriating and annoying spirit which, while this ability is active, can move five spaces per round (instead of the normal amount) and through creatures and objects as it does. This ability cannot be used if this spirit has already moved in the round. Any creature the spirit passes through must make a DC (9 + your Att mod) diplomacy check or be forced to turn and face the spirit. On their next turn, affected creatures which failed the check must make one attack which targets the space occupied by the spirit before taking any other actions. If they cannot do so, then the creature must instead move toward the spirit until they are in a space directly next to it, or as close as they can get to it. This movement must also take place before they can make any other actions on their turn.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 16,
+    "fields": {
+      "name": "Shield Protector",
+      "tier": "TWO",
+      "creature": "lesser undead spirit",
+      "size": "MEDIUM",
+      "range": "moves up to three space to block",
+      "condition": "The spirit performs this ability for two rounds. When the ability concludes the spirit lowers its shield and regenerates all poise damage. If the spirit is staggered (reaching its poise threshold thro",
+      "description": "Summon a lesser undead spirit which moves up to three space to block the first creature which tries to move into a space adjacent to you, becoming tangible as it does so. The spirit will continue to move and block unless there is already a hostile creature in front of it. The spirit then raises its shield and blocks 6 poise worth of physical damage as though it has a regular shield. Elemental damage passes through the spirit unhindered. The spirit performs this ability for two rounds. When the ability concludes the spirit lowers its shield and regenerates all poise damage. If the spirit is staggered (reaching its poise threshold through shield damage) then it dissipates. Unless otherwise stated you may only have one spirit actively performing this ability at a time.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 17,
+    "fields": {
+      "name": "Cone of Confusion",
+      "tier": "TWO",
+      "creature": "twisted spirit",
+      "size": "MEDIUM",
+      "range": "in a 10 foot cone away from itself",
+      "condition": "If a target creature rolls a one on the die for their check, they are inflicted with all three conditions regardless of the total result",
+      "description": "Summon a twisted spirit which confuses targets it can look upon in a 10 foot cone away from itself. Each of the creatures in the cone instantly take 1d10 dark or magic damage (without having the opportunity to dodge), and must make a DC (11 + your Att mod) diplomacy check or be inflicted with the Dazed, Impaired vision, or Deafened status conditions for one round, depending on the spirit summoned. If a target creature rolls a one on the die for their check, they are inflicted with all three conditions regardless of the total result.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 18,
+    "fields": {
+      "name": "Bull Charge",
+      "tier": "TWO",
+      "creature": "courageous or demonic spirit",
+      "size": "MEDIUM",
+      "range": "charges forward up to 20 feet",
+      "condition": "Any creature hit by the attack must make a DC (12 + your Att mod) athletics check or be pushed back 10 feet. Any creature the spirit passes through must make the same check or be pushed 5 feet left or",
+      "description": "Summon a courageous or demonic spirit which charges forward up to 20 feet in one direction, through any creatures or objects, before stopping and making an attack directed at a space adjacent to itself (threatening any creature it attacks but not the creatures it moves through). The attack deals 1d20 physical or fire damage, depending on the spirit. Any creature hit by the attack must make a DC (12 + your Att mod) athletics check or be pushed back 10 feet. Any creature the spirit passes through must make the same check or be pushed 5 feet left or right of the spirits path, based on the summoners choice for each creature.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 19,
+    "fields": {
+      "name": "Status Laser",
+      "tier": "TWO",
+      "creature": "bestial or monstrous spirit",
+      "size": "MEDIUM",
+      "range": "in a 180 degree arc in front of itself reaching up to 20 feet away",
+      "condition": "Half of both the damage and status build up upon successfully making the check",
+      "description": "Summon a bestial or monstrous spirit which breaths a laser of ice, poison, toxic, or lacerating blood in a 180 degree arc in front of itself reaching up to 20 feet away, threatening any creatures within the spaces. All creatures hit by the laser must make a DC (9 + your Att mod) acrobatics check or take 2d8 physical damage and 1d8 frost, poison, toxic, or bleed build up. Half of both the damage and status build up upon successfully making the check.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 20,
+    "fields": {
+      "name": "Greatshield Protector",
+      "tier": "THREE",
+      "creature": "undead spirit",
+      "size": "MEDIUM",
+      "range": "moves up to three space to block",
+      "condition": "The spirit performs this ability for two rounds. When the ability concludes the spirit lowers its shield and regenerates all poise damage. If the spirit is staggered (reaching its poise threshold thro",
+      "description": "Summon an undead spirit which moves up to three space to block the first creature which tries to move into a space adjacent to you, becoming tangible as it does so. The spirit will continue to move and block unless there is already a hostile creature in front of it. The spirit then raises its shield and blocks 6 poise worth of physical damage as though it has a greatshield. Elemental damage passes through the spirit unhindered. The spirit performs this ability for two rounds. When the ability concludes the spirit lowers its shield and regenerates all poise damage. If the spirit is staggered (reaching its poise threshold through shield damage) then it dissipates. Unless otherwise stated you may only have one spirit actively performing this ability at a time.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 21,
+    "fields": {
+      "name": "Let the Feast Begin",
+      "tier": "THREE",
+      "creature": "rare undead spirit",
+      "size": "MEDIUM",
+      "range": "within 10 feet",
+      "condition": "Any creature that takes the damage is grappled until they beat the DC (by spending 3 AP per attempt on their own turns). This effect cannot be dodged.",
+      "description": "Summon a rare undead spirit which instantly casts a magical curse on a target within 10 feet. The target must make a DC (13 + your Att mod) Athletics or acrobatics check or be pierced and held by two magical stakes, a flaming cage, a bolt of lightning, or dark ore, taking 1d12 magic, fire, lightning, or dark damage, depending on the spirit. Any creature that takes the damage is grappled until they beat the DC (by spending 3 AP per attempt on their own turns). This effect cannot be dodged.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 22,
+    "fields": {
+      "name": "Sandstorm",
+      "tier": "THREE",
+      "creature": "earthen spirit",
+      "size": "MEDIUM",
+      "range": "within 30 feat of the spirit",
+      "condition": "\"\n- **Description:** Summon an earthen spirit which creates a spinning sandstorm. All creatures and objects within 30 feat of the spirit, excluding the summoner, instantly take 1d2 durability damage t",
+      "description": "Summon an earthen spirit which creates a spinning sandstorm. All creatures and objects within 30 feat of the spirit, excluding the summoner, instantly take 1d2 durability damage to all of their equipment and must make a DC (12 + your Att mod) perception check or be inflicted with the impaired vision status condition for one round.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 23,
+    "fields": {
+      "name": "Combination Attacks",
+      "tier": "THREE",
+      "creature": "skilled or furiously attacking spirit",
+      "size": "MEDIUM",
+      "range": "adjacent space",
+      "condition": "This final attack includes your scaling for this ability tier",
+      "description": "Summon a skilled or furiously attacking spirit which makes an attack in an adjacent space dealing 1d6 physical damage with no scaling to any creature it hits, the spirit then moves one space in a direction of your choice before making that same attack once more. Finally, the spirit once again moves one space in a direction of your choice before making a large attack dealing 3d6 physical or elemental damage (depending on the spirit) threatening an adjacent space. This final attack includes your scaling for this ability tier.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 24,
+    "fields": {
+      "name": "Elemental Discharges",
+      "tier": "THREE",
+      "creature": "elementally charged spirit",
+      "size": "MEDIUM",
+      "range": "within 30 feet",
+      "condition": "",
+      "description": "Summon a elementally charged spirit which simultaneously calls down a rain of lightning, crystal, lava, or dark sediment onto (2 + (your Att mod/2)) different grid spaces of your choice within 30 feet of itself. Any creatures which occupy those spaces are threatened, and any creatures hit take 3d8 elemental damage of type depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 25,
+    "fields": {
+      "name": "Skull Wisp Spawn",
+      "tier": "THREE",
+      "creature": "writhing, tortured spirit",
+      "size": "MEDIUM",
+      "range": "vomits a skull wisp in an unoccupied adjacent space",
+      "condition": "The wisp lasts for three rounds and is able to move three spaces each turn on the players turn, starting with the round it was summoned. When its time elapses, or whenever the player chooses as a reac",
+      "description": "Summon a writhing, tortured spirit, which vomits a skull wisp in an unoccupied adjacent space. The wisp lasts for three rounds and is able to move three spaces each turn on the players turn, starting with the round it was summoned. When its time elapses, or whenever the player chooses as a reaction, the wisp explodes threatening all within 10 feet of it. Any creature hit takes 1d10 fire or dark damage. Multiple of these skull wisps may be active at a time.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 26,
+    "fields": {
+      "name": "Devour",
+      "tier": "THREE",
+      "creature": "large mouthed spirit",
+      "size": "MEDIUM",
+      "range": "within melee range",
+      "condition": "The creature must also make a DC (10 + your Att mod) athletics check or be inflicted with the limb break status condition, randomly on one of their limbs",
+      "description": "Summon a large mouthed spirit which attempts to envelope a target of your choice within melee range of it, threatening them as it does. Any creature enveloped takes 2d12 physical damage, and you heal for half of the damage they take (after reductions from resistances). The creature must also make a DC (10 + your Att mod) athletics check or be inflicted with the limb break status condition, randomly on one of their limbs.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 27,
+    "fields": {
+      "name": "Surprise Feast",
+      "tier": "THREE",
+      "creature": "hiding spirit",
+      "size": "MEDIUM",
+      "range": "stays unmoving in this location for 1 minute (10 rounds)",
+      "condition": "To any creature which did not observe the transformation, with an intelligence stat less than your attunement stat, it is indistinguishable from the object. It stays unmoving in this location for 1 mi",
+      "description": "Summon a hiding spirit that makes itself tangible and changes its shape into an interactable object of your choice the same size as the specific spirit. Any creature which perceives this transformation is aware of what the object is. To any creature which did not observe the transformation, with an intelligence stat less than your attunement stat, it is indistinguishable from the object. It stays unmoving in this location for 1 minute (10 rounds), until you choose to end the ability, or until a creature interacts with the object. The first creature that directly interacts with the object is attacked by the spirit taking 6d6 physical damage and 2d4 bleed if they are hit. This attack cannot be dodged if the creature interacting with the spirit was unaware of its true nature. After this attack, or if you choose to end the ability, the spirit once again becomes intangible and no longer hidden until the ability is used again.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 28,
+    "fields": {
+      "name": "Radial Wave",
+      "tier": "THREE",
+      "creature": "massive lumbering spirit",
+      "size": "MASSIVE",
+      "range": "30 feet around it",
+      "condition": "affected creatures must also make a DC (12 + your Att mod) athletics check or be knocked prone. The affected area becomes difficult terrain for one round and all poorly constructed or withered grounde",
+      "description": "Summon a massive lumbering spirit which slams its body down, stirring up a wave of muddy water, stagnant toxic liquid, blood, or frozen slush to wash over the area 30 feet around it. Every grounded creature within 30 feet, excluding the summoner, is threatened by the wave. Any creature hit takes 3d6 physical damage and depending on the spirit also 2d6 poison, toxic, bleed, or frost build up. affected creatures must also make a DC (12 + your Att mod) athletics check or be knocked prone. The affected area becomes difficult terrain for one round and all poorly constructed or withered grounded structures get washed away.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 29,
+    "fields": {
+      "name": "Rampage",
+      "tier": "THREE",
+      "creature": "raging or tortured spirit",
+      "size": "MEDIUM",
+      "range": "rampages forward two to four spaces, depending on the spirit",
+      "condition": "",
+      "description": "Summon a raging or tortured spirit, which rampages forward two to four spaces, depending on the spirit, threatening all spaces within 5 feet of itself while it does (including the spaces it passes through). All creatures hit take 4d8 dark or physical damage, depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 30,
+    "fields": {
+      "name": "Elemental Ray",
+      "tier": "THREE",
+      "creature": "powerful spell casting spirit",
+      "size": "MEDIUM",
+      "range": "in a 25 foot line in any direction",
+      "condition": "all creatures hit must make a DC (13 + Your Att mod) acrobatics check or take 4d8 elemental damage, half on success",
+      "description": "Summon a powerful spell casting spirit which shoots a ray of elemental magic in a 25 foot line in any direction. The Elemental Ray hits all spaces up to its maximum range, and all creatures hit must make a DC (13 + Your Att mod) acrobatics check or take 4d8 elemental damage, half on success. The element of the damage corresponds to the specific spirit summoned.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 31,
+    "fields": {
+      "name": "Element Breath",
+      "tier": "FOUR",
+      "creature": "legendary, large or massive sized, spirit",
+      "size": "LARGE",
+      "range": "breaths a 40 foot cone",
+      "condition": "all creatures hit must make a DC (17 + your Att mod) acrobatics check or take 6d12 elemental damage, half on success",
+      "description": "Summon a legendary, large or massive sized, spirit which stays in place and breaths a 40 foot cone in a direction of your choice, threatening all creatures within. All creatures hit must make a DC (17 + your Att mod) acrobatics check or take 6d12 elemental damage, half on success. The element of the damage corresponds to the specific spirit summoned.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 32,
+    "fields": {
+      "name": "Explosion",
+      "tier": "FOUR",
+      "creature": "great and powerful spirit",
+      "size": "MEDIUM",
+      "range": "centered at a location within 50 feet. All creatures within 20 feet of the target location are threatened",
+      "condition": "If the ability deals two damage types then scaling is split evenly between them",
+      "description": "Summon a great and powerful spirit which causes an explosion, impact, or spherical area of great damage centered at a location within 50 feet. All creatures within 20 feet of the target location are threatened, and any creature hit takes 8d8 of one damage type or 4d8 of two damage types depending on the spirit. If the ability deals two damage types then scaling is split evenly between them.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.493909+00:00",
+      "updated_at": "2025-12-16T19:05:43.493909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 33,
+    "fields": {
+      "name": "Flame Ice Ring",
+      "tier": "FOUR",
+      "creature": "large or massive ancient spirit",
+      "size": "LARGE",
+      "range": "creates a thin ring of fire or frostfire on the ground 10 feet around it",
+      "condition": "The ring expands by 10 feet every round at the start of your turn, threatening creatures it expands into, until it reaches 40 feet at which point the ring disappears and the ability ends. While the ri",
+      "description": "Summon a large or massive ancient spirit that creates a thin ring of fire or frostfire on the ground 10 feet around it, threatening any creatures in those spaces. The ring expands by 10 feet every round at the start of your turn, threatening creatures it expands into, until it reaches 40 feet at which point the ring disappears and the ability ends. While the ring is active the spirit may not move, but you may end the ability at any time on your own turns, not including the turn the spirit was summoned. Any creature which touches the ring, or that the ring hits while being created or while expanding, takes 6d8 fire damage, 6d8 dark damage, 4d8 fire damage and 2d8 frost build up, or 4d8 dark damage and 2d8 frost build up depending on the spirit.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.494909+00:00",
+      "updated_at": "2025-12-16T19:05:43.494909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 34,
+    "fields": {
+      "name": "Seismic Toss",
+      "tier": "FOUR",
+      "creature": "legendary, large or massive, flying spirit",
+      "size": "LARGE",
+      "range": "instantly grabs a target within 15 feet",
+      "condition": "This grab cannot be dodged. A grabbed creature is flown into the air and tossed down with massive force taking 4d8 true damage as they land. If the check is passed the target instead takes 2d12 physic",
+      "description": "Summon a legendary, large or massive, flying spirit which instantly grabs a target within 15 feet of it if they fail a DC (15 + your Att mod) athletics or acrobatics check. This grab cannot be dodged. A grabbed creature is flown into the air and tossed down with massive force taking 4d8 true damage as they land. If the check is passed the target instead takes 2d12 physical damage as they are raked by large talons or claws. The true damage of this ability does not benefit from scaling.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.494909+00:00",
+      "updated_at": "2025-12-16T19:05:43.494909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 35,
+    "fields": {
+      "name": "Oceans Pull",
+      "tier": "FOUR",
+      "creature": "legendary deep ocean spirit",
+      "size": "MEDIUM",
+      "range": "alters the water within 60 feet",
+      "condition": "Any creature which becomes fully submerged in this area of water can no longer break the waters surface tension for the duration if they cannot make a one time athletics or sanity check with a DC of (",
+      "description": "Summon a legendary deep ocean spirit which alters the water within 60 feet of it for ten minutes. Any creature which becomes fully submerged in this area of water can no longer break the waters surface tension for the duration if they cannot make a one time athletics or sanity check with a DC of (15 + your Att mod). Creatures trapped in this way may be helped out of the water by an ally which can make the check. This ability may be ended before the ten minutes elapse on the summoners own turn.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.494909+00:00",
+      "updated_at": "2025-12-16T19:05:43.494909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spirit",
+    "pk": 36,
+    "fields": {
+      "name": "Brain Itch",
+      "tier": "FOUR",
+      "creature": "spirit of a mind melting anomaly",
+      "size": "MEDIUM",
+      "range": "instantly looks toward all unobstructed creatures in a 180 degree arc",
+      "condition": "The creatures it looks toward, that are also facing the spirit and can perceive it, must make a DC (18 + your Att mod) sanity check or take 2d12 true damage and 6 poise damage from vomiting and convul",
+      "description": "Summon the spirit of a mind melting anomaly which instantly looks toward all unobstructed creatures in a 180 degree arc. The creatures it looks toward, that are also facing the spirit and can perceive it, must make a DC (18 + your Att mod) sanity check or take 2d12 true damage and 6 poise damage from vomiting and convulsing in mental anguish. On a success the creatures takes half of the damage and poise damage. If this ability staggers a creature, then they instantly die as their brain boils and eyes melt out of their heads. Some creatures are immune to this spirit ability, and the true damage of this ability does not benefit from scaling.",
+      "is_official": true,
+      "created_at": "2025-12-16T19:05:43.494909+00:00",
+      "updated_at": "2025-12-16T19:05:43.494909+00:00"
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 1,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 1
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 2,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 2
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 3,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 3
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 4,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 4
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 5,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 5
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 6,
+    "fields": {
+      "int": 10,
+      "fai": 0,
+      "spirit": 6
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 7,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 7
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 8,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spirit": 8
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 9,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spirit": 9
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 10,
+    "fields": {
+      "int": 13,
+      "fai": 10,
+      "spirit": 10
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 11,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spirit": 11
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 12,
+    "fields": {
+      "int": 13,
+      "fai": 10,
+      "spirit": 12
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 13,
+    "fields": {
+      "int": 10,
+      "fai": 13,
+      "spirit": 13
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 14,
+    "fields": {
+      "int": 13,
+      "fai": 0,
+      "spirit": 14
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 15,
+    "fields": {
+      "int": 13,
+      "fai": 13,
+      "spirit": 15
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 16,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spirit": 16
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 17,
+    "fields": {
+      "int": 13,
+      "fai": 0,
+      "spirit": 17
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 18,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spirit": 18
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 19,
+    "fields": {
+      "int": 13,
+      "fai": 13,
+      "spirit": 19
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 20,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spirit": 20
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 21,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spirit": 21
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 22,
+    "fields": {
+      "int": 13,
+      "fai": 16,
+      "spirit": 22
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 23,
+    "fields": {
+      "int": 13,
+      "fai": 16,
+      "spirit": 23
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 24,
+    "fields": {
+      "int": 16,
+      "fai": 10,
+      "spirit": 24
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 25,
+    "fields": {
+      "int": 16,
+      "fai": 13,
+      "spirit": 25
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 26,
+    "fields": {
+      "int": 13,
+      "fai": 16,
+      "spirit": 26
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 27,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spirit": 27
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 28,
+    "fields": {
+      "int": 16,
+      "fai": 16,
+      "spirit": 28
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 29,
+    "fields": {
+      "int": 16,
+      "fai": 13,
+      "spirit": 29
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 30,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spirit": 30
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 31,
+    "fields": {
+      "int": 20,
+      "fai": 16,
+      "spirit": 31
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 32,
+    "fields": {
+      "int": 20,
+      "fai": 16,
+      "spirit": 32
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 33,
+    "fields": {
+      "int": 20,
+      "fai": 13,
+      "spirit": 33
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 34,
+    "fields": {
+      "int": 0,
+      "fai": 20,
+      "spirit": 34
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 35,
+    "fields": {
+      "int": 13,
+      "fai": 20,
+      "spirit": 35
+    }
+  },
+  {
+    "model": "compendium.spiritrequirements",
+    "pk": 36,
+    "fields": {
+      "int": 20,
+      "fai": 20,
+      "spirit": 36
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 1,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spirit": 1
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 2,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "POISON",
+      "spirit": 1
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 3,
+    "fields": {
+      "count": 4,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spirit": 2
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 4,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spirit": 2
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 5,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spirit": 3
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 6,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "spirit": 3
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 7,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "HEAL",
+      "spirit": 4
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 8,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "FOCUS",
+      "spirit": 4
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 9,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spirit": 5
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 10,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spirit": 5
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 11,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "spirit": 5
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 12,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "VARYING",
+      "spirit": 6
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 13,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spirit": 8
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 14,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spirit": 8
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 15,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "spirit": 9
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 16,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "VARYING",
+      "spirit": 10
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 17,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "spirit": 11
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 18,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "spirit": 11
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 19,
+    "fields": {
+      "count": 1,
+      "value": 20,
+      "type": "PHYSICAL",
+      "spirit": 11
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 20,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "POISON",
+      "spirit": 12
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 21,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "BLEED",
+      "spirit": 12
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 22,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "FROST",
+      "spirit": 12
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 23,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "TOXIC",
+      "spirit": 12
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 24,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "spirit": 13
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 25,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "VARYING",
+      "spirit": 13
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 26,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "UNFOCUS",
+      "spirit": 14
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 27,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "TRUE",
+      "spirit": 14
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 28,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "VARYING",
+      "spirit": 17
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 29,
+    "fields": {
+      "count": 1,
+      "value": 20,
+      "type": "VARYING",
+      "spirit": 18
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 30,
+    "fields": {
+      "count": 2,
+      "value": 8,
+      "type": "PHYSICAL",
+      "spirit": 19
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 31,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "VARYING",
+      "spirit": 19
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 32,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "VARYING",
+      "spirit": 21
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 33,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "DURABILITY",
+      "spirit": 22
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 34,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spirit": 23
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 35,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "VARYING",
+      "spirit": 23
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 36,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "VARYING",
+      "spirit": 24
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 37,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "VARYING",
+      "spirit": 25
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 38,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "spirit": 26
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 39,
+    "fields": {
+      "count": 6,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spirit": 27
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 40,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "BLEED",
+      "spirit": 27
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 41,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spirit": 28
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 42,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "VARYING",
+      "spirit": 28
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 43,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "VARYING",
+      "spirit": 29
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 44,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "VARYING",
+      "spirit": 30
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 45,
+    "fields": {
+      "count": 6,
+      "value": 12,
+      "type": "VARYING",
+      "spirit": 31
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 46,
+    "fields": {
+      "count": 8,
+      "value": 8,
+      "type": "VARYING",
+      "spirit": 32
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 47,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "VARYING",
+      "spirit": 32
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 48,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "FIRE",
+      "spirit": 33
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 49,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "DARK",
+      "spirit": 33
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 50,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "FIRE",
+      "spirit": 33
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 51,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "DARK",
+      "spirit": 33
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 52,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "TRUE",
+      "spirit": 34
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 53,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "spirit": 34
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 54,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "TRUE",
+      "spirit": 36
+    }
+  },
+  {
+    "model": "compendium.spiritdice",
+    "pk": 55,
+    "fields": {
+      "count": 6,
+      "value": 0,
+      "type": "POISE",
+      "spirit": 36
+    }
+  }
+]

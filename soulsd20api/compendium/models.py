@@ -95,6 +95,7 @@ class WeaponProfTree(models.TextChoices):
     HEX = "HEX", _("Hex")
     SPIRIT_SUMMONING = "SPIRIT_SUMMONING", _("Spirit Summoning")
     DUAL_WIELDING = "DUAL_WIELDING", _("Dual Wielding")
+    MUSICAL_INSTRUMENTS = "MUSICAL_INSTRUMENTS", _("Musical Instruments")
 
 
 class UsageFormula(models.Model):
@@ -139,7 +140,7 @@ class UsageFormula(models.Model):
 class WeaponProfFeat(models.Model):
     name = models.CharField(max_length=60)
     weapon_tree = models.CharField(
-        max_length=18,
+        max_length=20,
         choices=WeaponProfTree.choices
     )
     level = models.IntegerField(default=3)
@@ -269,6 +270,12 @@ class Spirit(models.Model):
     range = models.CharField(max_length=200, blank=True, default="")
     condition = models.CharField(max_length=200, blank=True, default="")
     description = models.TextField(max_length=1024)
+    att_cost = models.IntegerField(default=1, help_text="Attunement slot cost")
+    fp = models.IntegerField(default=0, help_text="FP cost")
+    ap = models.IntegerField(default=0, help_text="AP cost")
+
+    def __str__(self) -> str:
+        return f"{self.name} (Tier {self.get_tier_display()})"
 
 class Item(models.Model):
     class ItemType(models.TextChoices):
@@ -330,6 +337,87 @@ class Artifact(models.Model):
         return self.name
 
 
+class ArtifactUpgrade(models.Model):
+    """
+    Upgrade path for an artifact.
+    Each upgrade can influence spells, skills, weapon prof feats, destiny feats.
+    GM controls visibility to players via two toggles.
+    """
+
+    artifact = models.ForeignKey(
+        Artifact,
+        on_delete=models.CASCADE,
+        related_name="upgrades",
+        help_text="The artifact this upgrade belongs to"
+    )
+
+    name = models.CharField(
+        max_length=200,
+        help_text="Name of this upgrade (e.g., 'Flame Infusion', 'Dark Path')"
+    )
+
+    unlock_requirements = models.TextField(
+        max_length=2048,
+        blank=True,
+        help_text="Text describing what player must do to unlock (e.g., 'Defeat 10 enemies with fire magic')"
+    )
+
+    visible = models.BooleanField(
+        default=False,
+        help_text="If true, player can see this upgrade exists. If false, completely hidden from player."
+    )
+
+    requirements_visible = models.BooleanField(
+        default=False,
+        help_text="If true, player can see the unlock requirements. If false, requirements are hidden even if upgrade is visible."
+    )
+
+    description = models.TextField(
+        max_length=4096,
+        help_text="What this upgrade does (visible to player if visible=true)"
+    )
+
+    influenced_spells = models.ManyToManyField(
+        'Spell',
+        blank=True,
+        related_name="artifact_upgrade_influences",
+        help_text="Spells this upgrade affects"
+    )
+
+    influenced_weapon_prof_feats = models.ManyToManyField(
+        WeaponProfFeat,
+        blank=True,
+        related_name="artifact_upgrade_influences",
+        help_text="Weapon proficiency feats this upgrade affects"
+    )
+
+    influenced_destiny_feats = models.ManyToManyField(
+        DestinyFeat,
+        blank=True,
+        related_name="artifact_upgrade_influences",
+        help_text="Destiny feats this upgrade affects"
+    )
+
+    influenced_weapon_skills = models.ManyToManyField(
+        WeaponSkill,
+        blank=True,
+        related_name="artifact_upgrade_influences",
+        help_text="Weapon skills this upgrade affects"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        visibility_status = 'Visible' if self.visible else 'Hidden'
+        requirements_status = 'Req:Visible' if self.requirements_visible else 'Req:Hidden'
+        return f"{self.artifact.name}: {self.name} ({visibility_status}, {requirements_status})"
+
+    class Meta:
+        ordering = ['artifact__name', 'name']
+        unique_together = ['artifact', 'name']
+
+
 class Armor(models.Model):
     class ArmorType(models.TextChoices):
         LIGHT = "LIGHT", _("Light")
@@ -388,6 +476,11 @@ class Weapon(models.Model):
         TALISMAN = "TALISMAN", _("Talisman")
         PYRO = "PYRO", _("Pyromancy Flame")
         CRUCIBLE = "CRUCIBLE", _("Crucible")
+        WIND_INSTRUMENT = "WIND_INSTRUMENT", _("Wind Instrument")
+        STRING_INSTRUMENT = "STRING_INSTRUMENT", _("String Instrument")
+        PERCUSSION_INSTRUMENT = "PERCUSSION_INSTRUMENT", _("Percussion Instrument")
+        TONGUE_INSTRUMENT = "TONGUE_INSTRUMENT", _("Tongue Instrument")
+        HORN_INSTRUMENT = "HORN_INSTRUMENT", _("Horn Instrument")
 
     name = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -400,9 +493,9 @@ class Weapon(models.Model):
 
     is_trick = models.BooleanField(default=False)
     is_twin = models.BooleanField(default=False)
-    weapon_type = models.CharField(max_length=20, choices=WeaponType.choices)
+    weapon_type = models.CharField(max_length=25, choices=WeaponType.choices)
     second_type = models.CharField(
-        max_length=20, choices=WeaponType.choices, blank=True, null=True, default=None)
+        max_length=25, choices=WeaponType.choices, blank=True, null=True, default=None)
 
     ap = models.IntegerField(default=3)
     skill_primary = models.ForeignKey(
@@ -756,6 +849,154 @@ class WeaponBonuses(Bonuses):
 
     def __str__(self) -> str:
         return f"{self.weapon.name} Bonuses"
+
+
+# Character creation models for lineages, bloodlines, and backgrounds
+class Background(models.Model):
+    """Starting character backgrounds with HP and base stats"""
+
+    # Identity
+    name = models.CharField(max_length=60, unique=True)
+    description = models.TextField(max_length=2048, blank=True)
+
+    # Starting resources
+    starting_hp = models.IntegerField()
+    starting_fate_points = models.IntegerField(default=2)
+
+    # Base stats (all default to 10)
+    vitality = models.IntegerField(default=10)
+    endurance = models.IntegerField(default=10)
+    strength = models.IntegerField(default=10)
+    dexterity = models.IntegerField(default=10)
+    attunement = models.IntegerField(default=10)
+    intelligence = models.IntegerField(default=10)
+    faith = models.IntegerField(default=10)
+
+    # Special rules for Chaotic Tarnished
+    has_special_rules = models.BooleanField(default=False)
+    special_rules = models.TextField(max_length=1024, blank=True)
+
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name} (HP: {self.starting_hp})"
+
+    class Meta:
+        ordering = ['name']
+
+
+class Lineage(models.Model):
+    """Base lineage types with abilities stored as JSON"""
+
+    # Identity
+    name = models.CharField(max_length=60, unique=True)
+    subtitle = models.CharField(
+        max_length=100,
+        help_text="Short descriptor (e.g., 'Wayfarers of Death', 'Masters of the Hollowed Earth')"
+    )
+    description = models.TextField(
+        max_length=4096,
+        help_text="Full lineage lore and background description"
+    )
+
+    # Physical characteristics
+    appearance = models.TextField(
+        max_length=1024,
+        help_text="Physical appearance and distinguishing features"
+    )
+    language = models.CharField(
+        max_length=60,
+        help_text="Primary language spoken by this lineage"
+    )
+    lifespan_min = models.IntegerField(
+        help_text="Minimum lifespan in years"
+    )
+    lifespan_max = models.IntegerField(
+        help_text="Maximum lifespan in years"
+    )
+
+    # Abilities stored as structured JSON for flexibility
+    # Contains vision, skill_bonuses, resistances, special_abilities, etc.
+    base_abilities = models.JSONField(
+        help_text='Stores lineage abilities as JSON. Example for Ferno lineage: '
+                  '{"vision": {"type": "darkvision", "range": 60}, '
+                  '"skill_bonuses": {"Sanity": 2}, '
+                  '"special_abilities": [{"name": "Auto-detect Undying", "description": "Automatically detect undying stacks on visible creatures", "type": "passive"}], '
+                  '"regeneration": {"hp": {"base": "1d2/hour", "condition": "in full darkness", "scaling": [{"level": 17, "value": "1d4/hour"}]}}}'
+    )
+
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name} ({self.subtitle})"
+
+    class Meta:
+        ordering = ['name']
+
+
+class Bloodline(models.Model):
+    """Bloodline variants that modify base lineage abilities"""
+
+    lineage = models.ForeignKey(
+        Lineage,
+        on_delete=models.CASCADE,
+        related_name='bloodlines',
+        help_text="The parent lineage this bloodline belongs to"
+    )
+    name = models.CharField(
+        max_length=60,
+        help_text="Bloodline name (e.g., 'Death Touched Ferno', 'Geode Grme')"
+    )
+    description = models.TextField(
+        max_length=2048,
+        help_text="Full bloodline description and what makes it unique"
+    )
+
+    # Lists which base abilities this bloodline replaces
+    replaces_abilities = models.JSONField(
+        default=list,
+        blank=True,
+        help_text='List of base lineage ability keys that this bloodline removes. '
+                  'The bloodline provides replacement abilities via new_abilities. '
+                  'Example for Death Touched Ferno: ["regeneration"]'
+    )
+
+    # New abilities this bloodline provides (same structure as lineage base_abilities)
+    new_abilities = models.JSONField(
+        default=dict,
+        blank=True,
+        help_text='Abilities this bloodline grants (replaces removed abilities). Uses same structure as base_abilities. '
+                  'Example for Death Touched Ferno: '
+                  '{"special_abilities": [{"name": "Ghostflame Respawn", "description": "Can respawn in place on successful undying check via white ghostflame", "type": "passive"}], '
+                  '"regeneration": {"hp": {"base": "-1d2/hour", "condition": "in bright light"}}}'
+    )
+
+    # Some bloodlines require special unlocks
+    has_unlock_requirement = models.BooleanField(
+        default=False,
+        help_text="Check if this bloodline requires special conditions to unlock"
+    )
+    unlock_requirement = models.TextField(
+        max_length=512,
+        blank=True,
+        help_text='What the player must do to unlock this bloodline. Leave blank for bloodlines available at character creation. '
+                  'Example for Ancient Scale Dragonkind: "Regular Dragonkind level 10+ with communion of 3+ ancient dragon types"'
+    )
+
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.lineage.name}: {self.name}"
+
+    class Meta:
+        ordering = ['lineage__name', 'name']
+        unique_together = ['lineage', 'name']
 
 
 """

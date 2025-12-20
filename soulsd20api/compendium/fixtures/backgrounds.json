@@ -1,0 +1,317 @@
+[
+  {
+    "model": "compendium.background",
+    "pk": 1,
+    "fields": {
+      "name": "Knight",
+      "description": "",
+      "starting_hp": 24,
+      "starting_fate_points": 2,
+      "vitality": 12,
+      "endurance": 10,
+      "strength": 12,
+      "dexterity": 12,
+      "attunement": 8,
+      "intelligence": 8,
+      "faith": 8,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 2,
+    "fields": {
+      "name": "Mercenary",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 12,
+      "strength": 8,
+      "dexterity": 14,
+      "attunement": 10,
+      "intelligence": 8,
+      "faith": 8,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 3,
+    "fields": {
+      "name": "Warrior",
+      "description": "",
+      "starting_hp": 27,
+      "starting_fate_points": 2,
+      "vitality": 14,
+      "endurance": 12,
+      "strength": 14,
+      "dexterity": 8,
+      "attunement": 8,
+      "intelligence": 8,
+      "faith": 6,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 4,
+    "fields": {
+      "name": "Herald",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 12,
+      "strength": 12,
+      "dexterity": 10,
+      "attunement": 10,
+      "intelligence": 6,
+      "faith": 10,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 5,
+    "fields": {
+      "name": "Cruel Veteran",
+      "description": "",
+      "starting_hp": 22,
+      "starting_fate_points": 2,
+      "vitality": 12,
+      "endurance": 10,
+      "strength": 12,
+      "dexterity": 8,
+      "attunement": 10,
+      "intelligence": 12,
+      "faith": 6,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 6,
+    "fields": {
+      "name": "Assassin",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 10,
+      "strength": 8,
+      "dexterity": 12,
+      "attunement": 10,
+      "intelligence": 12,
+      "faith": 8,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 7,
+    "fields": {
+      "name": "Thief",
+      "description": "",
+      "starting_hp": 17,
+      "starting_fate_points": 2,
+      "vitality": 8,
+      "endurance": 10,
+      "strength": 8,
+      "dexterity": 14,
+      "attunement": 12,
+      "intelligence": 10,
+      "faith": 8,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 8,
+    "fields": {
+      "name": "Inquisitor",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 10,
+      "strength": 8,
+      "dexterity": 12,
+      "attunement": 12,
+      "intelligence": 6,
+      "faith": 12,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 9,
+    "fields": {
+      "name": "Sorcerer",
+      "description": "",
+      "starting_hp": 14,
+      "starting_fate_points": 2,
+      "vitality": 6,
+      "endurance": 10,
+      "strength": 8,
+      "dexterity": 10,
+      "attunement": 14,
+      "intelligence": 14,
+      "faith": 8,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 10,
+    "fields": {
+      "name": "Cleric",
+      "description": "",
+      "starting_hp": 17,
+      "starting_fate_points": 2,
+      "vitality": 8,
+      "endurance": 10,
+      "strength": 10,
+      "dexterity": 8,
+      "attunement": 12,
+      "intelligence": 8,
+      "faith": 14,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 11,
+    "fields": {
+      "name": "Pyromancer",
+      "description": "",
+      "starting_hp": 17,
+      "starting_fate_points": 2,
+      "vitality": 8,
+      "endurance": 10,
+      "strength": 10,
+      "dexterity": 8,
+      "attunement": 10,
+      "intelligence": 12,
+      "faith": 12,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 12,
+    "fields": {
+      "name": "Curious Noble",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 10,
+      "strength": 6,
+      "dexterity": 10,
+      "attunement": 14,
+      "intelligence": 10,
+      "faith": 10,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 13,
+    "fields": {
+      "name": "Wanderer",
+      "description": "",
+      "starting_hp": 17,
+      "starting_fate_points": 2,
+      "vitality": 8,
+      "endurance": 12,
+      "strength": 10,
+      "dexterity": 12,
+      "attunement": 10,
+      "intelligence": 10,
+      "faith": 8,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 14,
+    "fields": {
+      "name": "Deprived",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 10,
+      "strength": 10,
+      "dexterity": 10,
+      "attunement": 10,
+      "intelligence": 10,
+      "faith": 10,
+      "has_special_rules": false,
+      "special_rules": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.background",
+    "pk": 15,
+    "fields": {
+      "name": "Chaotic Tarnished",
+      "description": "",
+      "starting_hp": 20,
+      "starting_fate_points": 2,
+      "vitality": 10,
+      "endurance": 10,
+      "strength": 10,
+      "dexterity": 10,
+      "attunement": 10,
+      "intelligence": 10,
+      "faith": 10,
+      "has_special_rules": true,
+      "special_rules": "Choose one stat (not End) to be 15. Roll 6d2 six times. Assign results to other stats as desired. HP = Vit × 2.",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  }
+]

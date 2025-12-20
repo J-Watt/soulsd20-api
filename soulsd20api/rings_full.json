@@ -1,0 +1,1370 @@
+[
+  {
+    "model": "compendium.ring",
+    "pk": 1,
+    "fields": {
+      "name": "Shiny Charm",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Can be worn as a ring or adorned on ones body as jewelry. Gain +2 diplomacy.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 2,
+    "fields": {
+      "name": "Brain Scales",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "A small cluster of scales which can be embedded into the eye. Gain +1 sanity. This adornment is destroyed when it is removed. If this is equipped simultaneously to the \"Mind Spike Ring\" then the ring is destroyed and the Brain Scales become the tier 3 adornment \"Mind Membrane\".",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 3,
+    "fields": {
+      "name": "Eye Glass",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "An eyeglass worn over one or both eyes. Gain +2 perception. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 4,
+    "fields": {
+      "name": "Bloodbite Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your bleed resistance by 3.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 5,
+    "fields": {
+      "name": "Chillbite Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your frost resistance by 3.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 6,
+    "fields": {
+      "name": "Cursebite Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your curse resistance by 2.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 7,
+    "fields": {
+      "name": "Poisonbite Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your poison and toxic resistance by 2 each.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 8,
+    "fields": {
+      "name": "Robust Sword Bracer",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "When full HP, adds 1d4 damage to one attack you make each round (this bonus damage is the same damage type as the majority damage of the attack).",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 9,
+    "fields": {
+      "name": "Robust Shield Bracer",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "When full HP, decrease the physical damage of the next attack that hits you by 50% (before calculating other reductions from resistance and armor). This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 10,
+    "fields": {
+      "name": "Blue Tearstone Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Gain one tier of physical resistance when below half health.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 11,
+    "fields": {
+      "name": "Red Tearstone Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Gain an extra 1d20 damage to one attack made on your turn when below 25% health. (added damage is the same type as the attack).",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 12,
+    "fields": {
+      "name": "Quelon's Band",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Adds 1d4 extra damage to one attack you make each round while wearing no armor (this bonus damage is the same damage type as the majority damage of the attack).",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 13,
+    "fields": {
+      "name": "Hornet Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "The first attack you make on a staggered enemy does triple damage instead of double.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 14,
+    "fields": {
+      "name": "Polished Dragon Scale",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Damage and status bonuses to attacks made on you from behind no longer apply to the attacker. Gain one tier of physical resistance.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 15,
+    "fields": {
+      "name": "Knight Slayers Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Add two extra poise damage, once per round, to an attack you make against a defending shield. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 16,
+    "fields": {
+      "name": "Cerulean Flask Charm",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase the FP replenished by your cerulean flask by 50%.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 17,
+    "fields": {
+      "name": "Crimson Flask Charm",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase the HP replenished by your crimson flask by 20%.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 18,
+    "fields": {
+      "name": "False Fire Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "If you die in combat make a DC 10 fire keeping check, if you succeed you may respawn in the same spot you died in.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 19,
+    "fields": {
+      "name": "Right Eye Earring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "A maximum of once per round when you kill a hostile creature, regain (Vit mod) HP. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 20,
+    "fields": {
+      "name": "Rusted Iron Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Double swimming speed. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 21,
+    "fields": {
+      "name": "Ring of Steel Protection",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your physical resistance by one tier.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 22,
+    "fields": {
+      "name": "Old Volatile Light Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Every time your hp is reduced by 10 or more in one attack you explode, dealing 1d10 physical damage to all others within 10 feet of you. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 23,
+    "fields": {
+      "name": "Knight's Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Strength stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 24,
+    "fields": {
+      "name": "Hunter's Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Dexterity stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 25,
+    "fields": {
+      "name": "Priest's Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Faith stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 26,
+    "fields": {
+      "name": "Scholar's Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Intelligence stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 27,
+    "fields": {
+      "name": "Hearty Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Vitality stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 28,
+    "fields": {
+      "name": "Librarian's Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Attunement stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 29,
+    "fields": {
+      "name": "Stamina Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your Endurance stat by one.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 30,
+    "fields": {
+      "name": "Thunder Stoneplate Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your lightning resistance by one tier.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 31,
+    "fields": {
+      "name": "Fire Stoneplate Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your fire resistance by one tier.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 32,
+    "fields": {
+      "name": "Magic Stoneplate Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your magic resistance by one tier.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 33,
+    "fields": {
+      "name": "Deep Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Gain +1 attunement slots.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 34,
+    "fields": {
+      "name": "Acolyte Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Every time you cast a spell which immediately provides healing to an ally other than yourself they regenerate 1 FP. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 35,
+    "fields": {
+      "name": "Hunting Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Provides vision of human, beast, and monster tracks regardless of how obscured they are. Doesn't work if the tracks are completely faded. Perception +1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 36,
+    "fields": {
+      "name": "Biting Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Once per round you may cause one of your weapon light attacks to deal maximum possible damage, but you must also take the damage of that attack.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 37,
+    "fields": {
+      "name": "Master's ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Whenever you hit a hostile creature with a precision attack, your next precision attack made within the same round has its DC reduced by 3. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 38,
+    "fields": {
+      "name": "Alchemist ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase the number of crafting points you have by 1, for the following feats: Artisan of Physic, Craftsperson, Prosthetic Limb, Toxicology. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 39,
+    "fields": {
+      "name": "Untrue human ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Remove the look of undying from yourself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 40,
+    "fields": {
+      "name": "Band of Swiftness",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "On the first round of combat, gain 2 AP of additional movement actions not affected by difficult terrain.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 41,
+    "fields": {
+      "name": "Ring of the Great Mule",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your carrying capacity by 50%. Athletics +1. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 42,
+    "fields": {
+      "name": "Life Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Increase your maximum HP by (3*Vit mod). This ring/ adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 43,
+    "fields": {
+      "name": "Gold Rune's Favour",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "An ornate mark of gold. Increase your max HP by 2 and your max FP by 1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 44,
+    "fields": {
+      "name": "Ring of Slumbering Fire",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "You can sleep for only 2 hours a day and not become exhausted. Fire Keeping + 1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 45,
+    "fields": {
+      "name": "Reversal Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Visually you appear as the opposite gender. Stealth + 1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 46,
+    "fields": {
+      "name": "Blood Wood Grain Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "(Vit mod) times per long rest you may make a dodge action which costs you no AP, but causes you to take five times the dodge actions normal AP cost in true damage.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 47,
+    "fields": {
+      "name": "Wood Grain Ring",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Halves equipment durability damage done to you by hostile creatures or terrain effects. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 48,
+    "fields": {
+      "name": "Ring of Flying Daggers",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "On a successful dodge (avoiding all damage), you may launch three darts from this ring at three separate creatures within 15 feet of you. Creatures hit by the darts take (1d4+ your Dex mod) physical damage, before the darts crumble and disappear. These darts benefit from any range and damage bonuses to throwing knives. Equipping multiples of this ring increases the damage by 1d4 for each dart that hits a creature after the first, but does not provide extra damage from scaling.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 49,
+    "fields": {
+      "name": "Ring of Sacrifice",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Prevents death one time when you have no HP remaining, by healing you to one HP, then this ring breaks.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 50,
+    "fields": {
+      "name": "Shard of Growth",
+      "tier": 1,
+      "usage_formula": null,
+      "description": "Gain +1 Max HP. If you have this adornment equipped without taking it off, while you have absorbed a total of 200 souls to level up and are at least character level 7, then it becomes the tier 2 adornment \"Large Shard of Growth\". This ring/adornments effect does not stack with multiples of itself or its upgraded forms.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 51,
+    "fields": {
+      "name": "Swift Dodge Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "On a successful dodge (avoiding all damage), gain +1 AP on your next turn. But on any failed dodge (where you still got hit), you take an extra 2 poise damage. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 52,
+    "fields": {
+      "name": "Fleshbite Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Increases all of your non-poise status resistances by 2.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 53,
+    "fields": {
+      "name": "Cat Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Halves all fall damage. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 54,
+    "fields": {
+      "name": "Rogue's Ruby",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Regain (Vit mod) HP, a maximum of once per round, when you hit a hostile creature from behind with an attack. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 55,
+    "fields": {
+      "name": "Rogue's Sapphire",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Regain (Att mod/2) FP, a maximum of once per round, when you hit a hostile creature from behind with an attack. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 56,
+    "fields": {
+      "name": "Obscuring Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain +5 to your stealth roll when more then 30 feet away from someone that you are trying to avoid detection from.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 57,
+    "fields": {
+      "name": "Calamity Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Take double damage. Extremely hard to identify. This ring/ adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 58,
+    "fields": {
+      "name": "Pendant of the Hidden",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "A simple pendant with no effect. Even so, pleasant memories are crucial to survival for those who remain hidden.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 59,
+    "fields": {
+      "name": "Dark Wood Grain Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Your dodge distance is no longer reduced by difficult terrain.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 60,
+    "fields": {
+      "name": "True Human Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gives you the look of being fully undead. This allows you to blend in with undead and not normally gain their aggression, until you first attack them.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 61,
+    "fields": {
+      "name": "Band of Sustained Speed",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain 1 AP of free movement action on every round of combat. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 62,
+    "fields": {
+      "name": "Hawkeye Trinket",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain +1 precision and increase the range of all ranged attacks by 5 feet. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 63,
+    "fields": {
+      "name": "Mind spike ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Whenever you succeed on a sanity check to resist an effect, your mind retaliates dealing (Vit or Att mod) true damage back to the source of the effect (as long as the source was a living creature). Gain +1 sanity. If this is equipped simultaneously to the \"Brain Scales\" adornment then this ring is destroyed and the Brain Scales become the tier 3 adornment \"Mind Membrane\".",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 64,
+    "fields": {
+      "name": "Bonfire Charm",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Increase your fire keeping by 2. You can now make an additional bonfire making and kindling check every long rest. Only the firekeeping skill increase of this ring/adornment stacks when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 65,
+    "fields": {
+      "name": "Left Eye Earring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "A maximum of once per round when you kill a hostile creature, regain (Att mod/2) FP. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 66,
+    "fields": {
+      "name": "Third Eye Earring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "A maximum of once per round when you kill a hostile creature, gain one bonus AP for your next turn. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 67,
+    "fields": {
+      "name": "Dark Stoneplate Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Increase your dark resistance by one tier.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 68,
+    "fields": {
+      "name": "Light Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "A ring with an embedded shimmer of light that contains 10 temporary HP which is shared with its wearer. The light also shines for 20 feet of bright magical light. The ring restores its temporary HP if worn throughout a short rest. Whenever the temporary HP is reduced to 0 roll 1d4, on a 1 this ring explodes dealing 1d10 physical damage to others all within 10 feet of you and the ring permanently converts into the tier 1 adornment \"Old Volatile Light Ring\".",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 69,
+    "fields": {
+      "name": "Darkmoon Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain +2 attunement slots.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 70,
+    "fields": {
+      "name": "Archmages Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain +1 attunement slots and lower the stat requirements of all sorceries by one (doesn't affect scaling and feats involving requirements). This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 71,
+    "fields": {
+      "name": "Crescentmoon Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain +3 attunement slots.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 72,
+    "fields": {
+      "name": "Sun Charm",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "At the start of each of your turns in combat, regenerate (Vit mod/2) HP. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 73,
+    "fields": {
+      "name": "Moon Charm",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "At the start of each of your turns in combat, regenerate 1 FP. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 74,
+    "fields": {
+      "name": "Band of the Accursed",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Once per short rest make all hostile creatures within 15 feet of you, with Intelligence stats of 6 or less, be unable to target anyone but you with any of the attacks they make on their next turn.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 75,
+    "fields": {
+      "name": "Thief's Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Once per long rest you may change the direction a creature within 15 feet of you is facing. You may do this as a reaction at any time, but if the target is a hostile creature then this ring has no effect on them during their own turn.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 76,
+    "fields": {
+      "name": "Ring of Trust",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "You can understand, but not talk in all racial languages that have been programmed into this ring. Perception +1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 77,
+    "fields": {
+      "name": "Ring of Water Breathing",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "You can inhale and breath water, but switching between air and water is very uncomfortable and takes up to a full minute.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 78,
+    "fields": {
+      "name": "Stone Knight's Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Armor no longer has weight when equipped. Gain +1 tier of magic resistance and +2 athletics.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 79,
+    "fields": {
+      "name": "Ring of Shield Absorption",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Regain FP equal to half of the poise damage that you take from defending with a shield. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 80,
+    "fields": {
+      "name": "Wall Trinket",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "On rounds where you defended with a shield, this trinket allows you to lose 2 less AP as a result of the poise damage you took from blocking that round.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 81,
+    "fields": {
+      "name": "Gold Serpent Ring",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Find more consumables, equipment, and valuables. Up to GM's discretion.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 82,
+    "fields": {
+      "name": "Rare Ring of Sacrifice",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Prevents death one time when you have no HP remaining, by healing you to 50% of your max HP, then this ring breaks.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 83,
+    "fields": {
+      "name": "Large Shard of Growth",
+      "tier": 2,
+      "usage_formula": null,
+      "description": "Gain +4 max HP and +2 max FP. If you have this adornment equipped without taking it off, while you have absorbed a total of 500 souls to level up and are at least character level 15, then it becomes the tier 3 adornment \"Jewel of Growth\". Taking this adornment off causes it to become the tier 1 adornment \"Shard of Growth\". This ring/adornments effect does not stack with multiples of itself or its other forms.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 84,
+    "fields": {
+      "name": "Great Knight's Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Strength stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 85,
+    "fields": {
+      "name": "Expert Hunter's Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Dexterity stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 86,
+    "fields": {
+      "name": "High Priest's Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Faith stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 87,
+    "fields": {
+      "name": "Academic's Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Intelligence stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 88,
+    "fields": {
+      "name": "Deep Hearty Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Vitality stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 89,
+    "fields": {
+      "name": "Master Librarian's Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Attunement stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 90,
+    "fields": {
+      "name": "Free Action Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your Endurance stat by two. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 91,
+    "fields": {
+      "name": "Void Wreath",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "A jagged obsidian wreath adorned with strange gemstones, to be worn around the neck. Increase the cap/maximum possible values of your intelligence and faith stats by one each. This ring/adornments effect does not with multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 92,
+    "fields": {
+      "name": "Recovery Biting Sigil",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "You, and all creatures within 50 feet of you no longer restore 1 status build up each turn. Does not need to be worn to take effect.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 93,
+    "fields": {
+      "name": "Speckled Stoneplate Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Increase your resistance to all elemental damage types by one tier.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 94,
+    "fields": {
+      "name": "Gold Rune's Bold Favour",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "An intricate and complete mark of ornate gold. Increase your max HP by 4, your max FP by 2, and your max AP by 1. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 95,
+    "fields": {
+      "name": "Fullmoon Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Gain +4 attunement slots and increase your Attunement stat by one. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 96,
+    "fields": {
+      "name": "Sage Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Reduce the AP cost of casting spells by one (cannot go below one). This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 97,
+    "fields": {
+      "name": "Snapped Bone of Dashing",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Gain 2 AP of free movement actions on every round of combat. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 98,
+    "fields": {
+      "name": "Ring of Appeasement",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "(1+ Att mod/2) times per long rest all creatures within 50 feet of you must make a DC (12 + your Fai mod) Sanity check or be pacified for one hour if fully undead, and have their control broken if they are being controlled or manipulated.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 99,
+    "fields": {
+      "name": "Blood Beckoning Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Every instance of bleed build up you deal is given a bonus of +1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 100,
+    "fields": {
+      "name": "Frost Beckoning Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Every instance of frost build up you deal is given a bonus of +1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 101,
+    "fields": {
+      "name": "Poison Injecting Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Every instance of poison build up you deal is given a bonus of +1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 102,
+    "fields": {
+      "name": "Deep Poison Injecting Ring",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Every instance of toxic build up you deal is given a bonus of +1.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 103,
+    "fields": {
+      "name": "Mind Membrane",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "A strange scaled membrane that is embedded within the skull. Whenever you succeed on a sanity or diplomacy check to resist an effect, your mind retaliates dealing (3 + Vit or Att mod) true damage back to the source of the effect. Gain +3 sanity and +1 knowledge of cosmic influence. Whenever a creature you can perceive succeeds on a sanity or diplomacy check to resist an effect you may reduce their sanity or diplomacy by two respectively. This effect lasts for one minute and can stack with itself. Removing this adornment destroys it and causes you to take 6d12 true damage and 1d10 curse build up. This ring/adornments effect does not stack with multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 104,
+    "fields": {
+      "name": "Necklace of Wild Shape",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "(1+ Att mod/2) times per long rest you may turn into any medium or smaller beast which you have seen. The transformation lasts ten minutes and you revert back if you take any damage. In this state you may use any ability which the creature has.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 105,
+    "fields": {
+      "name": "Necklace of World Blood",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "(1+ Att mod/2) times per long rest create an earthquake within 50 feet of yourself. Every creature in range, not including yourself, must make a DC (12 + your Fai mod) athletics check or be knocked prone. On your turn after using the ring you can activate the feat Geomancer once by paying its FP cost (or within 10 seconds after use outside of combat).",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 106,
+    "fields": {
+      "name": "Paired Ring of Bonding",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "A helix of two soft silver bands which can be taken apart and worn by two individuals to gain buffs based on each others stats and abilities. Each wearer gains +2 in the highest skill of the other wearer, and +1 in the highest stat of the other wearer. Once per short rest on their turns, each wearer may cast a spell, use a spirit summon, or use a weapon skill that the other has attuned (by spending their AP and FP costs as usual). Wearers do not need to meet the requirements of the spell or summon, or even be wielding an appropriate spell casting implement, but spells and summons cast from this ring do not benefit from scaling. Weapon skills used from this ring must still be used with an appropriate weapon type, and do not teach the skill to their user. When either of the rings wearers parish, they may make their undying check as though they have the highest faith modifier of the two. This ring does not stack with multiple instances of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 107,
+    "fields": {
+      "name": "Ring of Resurrection",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Prevents death one time when you have no HP remaining, by healing you to full health, then this ring breaks.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 108,
+    "fields": {
+      "name": "Jewel of Growth",
+      "tier": 3,
+      "usage_formula": null,
+      "description": "Gain +8 max HP, +3 max FP, +2 attunement slots, and +1 to the maximum cap of one stat doesn't have its cap increased above 20. If you have this adornment equipped without taking it off, while you have absorbed a total of 1250 souls to level up and are at least character level 25, then it becomes the tier 4 adornment \"Flawless Soul\". Taking this adornment off causes it to become the tier 1 adornment \"Shard of Growth\". This ring/adornments effect does not stack with multiples of itself or its other forms.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 109,
+    "fields": {
+      "name": "Demi Gods Binding",
+      "tier": 4,
+      "usage_formula": null,
+      "description": "Gain a second artifact slot. This ring/adornments effect does not stack when equipping multiples of itself.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 110,
+    "fields": {
+      "name": "Mask of Mind",
+      "tier": 4,
+      "usage_formula": null,
+      "description": "Swap your maximum HP and maximum FP. This effect is applied after any others which alter HP or FP.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 111,
+    "fields": {
+      "name": "Jewel of Lost Chronos",
+      "tier": 4,
+      "usage_formula": null,
+      "description": "You may travel back in time to just before the moment someone you know of died or turned fully undead. For the next five minutes you and the familiar person are frozen in time together. You may not influence anything physically, but you can move and converse with the person, spending those five minutes together. After using the ring you are returned to your own time the moment after you disappeared, you age 1d4 years, then this ring breaks.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 112,
+    "fields": {
+      "name": "Ring of Unfailing Endurance",
+      "tier": 4,
+      "usage_formula": null,
+      "description": "Your AP cannot be lowered by anything other than your own action. Physical activity and lack of sleep can no longer inflict you with points of exhaustion.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 113,
+    "fields": {
+      "name": "Rare Ring of Resurrection",
+      "tier": 4,
+      "usage_formula": null,
+      "description": "Prevents death, healing its wearer to full HP when they would otherwise reach zero HP.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  },
+  {
+    "model": "compendium.ring",
+    "pk": 114,
+    "fields": {
+      "name": "Flawless Soul",
+      "tier": 4,
+      "usage_formula": null,
+      "description": "Gain +16 max HP, +4 max FP, +3 attunement slots, and +2 to the maximum cap of one stat which doesn't have its cap increased above 20. If you have this adornment equipped without taking it off, while you have absorbed a total of 1400 souls to level up, then it produces a purging stone item. Taking this adornment off causes it to become the tier 1 adornment \"Shard of Growth\". This ring/adornments effect does not stack with multiples of itself or its other forms.",
+      "created_by": 1,
+      "updated_by": 1
+    }
+  }
+]

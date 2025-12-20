@@ -231,10 +231,11 @@ class SpiritDiceSerializer(serializers.HyperlinkedModelSerializer):
 class SpiritSerializer(serializers.HyperlinkedModelSerializer):
     requirements = SpiritReqSerializer()
     dice = SpiritDiceSerializer(many=True)
+    created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
 
     class Meta:
-        model = models.Spell
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'tier', 'creature', 'size', 'range', 'condition', 'description', 'requirements',
+        model = models.Spirit
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'tier', 'creature', 'size', 'range', 'condition', 'description', 'att_cost', 'ap', 'fp', 'requirements',
                   'dice']
 
 
@@ -265,6 +266,7 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
     bonuses = ItemBonusesSerializer(many=True)
     scaling = ItemScalingSerializer(many=True)
     dice = ItemDiceSerializer(many=True)
+    created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
 
     class Meta:
         model = models.Item
@@ -300,6 +302,7 @@ class RingSerializer(serializers.HyperlinkedModelSerializer):
     bonuses = RingBonusesSerializer(many=True)
     scaling = RingScalingSerializer(many=True)
     dice = RingDiceSerializer(many=True)
+    created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
 
     class Meta:
         model = models.Ring
@@ -330,16 +333,99 @@ class ArtifactDiceSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['type', 'count', 'value']
 
 
+class ArtifactUpgradeInfluencedSpellSerializer(serializers.ModelSerializer):
+    """Minimal spell data for influenced spells"""
+    class Meta:
+        model = models.Spell
+        fields = ['id', 'name', 'category']
+
+
+class ArtifactUpgradeInfluencedWeaponProfFeatSerializer(serializers.ModelSerializer):
+    """Minimal weapon prof feat data"""
+    class Meta:
+        model = models.WeaponProfFeat
+        fields = ['id', 'name', 'weapon_tree', 'level']
+
+
+class ArtifactUpgradeInfluencedDestinyFeatSerializer(serializers.ModelSerializer):
+    """Minimal destiny feat data"""
+    class Meta:
+        model = models.DestinyFeat
+        fields = ['id', 'name', 'cost']
+
+
+class ArtifactUpgradeInfluencedWeaponSkillSerializer(serializers.ModelSerializer):
+    """Minimal weapon skill data"""
+    class Meta:
+        model = models.WeaponSkill
+        fields = ['id', 'name', 'cost_fp', 'usage_type']
+
+
+class ArtifactUpgradeSerializer(serializers.ModelSerializer):
+    """
+    Serializer for artifact upgrades.
+    Returns upgrades if either visible OR requirements_visible is True.
+    Conditionally returns name/description vs unlock_requirements based on toggles.
+    """
+    influenced_spells = ArtifactUpgradeInfluencedSpellSerializer(many=True, read_only=True)
+    influenced_weapon_prof_feats = ArtifactUpgradeInfluencedWeaponProfFeatSerializer(many=True, read_only=True)
+    influenced_destiny_feats = ArtifactUpgradeInfluencedDestinyFeatSerializer(many=True, read_only=True)
+    influenced_weapon_skills = ArtifactUpgradeInfluencedWeaponSkillSerializer(many=True, read_only=True)
+
+    name = serializers.SerializerMethodField()
+    description = serializers.SerializerMethodField()
+    unlock_requirements = serializers.SerializerMethodField()
+
+    def get_name(self, obj):
+        """Only return name if visible is True"""
+        if obj.visible:
+            return obj.name
+        return None
+
+    def get_description(self, obj):
+        """Only return description if visible is True"""
+        if obj.visible:
+            return obj.description
+        return None
+
+    def get_unlock_requirements(self, obj):
+        """Only return requirements if requirements_visible is True"""
+        if obj.requirements_visible:
+            return obj.unlock_requirements
+        return None
+
+    class Meta:
+        model = models.ArtifactUpgrade
+        fields = [
+            'id',
+            'name',
+            'unlock_requirements',
+            'description',
+            'influenced_spells',
+            'influenced_weapon_prof_feats',
+            'influenced_destiny_feats',
+            'influenced_weapon_skills',
+        ]
+
+
 class ArtifactSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
     bonuses = ArtifactBonusesSerializer(many=True)
     scaling = ArtifactScalingSerializer(many=True)
     dice = ArtifactDiceSerializer(many=True)
+    upgrades = serializers.SerializerMethodField()
+    created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+
+    def get_upgrades(self, obj):
+        """Return upgrades if either visible OR requirements_visible is True"""
+        from django.db.models import Q
+        visible_upgrades = obj.upgrades.filter(Q(visible=True) | Q(requirements_visible=True))
+        return ArtifactUpgradeSerializer(visible_upgrades, many=True).data
 
     class Meta:
         model = models.Artifact
         fields = ['id', 'name', 'created_at', 'created_by',
-                  'usage_formula', 'description', 'scaling', 'dice', 'bonuses']
+                  'usage_formula', 'description', 'scaling', 'dice', 'bonuses', 'upgrades']
 
 
 """
@@ -363,6 +449,7 @@ class ArmorSerializer(serializers.HyperlinkedModelSerializer):
     usage_formula = UsageFormulaSerializer()
     bonuses = ArmorBonusesSerializer(many=True)
     requirements = ArmorReqSerializer()
+    created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
 
     class Meta:
         model = models.Armor
@@ -412,8 +499,43 @@ class WeaponSerializer(serializers.HyperlinkedModelSerializer):
     spell_scaling = SpellScalingSerializer(many=True)
     dice = WeaponDiceSerializer(many=True)
     requirements = WeaponReqSerializer()
+    created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
 
     class Meta:
         model = models.Weapon
         fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type', 'ap', 'skill_primary',
                   'skill_secondary', 'usage_formula', 'description', 'durability', 'infusion', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
+
+
+"""
+Character Creation - Backgrounds, Lineages, Bloodlines
+"""
+
+
+class BackgroundSerializer(serializers.ModelSerializer):
+    """Serializer for character starting backgrounds"""
+    class Meta:
+        model = models.Background
+        fields = '__all__'
+
+
+class BloodlineSerializer(serializers.ModelSerializer):
+    """Serializer for bloodline variants with parent lineage name"""
+    lineage_name = serializers.CharField(source='lineage.name', read_only=True)
+
+    class Meta:
+        model = models.Bloodline
+        fields = '__all__'
+
+
+class LineageSerializer(serializers.ModelSerializer):
+    """Serializer for lineages with nested bloodlines"""
+    bloodlines = BloodlineSerializer(many=True, read_only=True)
+    bloodline_count = serializers.SerializerMethodField()
+
+    def get_bloodline_count(self, obj):
+        return obj.bloodlines.count()
+
+    class Meta:
+        model = models.Lineage
+        fields = '__all__'

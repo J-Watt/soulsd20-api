@@ -54,6 +54,7 @@ class WeaponProfSubBonusesInline(admin.StackedInline):
 class WeaponProfFeatAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'weapon_tree', 'level']
     list_display_links = ['id', 'name']
+    search_fields = ['name', 'weapon_tree']
     inlines = [WeaponProfSubParentInline, WeaponProfSubExtendsInline,
                WeaponProfScalingInline, WeaponProfDiceInline, WeaponProfBonusesInline]
 
@@ -84,6 +85,7 @@ class DestinyBonusesInline(admin.StackedInline):
 
 
 class DestinyAdmin(admin.ModelAdmin):
+    search_fields = ['name', 'description']
     inlines = [DestinyScalingInline, DestinyDiceInline, DestinyBonusesInline]
 
 
@@ -110,6 +112,7 @@ class WeaponSkillBonusesInline(admin.StackedInline):
 class WeaponSkillAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'usage_type', 'cost_fp']
     list_display_links = ['id', 'name']
+    search_fields = ['name', 'usage_type']
     inlines = [WeaponSkillScalingInline,
                WeaponSkillDiceInline, WeaponSkillBonusesInline]
 
@@ -141,6 +144,7 @@ class SpellAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'category', 'ap', 'fp']
     list_display_links = ['id', 'name']
+    search_fields = ['name', 'description']
     inlines = [SpellReqInline, SpellDiceInline, SpellBonusesInline, SpellChargedInline]
 
 
@@ -240,12 +244,20 @@ class ArtifactBonusesInline(admin.StackedInline):
     extra = 0
 
 
+class ArtifactUpgradeInline(admin.TabularInline):
+    model = models.ArtifactUpgrade
+    extra = 0
+    fields = ['name', 'visible', 'requirements_visible', 'unlock_requirements', 'description']
+    show_change_link = True
+
+
 class ArtifactAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
+    search_fields = ['name', 'description']
     inlines = [ArtifactScalingInline,
-               ArtifactDiceInline, ArtifactBonusesInline]
+               ArtifactDiceInline, ArtifactBonusesInline, ArtifactUpgradeInline]
 
 
 """
@@ -310,6 +322,79 @@ class WeaponAdmin(admin.ModelAdmin):
                WeaponReqInline, WeaponDiceInline, WeaponBonusesInline]
 
 
+"""
+Character Creation
+"""
+
+
+class BloodlineInline(admin.TabularInline):
+    model = models.Bloodline
+    extra = 0
+    fields = ['name', 'description', 'has_unlock_requirement']
+
+
+class BackgroundAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'starting_hp', 'vitality', 'endurance', 'strength', 'dexterity', 'attunement', 'intelligence', 'faith']
+    list_display_links = ['id', 'name']
+    readonly_fields = ['created_at', 'updated_at']
+
+
+class LineageAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'subtitle']
+    list_display_links = ['id', 'name']
+    readonly_fields = ['created_at', 'updated_at']
+    inlines = [BloodlineInline]
+
+
+class BloodlineAdmin(admin.ModelAdmin):
+    list_display = ['id', 'lineage', 'name', 'has_unlock_requirement']
+    list_display_links = ['id', 'name']
+    list_filter = ['lineage', 'has_unlock_requirement']
+
+
+class ArtifactUpgradeAdmin(admin.ModelAdmin):
+    list_display = ['artifact', 'name', 'visible', 'requirements_visible', 'created_at']
+    list_filter = ['visible', 'requirements_visible', 'artifact']
+    search_fields = ['name', 'artifact__name', 'description']
+
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('artifact', 'name')
+        }),
+        ('Visibility Controls', {
+            'fields': ('visible', 'requirements_visible'),
+            'description': 'Control what the player can see. "Visible" shows the upgrade exists. "Requirements Visible" shows what they need to unlock it.'
+        }),
+        ('Requirements', {
+            'fields': ('unlock_requirements',)
+        }),
+        ('Effect Description', {
+            'fields': ('description',)
+        }),
+        ('Influences', {
+            'fields': (
+                'influenced_spells',
+                'influenced_weapon_prof_feats',
+                'influenced_destiny_feats',
+                'influenced_weapon_skills',
+            ),
+            'description': 'Select which game elements this upgrade affects. Use autocomplete to search.'
+        }),
+    )
+
+    filter_horizontal = [
+        'influenced_spells',
+        'influenced_weapon_prof_feats',
+        'influenced_destiny_feats',
+        'influenced_weapon_skills',
+    ]
+
+    autocomplete_fields = ['artifact']
+
+
+admin.site.register(models.Background, BackgroundAdmin)
+admin.site.register(models.Lineage, LineageAdmin)
+admin.site.register(models.Bloodline, BloodlineAdmin)
 admin.site.register(models.UsageFormula)
 admin.site.register(models.WeaponProfFeat, WeaponProfFeatAdmin)
 admin.site.register(models.WeaponProfSubFeat, WeaponProfSubAdmin)
@@ -320,6 +405,7 @@ admin.site.register(models.Spirit, SpiritAdmin)
 admin.site.register(models.Item, ItemAdmin)
 admin.site.register(models.Ring, RingAdmin)
 admin.site.register(models.Artifact, ArtifactAdmin)
+admin.site.register(models.ArtifactUpgrade, ArtifactUpgradeAdmin)
 admin.site.register(models.Armor, ArmorAdmin)
 admin.site.register(models.Weapon, WeaponAdmin)
 

@@ -1,0 +1,1377 @@
+[
+  {
+    "model": "compendium.lineage",
+    "pk": 1,
+    "fields": {
+      "name": "Ferno",
+      "subtitle": "Wayfarers of Death",
+      "description": "Ferno are touched by death itself, bearing dark blueish skin and eyes as black as the void. They have an innate connection to the undying curse.",
+      "appearance": "Dark blueish skin, black eyes, black or pale white hair",
+      "language": "Fernian",
+      "lifespan_min": 150,
+      "lifespan_max": 200,
+      "base_abilities": {
+        "vision": {
+          "type": "darkvision",
+          "range": 60
+        },
+        "skill_bonuses": {
+          "Sanity": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Auto-detect Undying",
+            "description": "Automatically detect undying stacks on visible creatures",
+            "type": "passive"
+          },
+          {
+            "name": "Lower Undying Check DC",
+            "description": "Lower undying check DC by 1",
+            "type": "passive",
+            "scaling": [
+              {"level": 11, "effect": "DC reduced by 1"}
+            ]
+          }
+        ],
+        "regeneration": {
+          "hp": {
+            "base": "1d2/hour",
+            "condition": "in full darkness",
+            "scaling": [
+              {"level": 17, "value": "1d4/hour"}
+            ]
+          }
+        }
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 1,
+    "fields": {
+      "lineage": 1,
+      "name": "Death Touched Ferno",
+      "description": "Can respawn in place on successful undying check via white ghostflame. Loses HP regeneration in darkness, instead takes HP damage in bright light.",
+      "replaces_abilities": ["regeneration"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Ghostflame Respawn",
+            "description": "Can respawn in place on successful undying check via white ghostflame",
+            "type": "passive"
+          }
+        ],
+        "regeneration": {
+          "hp": {
+            "base": "-1d2/hour",
+            "condition": "in bright light"
+          }
+        }
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 2,
+    "fields": {
+      "lineage": 1,
+      "name": "Skin Draped Ferno",
+      "description": "Can harvest skin from corpses for temporary bonuses. Half darkvision, Sanity becomes Precision, loses undying detection.",
+      "replaces_abilities": ["vision", "skill_bonuses", "special_abilities"],
+      "new_abilities": {
+        "vision": {
+          "type": "half_darkvision",
+          "range": 30
+        },
+        "skill_bonuses": {
+          "Precision": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Harvest Skin Mats",
+            "description": "Can harvest skin from corpses for bonuses (+1 FP, +2 HP, creature-specific bonus per mat). Max (1 + level/5) mats, expire after 1 day",
+            "type": "active",
+            "max_capacity_formula": "1 + level/5",
+            "duration": "1 day"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 2,
+    "fields": {
+      "name": "Grme",
+      "subtitle": "Masters of the Hollowed Earth",
+      "description": "Shorter and stockier than most lineages, the Grme are master craftsmen with innate physical resilience.",
+      "appearance": "Shorter, stockier, dwarf-like craftsmen",
+      "language": "Grme",
+      "lifespan_min": 125,
+      "lifespan_max": 170,
+      "base_abilities": {
+        "skill_bonuses": {
+          "Precision": 2
+        },
+        "special_abilities": [
+          {
+            "name": "Craft Speed",
+            "description": "Craft spells and equipment 2x faster",
+            "type": "passive"
+          }
+        ],
+        "resistances": [
+          {
+            "type": "physical",
+            "tiers": 1,
+            "scaling": [
+              {"level": 17, "tiers": 2}
+            ]
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 3,
+    "fields": {
+      "lineage": 2,
+      "name": "Geode Grme",
+      "description": "Hard crystalline skin. Replaces tier resistance with flat physical and magic reduction.",
+      "replaces_abilities": ["resistances"],
+      "new_abilities": {
+        "resistances": [
+          {
+            "type": "physical",
+            "flat": 1,
+            "scaling": [
+              {"level": 13, "flat": 2},
+              {"level": 24, "flat": 3}
+            ]
+          },
+          {
+            "type": "magic",
+            "flat": 1,
+            "scaling": [
+              {"level": 13, "flat": 2},
+              {"level": 24, "flat": 3}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 4,
+    "fields": {
+      "lineage": 2,
+      "name": "Diamond Grme",
+      "description": "Clear crystalline eyes. Replaces tier resistance with +1 tiers to ALL resistible damage types when at or below 50% HP.",
+      "replaces_abilities": ["resistances"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "All Resistance When Wounded",
+            "description": "+1 tiers to ALL resistible damage types when ≤50% HP",
+            "type": "passive",
+            "condition": "hp_below_half",
+            "scaling": [
+              {"level": 17, "effect": "+2 tiers to all resistances"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 3,
+    "fields": {
+      "name": "Darrow",
+      "subtitle": "Forsaken Dwellers",
+      "description": "Blind but possessing incredible hearing and smell, the Darrow navigate the world through senses beyond sight.",
+      "appearance": "Pale greenish skin, white pupil-less eyes, large tusk-like lower canines",
+      "language": "Darrish",
+      "lifespan_min": 150,
+      "lifespan_max": 200,
+      "base_abilities": {
+        "vision": {
+          "type": "blind_with_senses",
+          "range": 40,
+          "special": "Pinpoint creatures via hearing/smell. Auto-fail sight perception, advantage on other perception. Immune to impaired vision; deafened also causes impaired vision"
+        },
+        "skill_bonuses": {
+          "Sanity": 1
+        },
+        "special_abilities": [
+          {
+            "name": "Sanity Scaling",
+            "description": "+1 sanity every 5 levels. Can use sanity instead of athletics for resisting effects or perception checks",
+            "type": "passive",
+            "scaling": [
+              {"level": 5, "effect": "+1 sanity"},
+              {"level": 10, "effect": "+2 sanity"},
+              {"level": 15, "effect": "+3 sanity"},
+              {"level": 20, "effect": "+4 sanity"}
+            ]
+          }
+        ],
+        "resistances": [
+          {
+            "type": "dark",
+            "tiers": 1,
+            "scaling": [
+              {"level": 10, "tiers": 2},
+              {"level": 20, "tiers": 3}
+            ]
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 5,
+    "fields": {
+      "lineage": 3,
+      "name": "Abyssal Darrow",
+      "description": "Darker skin with black pockmarks. Loses all sanity bonuses but gains perfect spatial perception of last creature with skin contact (lasts 10 hours).",
+      "replaces_abilities": ["skill_bonuses", "special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Perfect Spatial Perception",
+            "description": "Gain perfect spatial perception of last creature with skin contact (10 hours)",
+            "type": "passive",
+            "duration": "10 hours"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 6,
+    "fields": {
+      "lineage": 3,
+      "name": "Bleeding Eye Darrow",
+      "description": "Loses sanity bonuses. Can conjure invisible yellow flames that daze enemies.",
+      "replaces_abilities": ["skill_bonuses", "special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Conjure Yellow Flames",
+            "description": "Conjure invisible yellow flames (25 ft range, 1 FP, once/short rest +1 at level 15). Creatures moving into flame make DC 12 sanity check or become dazed. Flame lasts 1 round, extendable for 1 FP/round",
+            "type": "active",
+            "cost": "1 FP",
+            "usage": "once/short_rest",
+            "range": "25 ft",
+            "scaling": [
+              {"level": 15, "effect": "2 uses per short rest"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 4,
+    "fields": {
+      "name": "Corvian",
+      "subtitle": "Rooken Ones",
+      "description": "Bird-like beings with feathers and wings, the Corvian are agile and naturally attuned to Focus Point regeneration.",
+      "appearance": "Bird-like humans with feathers, beaks, tails, wings, tall and lanky",
+      "language": "Corvian",
+      "lifespan_min": 60,
+      "lifespan_max": 80,
+      "base_abilities": {
+        "vision": {
+          "type": "half_darkvision",
+          "range": 30
+        },
+        "skill_bonuses": {
+          "Acrobatics": 2
+        },
+        "movement": {
+          "fall_damage_reduction": 0.5,
+          "jump_multiplier": 2.0
+        },
+        "regeneration": {
+          "fp": {
+            "base": "1 + level/10 per hour"
+          }
+        }
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 7,
+    "fields": {
+      "lineage": 4,
+      "name": "Night Corvian",
+      "description": "Dark feathers with bone covering eyes. Full darkvision but only get FP regen at night or in darkness.",
+      "replaces_abilities": ["vision", "regeneration"],
+      "new_abilities": {
+        "vision": {
+          "type": "darkvision",
+          "range": 60
+        },
+        "regeneration": {
+          "fp": {
+            "base": "1 + level/10 per hour",
+            "condition": "at night or in darkness"
+          }
+        }
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 8,
+    "fields": {
+      "lineage": 4,
+      "name": "Broad Wing Corvian",
+      "description": "Large wingspan allows gliding and negates fall damage, but lose half darkvision and jump bonuses.",
+      "replaces_abilities": ["vision", "movement"],
+      "new_abilities": {
+        "movement": {
+          "glide": "1 space down per 1 space horizontal",
+          "fall_damage_reduction": 1.0
+        }
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 5,
+    "fields": {
+      "name": "Locust-folk",
+      "subtitle": "Abyssal Scholars",
+      "description": "Frail bug-like beings with incredible knowledge-seeking abilities and unique survival traits.",
+      "appearance": "Short, frail, bug-like with insect features (wings, arms, legs, eyes, mandibles)",
+      "language": "Abyssal",
+      "lifespan_min": 100,
+      "lifespan_max": 130,
+      "base_abilities": {
+        "hp_modifier": {
+          "multiplier": 0.5,
+          "die_override": "1d4",
+          "special": "Half max HP from starting backgrounds, only 1d4 + Vit mod HP per even level"
+        },
+        "special_abilities": [
+          {
+            "name": "Cannot Be One-Shot",
+            "description": "Cannot be killed in one hit when at full HP (leaves at 1 HP instead)",
+            "type": "passive",
+            "condition": "at_full_hp"
+          },
+          {
+            "name": "Bonus Knowledge",
+            "description": "2 knowledge points per odd level (instead of 1)",
+            "type": "passive"
+          },
+          {
+            "name": "Locust Drain",
+            "description": "Heal for half damage dealt in one round",
+            "type": "active",
+            "usage": "once/long_rest",
+            "scaling": [
+              {"level": 4, "uses": 2},
+              {"level": 9, "uses": 3},
+              {"level": 16, "uses": 4},
+              {"level": 25, "uses": 5}
+            ]
+          }
+        ],
+        "thresholds": {
+          "curse": 15,
+          "scaling": [
+            {"level": 17, "curse": 20}
+          ]
+        }
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 9,
+    "fields": {
+      "lineage": 5,
+      "name": "Sand Wretch Locust Folk",
+      "description": "Yellowish coarse carapace. Loses the 1 HP survival ability.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Bonus Knowledge",
+            "description": "2 knowledge points per odd level (instead of 1)",
+            "type": "passive"
+          },
+          {
+            "name": "Locust Drain",
+            "description": "Heal for half damage dealt in one round",
+            "type": "active",
+            "usage": "once/long_rest",
+            "scaling": [
+              {"level": 4, "uses": 2},
+              {"level": 9, "uses": 3},
+              {"level": 16, "uses": 4},
+              {"level": 25, "uses": 5}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 10,
+    "fields": {
+      "lineage": 5,
+      "name": "Swarm Sentinel Locust Folk",
+      "description": "Hard brownish-yellow spiked carapace. +3 to lowest non-knowledge skill, add total knowledge to max HP. Locust Spines reflect damage.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Skill and HP Bonus",
+            "description": "+3 to lowest non-knowledge skill, add total knowledge to max HP",
+            "type": "passive"
+          },
+          {
+            "name": "Locust Spines",
+            "description": "Reflect HP lost as true damage to melee attacker",
+            "type": "active",
+            "usage": "once/long_rest",
+            "scaling": [
+              {"level": 18, "uses": 2},
+              {"level": 28, "uses": 3},
+              {"level": 35, "uses": 4}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": true,
+      "unlock_requirement": "Sand Wretch Locust Folk level 15+ with Wretch Queen ritual",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 11,
+    "fields": {
+      "lineage": 5,
+      "name": "Deep Earth Locust Folk",
+      "description": "Lose locust drain and bonus knowledge. Gain half darkvision and dark resistance that can heal when damage is fully negated.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "vision": {
+          "type": "half_darkvision",
+          "range": 30
+        },
+        "resistances": [
+          {
+            "type": "dark",
+            "flat": 2,
+            "scaling": [
+              {"level": 7, "flat": 3},
+              {"level": 13, "flat": 4},
+              {"level": 24, "flat": 5}
+            ]
+          }
+        ],
+        "special_abilities": [
+          {
+            "name": "Dark Damage Healing",
+            "description": "When dark damage fully negated, heal that amount instead",
+            "type": "passive"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 6,
+    "fields": {
+      "name": "Dragonkind",
+      "subtitle": "Serpent Touched",
+      "description": "Scales and lizard-like features mark these descendants of dragons. Their appearance reflects their chosen elemental affinity.",
+      "appearance": "Scales, lizard faces, tails; appearance reflects dragon type (fire/frost/poison/magic/dark/lightning)",
+      "language": "Draconic",
+      "lifespan_min": 60,
+      "lifespan_max": 100,
+      "base_abilities": {
+        "special_abilities": [
+          {
+            "name": "Choose Elemental Affinity",
+            "description": "Choose ONE: 2 tiers fire resistance OR 2 tiers magic resistance OR 15 base poison/toxic threshold OR 15 base frost threshold OR 2 tiers dark/lightning resistance. Bonuses increase: +1 tier (or +5 threshold) at levels 10 and 20",
+            "type": "passive",
+            "choice_required": true
+          },
+          {
+            "name": "FP Regen on Element Hit",
+            "description": "Regen 1 FP when struck by chosen element/status in combat",
+            "type": "passive"
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 12,
+    "fields": {
+      "lineage": 6,
+      "name": "Serpentine Dragonkind",
+      "description": "Snake-like appearance. Lose innate bonuses. Can grow/shed scales for physical resistance or movement. Enhanced abilities when submerged/drenched.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Scale Shedding",
+            "description": "Grow/shed scales for +1 tier physical resistance OR 1 AP free movement/turn. Both effects active when submerged/drenched (+2 tier physical, 2 AP movement at level 17)",
+            "type": "active",
+            "scaling": [
+              {"level": 17, "effect": "When submerged: +2 tier physical, 2 AP movement"}
+            ]
+          },
+          {
+            "name": "Aquatic Movement",
+            "description": "Move through water without penalty, hold breath 2x longer",
+            "type": "passive"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 13,
+    "fields": {
+      "lineage": 6,
+      "name": "Ancient Scale Dragonkind",
+      "description": "Petrified scales and 4 elemental wings. Lose elemental resistances but gain knowledge, FP regeneration in combat, and Wing Shockwave ability.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "skill_bonuses": {
+          "World History": 3,
+          "Monsters": 3
+        },
+        "regeneration": {
+          "fp": {
+            "base": "1 FP per turn in combat"
+          }
+        },
+        "special_abilities": [
+          {
+            "name": "Four Hard Wings",
+            "description": "4 hard wings (fire/frost/magic/dark/poison/lightning). Change wing type for 3 AP, once/short rest or at rest end",
+            "type": "active",
+            "cost": "3 AP",
+            "usage": "once/short_rest"
+          },
+          {
+            "name": "Wing Shockwave",
+            "description": "Hits all adjacent spaces for 1d6 damage or 1d4 status buildup",
+            "type": "active",
+            "usage": "once/short_rest",
+            "scaling": [
+              {"level": 13, "effect": "2 uses, 2d6 damage or 2d4 buildup"},
+              {"level": 21, "effect": "3 uses, 3d6 damage or 3d4 buildup"},
+              {"level": 30, "effect": "4 uses, 4d6 damage or 4d4 buildup"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": true,
+      "unlock_requirement": "Regular Dragonkind level 10+ with communion of 3+ dragon types",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 7,
+    "fields": {
+      "name": "Demonkind",
+      "subtitle": "Progeny of Chaos",
+      "description": "Marked by horrible malformities from chaos, these beings possess fire-based abilities and fierce retaliation.",
+      "appearance": "Horrible malformities (spider appendages, lava holes, ashen skin with cinders)",
+      "language": "Demonic",
+      "lifespan_min": 50,
+      "lifespan_max": 70,
+      "base_abilities": {
+        "skill_bonuses": {
+          "Fire Keeping": 2
+        },
+        "resistances": [
+          {
+            "type": "fire",
+            "tiers": 1,
+            "scaling": [
+              {"level": 17, "tiers": 2}
+            ]
+          }
+        ],
+        "special_abilities": [
+          {
+            "name": "Melee Retaliation",
+            "description": "1d6 fire damage to melee attacker",
+            "type": "passive",
+            "usage": "once/short_rest",
+            "scaling": [
+              {"level": 10, "effect": "2 uses, 2d6 damage"},
+              {"level": 20, "effect": "3 uses, 3d6 damage"},
+              {"level": 30, "effect": "4 uses, 4d6 damage"}
+            ]
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 14,
+    "fields": {
+      "lineage": 7,
+      "name": "Fire Beacon Demonkind",
+      "description": "Extreme fire affliction. Emit bright and dim light. Retaliation becomes a blinding effect instead of damage.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Emit Light",
+            "description": "Emit 10 ft bright light + 10 ft dim light",
+            "type": "passive"
+          },
+          {
+            "name": "Blinding Retaliation",
+            "description": "Retaliation becomes DC (10 + Att mod) perception or inflict impaired vision for 1 round",
+            "type": "passive",
+            "usage": "once/short_rest",
+            "scaling": [
+              {"level": 10, "effect": "DC 12 + Att mod"},
+              {"level": 20, "effect": "DC 14 + Att mod"},
+              {"level": 30, "effect": "DC 16 + Att mod"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 15,
+    "fields": {
+      "lineage": 7,
+      "name": "Black Horned Demonkind",
+      "description": "Lesser fire, greater bone/horn affliction. Retaliation deals physical damage and armor durability loss.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Durability Retaliation",
+            "description": "Retaliation is physical damage + 1d2 armor durability loss",
+            "type": "passive",
+            "usage": "once/short_rest",
+            "scaling": [
+              {"level": 15, "effect": "1d4 armor durability loss"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 8,
+    "fields": {
+      "name": "Unchanged Human",
+      "subtitle": "Primordial Trueborn",
+      "description": "The most versatile lineage, unchanged humans have no fixed bonuses but can adapt to any role through flexible stat and skill choices.",
+      "appearance": "Closest to real-life humans",
+      "language": "Common",
+      "lifespan_min": 70,
+      "lifespan_max": 90,
+      "base_abilities": {
+        "special_abilities": [
+          {
+            "name": "Flexible Skills",
+            "description": "+2 to any skill, -1 to any skill (player choice)",
+            "type": "passive",
+            "choice_required": true
+          },
+          {
+            "name": "Flexible Stats",
+            "description": "+1 to any stat at level 1 (again at level 17)",
+            "type": "passive",
+            "choice_required": true,
+            "scaling": [
+              {"level": 17, "effect": "+1 to any stat (can be different from level 1 choice)"}
+            ]
+          },
+          {
+            "name": "Additional Skill Points",
+            "description": "+1 to any skill at levels 5, 10, 20",
+            "type": "passive",
+            "choice_required": true,
+            "scaling": [
+              {"level": 5, "effect": "+1 to any skill"},
+              {"level": 10, "effect": "+1 to any skill"},
+              {"level": 20, "effect": "+1 to any skill"}
+            ]
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 9,
+    "fields": {
+      "name": "Vileblood",
+      "subtitle": "Blood of the Void",
+      "description": "Eerily pale beings with supernatural longevity and blood manipulation abilities.",
+      "appearance": "Eerily pale, sharp gaunt features, long clawed fingers, pointed ears, reddish eyes",
+      "language": "Lethrellian",
+      "lifespan_min": 800,
+      "lifespan_max": 1000,
+      "base_abilities": {
+        "skill_bonuses": {
+          "Sanity": -2
+        },
+        "thresholds": {
+          "bleed": 15,
+          "scaling": [
+            {"level": 17, "bleed": 20}
+          ]
+        },
+        "special_abilities": [
+          {
+            "name": "Blood Mist Creation",
+            "description": "Leave blood mist when taking physical damage or bleed buildup. Max (1 + level/10) mists active. Mists last 2 minutes",
+            "type": "passive",
+            "max_capacity_formula": "1 + level/10",
+            "duration": "2 minutes"
+          },
+          {
+            "name": "Blood Mist Teleport",
+            "description": "Teleport to blood mist for 2 AP (once/turn)",
+            "type": "active",
+            "cost": "2 AP",
+            "usage": "once/turn"
+          },
+          {
+            "name": "Absorb Blood Mist",
+            "description": "Absorb blood mist for 2 FP to heal 1d4 HP",
+            "type": "active",
+            "cost": "2 FP",
+            "scaling": [
+              {"level": 9, "effect": "1d6 HP"},
+              {"level": 17, "effect": "1d8 HP"},
+              {"level": 27, "effect": "1d10 HP"}
+            ]
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 16,
+    "fields": {
+      "lineage": 9,
+      "name": "Outer Vileblood",
+      "description": "Dark nebulous spirals in eyes/spine/arms. Bleed threshold becomes frost. Dark damage/frost creates nebulous voids instead of blood mists.",
+      "replaces_abilities": ["thresholds", "special_abilities"],
+      "new_abilities": {
+        "thresholds": {
+          "frost": 15,
+          "scaling": [
+            {"level": 17, "frost": 20}
+          ]
+        },
+        "special_abilities": [
+          {
+            "name": "Nebulous Void Creation",
+            "description": "Dark damage or frost buildup creates nebulous voids. Max (1 + level/10) voids active. Voids last 2 minutes",
+            "type": "passive",
+            "max_capacity_formula": "1 + level/10",
+            "duration": "2 minutes"
+          },
+          {
+            "name": "Absorb Void for FP",
+            "description": "Absorb void for 1d4 HP to regen 1d2 FP",
+            "type": "active",
+            "cost": "1d4 HP",
+            "scaling": [
+              {"level": 10, "effect": "1d4 FP"},
+              {"level": 20, "effect": "1d6 FP"}
+            ]
+          },
+          {
+            "name": "Void Pull",
+            "description": "Void pulls creature 1 space if fail DC (10 + Att) athletics, 2 AP, once/round",
+            "type": "active",
+            "cost": "2 AP",
+            "usage": "once/round"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 17,
+    "fields": {
+      "lineage": 9,
+      "name": "Timeworn Vileblood",
+      "description": "Lose blood mist abilities (keep bleed threshold and sanity penalty). Half speed movement. Gain telepathy and short-range teleport.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "movement": {
+          "speed_multiplier": 0.5,
+          "special": "2 AP per 5 ft movement (half speed), cannot speak normally"
+        },
+        "special_abilities": [
+          {
+            "name": "Telepathy",
+            "description": "Telepathy (20 ft range)",
+            "type": "passive",
+            "range": "20 ft"
+          },
+          {
+            "name": "Teleport",
+            "description": "Teleport 2 spaces for 1 AP, Att stat times per short rest",
+            "type": "active",
+            "cost": "1 AP",
+            "usage": "Attunement times per short rest"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 10,
+    "fields": {
+      "name": "Elden",
+      "subtitle": "Children of the Deep",
+      "description": "Tall, thin beings from the deep with natural weapon proficiency and connection to abyssal forces.",
+      "appearance": "Tall, thin, pointed ears, pupil-less blue eyes, very dark skin, white/pale blue hair; tattoos/webbing/fins/kelp hair/barnacles",
+      "language": "Deep Speech",
+      "lifespan_min": 500,
+      "lifespan_max": 600,
+      "base_abilities": {
+        "skill_bonuses": {
+          "Athletics": -2,
+          "Cosmic": 3
+        },
+        "stat_bonuses": {
+          "vitality": -1
+        },
+        "hp_modifier": {
+          "flat": -2,
+          "special": "-2 starting HP for all backgrounds"
+        },
+        "special_abilities": [
+          {
+            "name": "Weapon Proficiency Scaling",
+            "description": "+1 weapon proficiency at levels 1, 9, 19, 28, 35",
+            "type": "passive",
+            "scaling": [
+              {"level": 1, "effect": "+1 weapon proficiency"},
+              {"level": 9, "effect": "+1 weapon proficiency"},
+              {"level": 19, "effect": "+1 weapon proficiency"},
+              {"level": 28, "effect": "+1 weapon proficiency"},
+              {"level": 35, "effect": "+1 weapon proficiency"}
+            ]
+          },
+          {
+            "name": "Auto-detect Abyssal",
+            "description": "Auto-detect abyssal/deep sea influence (no check needed)",
+            "type": "passive"
+          },
+          {
+            "name": "Free Destined Trait: Bloodthirsty",
+            "description": "Automatically gain the Bloodthirsty destined trait",
+            "type": "passive"
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 18,
+    "fields": {
+      "lineage": 10,
+      "name": "Oceanic Elden",
+      "description": "Twisted oceanic features. Lose abyssal detection and Bloodthirsty trait. Gain aquatic abilities and weapon feat when submerged.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Weapon Proficiency Scaling",
+            "description": "+1 weapon proficiency at levels 1, 9, 19, 28, 35",
+            "type": "passive",
+            "scaling": [
+              {"level": 1, "effect": "+1 weapon proficiency"},
+              {"level": 9, "effect": "+1 weapon proficiency"},
+              {"level": 19, "effect": "+1 weapon proficiency"},
+              {"level": 28, "effect": "+1 weapon proficiency"},
+              {"level": 35, "effect": "+1 weapon proficiency"}
+            ]
+          },
+          {
+            "name": "Aquatic Adaptation",
+            "description": "Breathe in Deep Sea realm, hold breath 2x in water, move through water without penalty",
+            "type": "passive"
+          },
+          {
+            "name": "Submerged Weapon Feat",
+            "description": "Choose one level 5 weapon feat usable when submerged/drenched",
+            "type": "passive",
+            "choice_required": true,
+            "condition": "submerged_or_drenched"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 19,
+    "fields": {
+      "lineage": 10,
+      "name": "Spectral Elden",
+      "description": "Faded ghostlike features with ghost trails. Lose deep/abyssal detection and bonus proficiency. Gain bonus attunement slots and Fade ability.",
+      "replaces_abilities": ["special_abilities"],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Bonus Attunement Slots",
+            "description": "Bonus attunement slot at levels 3, 7, 13, 19, 27",
+            "type": "passive",
+            "scaling": [
+              {"level": 3, "effect": "+1 attunement slot"},
+              {"level": 7, "effect": "+1 attunement slot"},
+              {"level": 13, "effect": "+1 attunement slot"},
+              {"level": 19, "effect": "+1 attunement slot"},
+              {"level": 27, "effect": "+1 attunement slot"}
+            ]
+          },
+          {
+            "name": "Fade",
+            "description": "Become intangible/transparent for 2 FP until next turn (5 sec outside combat): immune to grapple/physical damage, pass through inorganic material (≤3 ft), +3 stealth",
+            "type": "active",
+            "cost": "2 FP",
+            "usage": "2 uses per long rest",
+            "scaling": [
+              {"level": 17, "effect": "3 uses per long rest"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.lineage",
+    "pk": 11,
+    "fields": {
+      "name": "Mercurous Vessel",
+      "subtitle": "Silveren Reborn",
+      "description": "Chrome silver beings with a unique life cycle system. Inherits traits from their prior lineage and can be reborn.",
+      "appearance": "Chrome silver substance in humanoid shape; can mimic human appearance; silver pupil-less eyes, silver hair, silver blood",
+      "language": "Language of prior lineage",
+      "lifespan_min": 1,
+      "lifespan_max": 1,
+      "base_abilities": {
+        "special_abilities": [
+          {
+            "name": "Life Stage System",
+            "description": "Abilities change based on life stage: Early (0-3 months): +2 random knowledge, quarter darkvision (15 ft). Middle (4-8 months): Athletics +1, Acrobatics +1, half darkvision (30 ft). Late (9-12 months): Sanity +1, free dodge once/long rest, full darkvision (60 ft)",
+            "type": "passive",
+            "life_stages": {
+              "early": "0-3 months: +2 random knowledge, quarter darkvision (15 ft)",
+              "middle": "4-8 months: Athletics +1, Acrobatics +1, half darkvision (30 ft)",
+              "late": "9-12 months: Sanity +1, free dodge once/long rest, full darkvision (60 ft)"
+            }
+          },
+          {
+            "name": "Armor Durability Vulnerability",
+            "description": "Take 10 true damage per armor durability damage point (even unarmored)",
+            "type": "passive"
+          },
+          {
+            "name": "Exhaustion Immunity",
+            "description": "Immune to exhaustion from sleep/food",
+            "type": "passive"
+          },
+          {
+            "name": "Rebirth Mechanic",
+            "description": "Can reduce undying stacks by 1 and keep skill bonuses from previous life cycles",
+            "type": "passive"
+          }
+        ]
+      },
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 20,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Ferno)",
+      "description": "Prior lineage: Ferno. Inherits Sanity +1 and auto-detect undying stacks.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "skill_bonuses": {
+          "Sanity": 1
+        },
+        "special_abilities": [
+          {
+            "name": "Auto-detect Undying",
+            "description": "Automatically detect undying stacks on visible creatures",
+            "type": "passive"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 21,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Grme)",
+      "description": "Prior lineage: Grme. Inherits Precision +1 and craft 2x faster.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "skill_bonuses": {
+          "Precision": 1
+        },
+        "special_abilities": [
+          {
+            "name": "Craft Speed",
+            "description": "Craft spells and equipment 2x faster",
+            "type": "passive"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 22,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Darrow)",
+      "description": "Prior lineage: Darrow. Can pinpoint creatures 15 ft via hearing/smell. Darkvision capped at 15 ft.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "vision": {
+          "type": "blind_with_senses",
+          "range": 15,
+          "special": "Darkvision capped at 15 ft"
+        }
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 23,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Corvian)",
+      "description": "Prior lineage: Corvian. Inherits Acrobatics +1 and 1 FP regen/hour.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "skill_bonuses": {
+          "Acrobatics": 1
+        },
+        "regeneration": {
+          "fp": {
+            "base": "1 FP per hour"
+          }
+        }
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 24,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Locust-Folk)",
+      "description": "Prior lineage: Locust-Folk. Knowledge not random, +2 random knowledge in mid/late life. 1d4 HP die.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "hp_modifier": {
+          "die_override": "1d4"
+        },
+        "special_abilities": [
+          {
+            "name": "Knowledge Bonus",
+            "description": "Knowledge not random, +2 random knowledge in mid/late life",
+            "type": "passive"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 25,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Dragonkind)",
+      "description": "Prior lineage: Dragonkind. 1 tier magic OR fire resistance, OR +3 poison OR frost threshold.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Choose Elemental Affinity",
+            "description": "Choose ONE: 1 tier fire resistance OR 1 tier magic resistance OR +3 poison threshold OR +3 frost threshold",
+            "type": "passive",
+            "choice_required": true
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 26,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Demonkind)",
+      "description": "Prior lineage: Demonkind. Fire Keeping +1, Demonkind retaliation once/short rest (1d6 magic damage).",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "skill_bonuses": {
+          "Fire Keeping": 1
+        },
+        "special_abilities": [
+          {
+            "name": "Melee Retaliation",
+            "description": "1d6 magic damage to melee attacker",
+            "type": "passive",
+            "usage": "once/short_rest"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 27,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Unchanged Human)",
+      "description": "Prior lineage: Unchanged Human. +1 to a stat.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "special_abilities": [
+          {
+            "name": "Flexible Stat",
+            "description": "+1 to any stat (player choice)",
+            "type": "passive",
+            "choice_required": true
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 28,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Vileblood)",
+      "description": "Prior lineage: Vileblood. Sanity -1, 13 base bleed threshold, can extend life stages 2x duration.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "skill_bonuses": {
+          "Sanity": -1
+        },
+        "thresholds": {
+          "bleed": 13
+        },
+        "special_abilities": [
+          {
+            "name": "Extend Life Stages",
+            "description": "Can extend life stages 2x duration",
+            "type": "passive"
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  },
+  {
+    "model": "compendium.bloodline",
+    "pk": 29,
+    "fields": {
+      "lineage": 11,
+      "name": "Mercurous Vessel (Elden)",
+      "description": "Prior lineage: Elden. Athletics -1, -1 starting HP, +1 weapon proficiency at levels 5, 13, 23.",
+      "replaces_abilities": [],
+      "new_abilities": {
+        "skill_bonuses": {
+          "Athletics": -1
+        },
+        "hp_modifier": {
+          "flat": -1
+        },
+        "special_abilities": [
+          {
+            "name": "Weapon Proficiency Scaling",
+            "description": "+1 weapon proficiency at levels 5, 13, 23",
+            "type": "passive",
+            "scaling": [
+              {"level": 5, "effect": "+1 weapon proficiency"},
+              {"level": 13, "effect": "+1 weapon proficiency"},
+              {"level": 23, "effect": "+1 weapon proficiency"}
+            ]
+          }
+        ]
+      },
+      "has_unlock_requirement": false,
+      "unlock_requirement": "",
+      "created_at": "2025-11-26T00:00:00Z",
+      "updated_at": "2025-11-26T00:00:00Z"
+    }
+  }
+]

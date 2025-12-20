@@ -4,7 +4,8 @@ from rest_framework import permissions
 from . import serializers
 
 from compendium.models import (UsageFormula, WeaponProfFeat, DestinyFeat, Item, Ring,
-                               Artifact, Armor, Weapon, WeaponSkill, Spell, Spirit)
+                               Artifact, Armor, Weapon, WeaponSkill, Spell, Spirit,
+                               Background, Lineage, Bloodline)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -109,3 +110,30 @@ class WeaponViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Weapon.objects.all()
     serializer_class = serializers.WeaponSerializer
+
+
+class BackgroundViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Read-only endpoint for character starting backgrounds.
+    Returns all 15 backgrounds with HP and base stats.
+    """
+    queryset = Background.objects.all()
+    serializer_class = serializers.BackgroundSerializer
+
+
+class LineageViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Read-only endpoint for character lineages (races).
+    Returns all 11 lineages with nested bloodline variants.
+    """
+    queryset = Lineage.objects.prefetch_related('bloodlines').all()
+    serializer_class = serializers.LineageSerializer
+
+
+class BloodlineViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    Read-only endpoint for bloodline variants.
+    Returns all 29 bloodlines across all lineages.
+    """
+    queryset = Bloodline.objects.select_related('lineage').all()
+    serializer_class = serializers.BloodlineSerializer
