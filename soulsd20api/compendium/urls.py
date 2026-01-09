@@ -5,7 +5,12 @@ from . import views
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
+router.register(r'user', views.UserViewSet)
 router.register(r'usageFormula', views.UsageFormulaViewSet)
+router.register(r'lineage', views.LineageViewSet)
+router.register(r'background', views.BackgroundViewSet)
+router.register(r'campaign', views.CampaignViewSet)
+router.register(r'character', views.CharacterViewSet)
 router.register(r'weaponProfFeat', views.WeaponProfFeatViewSet)
 router.register(r'destinyFeat', views.DestinyFeatViewSet)
 router.register(r'weaponSkill', views.WeaponSkillViewSet)

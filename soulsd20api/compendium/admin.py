@@ -310,7 +310,64 @@ class WeaponAdmin(admin.ModelAdmin):
                WeaponReqInline, WeaponDiceInline, WeaponBonusesInline]
 
 
+
+"""
+Lineages
+"""
+
+class LineageBonusesInline(admin.StackedInline):
+    model = models.LineageBonuses
+    extra = 0
+
+
+class LineageAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+    inlines = [LineageBonusesInline]
+
+
+"""
+Backgrounds
+"""
+
+class BackgroundAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+
+
+"""
+Campaigns
+"""
+
+class CampaignNotesInline(admin.StackedInline):
+    model = models.CampaignNotes
+    extra = 0
+
+class CampaignAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'next_session', 'created_at', 'created_by', 'updated_at']
+    list_display_links = ['id', 'title']
+    inlines = [CampaignNotesInline]
+
+
+"""
+Characters
+"""
+class CharacterEquipmentInline(admin.StackedInline):
+    model = models.CharacterEquipment
+
+class CharacterAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'user', 'level', 'lineage', 'background', 'created_at', 'updated_at']
+    list_display_links = ['id', 'name']
+    inlines = [CharacterEquipmentInline]
+
+
+
+
 admin.site.register(models.UsageFormula)
+admin.site.register(models.Lineage, LineageAdmin)
+admin.site.register(models.Background, BackgroundAdmin)
+admin.site.register(models.Campaign, CampaignAdmin)
+admin.site.register(models.Character, CharacterAdmin)
 admin.site.register(models.WeaponProfFeat, WeaponProfFeatAdmin)
 admin.site.register(models.WeaponProfSubFeat, WeaponProfSubAdmin)
 admin.site.register(models.DestinyFeat, DestinyAdmin)

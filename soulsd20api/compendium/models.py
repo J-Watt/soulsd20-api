@@ -7,6 +7,10 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
+"""
+ORM Field Enums
+"""
+
 class ScalingValue(models.TextChoices):
     SS = "SS", _("SS")
     S = "S", _("S")
@@ -95,6 +99,11 @@ class WeaponProfTree(models.TextChoices):
     HEX = "HEX", _("Hex")
     SPIRIT_SUMMONING = "SPIRIT_SUMMONING", _("Spirit Summoning")
     DUAL_WIELDING = "DUAL_WIELDING", _("Dual Wielding")
+
+
+"""
+Compendium Book Data
+"""
 
 
 class UsageFormula(models.Model):
@@ -603,6 +612,145 @@ class SpiritRequirements(models.Model):
     def __str__(self) -> str:
         return f"{self.spirit.name} Requirements"
 
+
+"""
+Campaign & Character Data
+"""
+
+class Lineage(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="lineage_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="lineage_updated_by")
+    name = models.CharField(max_length=60)
+    description = models.TextField(max_length=4096)
+
+    def __str__(self) -> str:
+        return self.name
+
+class Background(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="background_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="background_updated_by")
+    name = models.CharField(max_length=60)
+    hp = models.IntegerField(default=0)
+    vitality = models.IntegerField(default=0)
+    endurance = models.IntegerField(default=0)
+    strength = models.IntegerField(default=0)
+    dexterity = models.IntegerField(default=0)
+    attunement = models.IntegerField(default=0)
+    intelligence = models.IntegerField(default=0)
+    faith = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return self.name
+
+
+class Campaign(models.Model):
+    id = models.CharField(primary_key=True, max_length=60)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="campaign_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="campaign_updated_by")
+    users = models.ManyToManyField(User, related_name="campaigns")
+    title = models.CharField(max_length=60)
+    description = models.TextField(max_length=4096)
+    next_session = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self) -> str:
+        return self.title
+
+class CampaignNotes(models.Model):
+    campaign = models.ForeignKey(
+        Campaign, on_delete=models.CASCADE, related_name="notes")
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="campaign_notes_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="campaign_notes_updated_by")
+    session_title = models.CharField(max_length=60)
+    date = models.DateField(blank=True, null=True)
+    description = models.TextField(max_length=4096)
+
+    def __str__(self) -> str:
+        return self.session_title
+
+
+class Character(models.Model):
+    def json_list_default():
+        return []
+    
+    def json_dict_default():
+        return {}
+
+    user = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="+", related_query_name="character")
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="character_created_by")
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User, models.DO_NOTHING, blank=True, null=True, related_name="character_updated_by")
+    name = models.CharField(max_length=60)
+    level = models.IntegerField(default=1)
+    souls = models.IntegerField(default=0)
+    undying = models.IntegerField(default=0)
+    lineage = models.ForeignKey(Lineage, on_delete=models.SET_NULL, blank=True, null=True, related_name="character_lineage")
+    background = models.ForeignKey(Background, on_delete=models.SET_NULL, blank=True, null=True, related_name="character_background")
+    gender = models.CharField(max_length=60)
+    biography = models.TextField(max_length=4096)
+    avatar_url = models.URLField(max_length=200, blank=True, default="")
+    token_url = models.URLField(max_length=200, blank=True, default="")
+    weapon_profs = models.JSONField(default=json_list_default, blank=True)
+    destiny_feat_slots = models.IntegerField(default=2)
+    destiny_feats = models.JSONField(default=json_list_default, blank=True)
+    learned_spells = models.JSONField(default=json_list_default, blank=True)
+    learned_skills = models.JSONField(default=json_list_default, blank=True)
+    learned_spirits = models.JSONField(default=json_list_default, blank=True)
+    attuned_spells = models.JSONField(default=json_dict_default, blank=True)
+    attuned_skills = models.JSONField(default=json_dict_default, blank=True)
+    attuned_spirits = models.JSONField(default=json_dict_default, blank=True)
+    currencies = models.JSONField(default=json_dict_default, blank=True)
+    items = models.JSONField(default=json_dict_default, blank=True)
+    rings = models.JSONField(default=json_dict_default, blank=True)
+    artifacts = models.JSONField(default=json_dict_default, blank=True)
+    armors = models.JSONField(default=json_dict_default, blank=True)
+    weapons = models.JSONField(default=json_dict_default, blank=True)
+
+    def __str__(self) -> str:
+        return self.name
+
+class CharacterEquipment(models.Model):
+    character = models.OneToOneField(Character, on_delete=models.CASCADE, related_name="equipment")
+    is_two_handing = models.BooleanField(default=False)
+    main_hand = models.ForeignKey(Weapon, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    off_hand = models.ForeignKey(Weapon, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    armor = models.ForeignKey(Armor, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    artifact = models.ForeignKey(Artifact, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    ring_one = models.ForeignKey(Ring, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    ring_two = models.ForeignKey(Ring, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    ring_three = models.ForeignKey(Ring, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    ring_four = models.ForeignKey(Ring, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+    ring_five = models.ForeignKey(Ring, on_delete=models.SET_NULL, blank=True, null=True, related_name="+")
+
+    def __str__(self) -> str:
+        return f"{self.character.name}'s Equipment"
+
+
+
+"""
+Bonuses
+"""
+
+
 class Bonuses(models.Model):
     class Meta:
         abstract = True
@@ -671,9 +819,17 @@ class Bonuses(models.Model):
         VIT_STE = "VIT_STE", _("Vit Mod to Stealth")
         VIT_PRE = "VIT_PRE", _("Vit Mod to Precision")
         VIT_DIP = "VIT_DIP", _("Vit Mod to Diplomacy")
+        DARKVISION = "DARKVISION", _("Darkvision")
     type = models.CharField(max_length=20, choices=BonusType.choices)
     value = models.IntegerField(default=0)
 
+class LineageBonuses(Bonuses):
+    lineage = models.ForeignKey(
+        Lineage, on_delete=models.CASCADE, related_name="bonuses")
+    level = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return f"{self.lineage.name} Bonuses"
 
 class WeaponProfBonuses(Bonuses):
     weapon_prof = models.ForeignKey(
@@ -756,31 +912,3 @@ class WeaponBonuses(Bonuses):
 
     def __str__(self) -> str:
         return f"{self.weapon.name} Bonuses"
-
-
-"""
-class Character(models.Model):
-    created_at = models.DateTimeField("date created")
-    name = models.CharField(max_length=200)
-    gender = models.CharField(max_length=200)
-    race = models.CharField(max_length=200)
-    background = models.CharField(max_length=200)
-    undying = models.IntegerField(default=0)
-    souls = models.IntegerField(default=0)
-    level = models.IntegerField(default=0)
-    
-    UserInputValues = models.CharField(max_length=200)
-
-    Inventory = models.CharField(max_length=200)
-    Equipment = models.CharField(max_length=200)
-    LearnedAttunedActions = models.CharField(max_length=200)
-    AttunedActions = models.CharField(max_length=200)
-    DestinyFeatSlots = models.IntegerField(default=0)
-    DestinyFeats = models.CharField(max_length=200)
-    CharacterStats = models.CharField(max_length=200)
-    AvatarURL = models.CharField(max_length=200)
-
-    def __str__(self) -> str:
-        return self.name
-
-"""

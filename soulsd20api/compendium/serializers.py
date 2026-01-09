@@ -6,7 +6,7 @@ from . import models
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = ['id', 'username', 'email']
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
@@ -197,7 +197,9 @@ class SpellChargedSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.SpellCharged
-        fields = ['cast_time', 'ap', 'fp', 'range', 'duration', 'description', 'dice', 'bonuses']
+        fields = ['cast_time', 'ap', 'fp', 'range',
+                  'duration', 'description', 'dice', 'bonuses']
+
 
 class SpellSerializer(serializers.HyperlinkedModelSerializer):
     requirements = SpellReqSerializer()
@@ -406,6 +408,7 @@ class WeaponReqSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class WeaponSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
     usage_formula = UsageFormulaSerializer()
     bonuses = WeaponBonusesSerializer(many=True)
     scaling = WeaponScalingSerializer(many=True)
@@ -415,5 +418,107 @@ class WeaponSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Weapon
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type', 'ap', 'skill_primary',
-                  'skill_secondary', 'usage_formula', 'description', 'durability', 'infusion', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
+        fields = '__all__'
+        # fields = ['url', 'id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type', 'ap', 'skill_primary',
+                #   'skill_secondary', 'usage_formula', 'description', 'durability', 'infusion', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
+
+
+"""
+Lineage
+"""
+
+
+class LineageBonusesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.LineageBonuses
+        fields = ['type', 'value', 'level']
+
+
+class LineageSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
+    bonuses = LineageBonusesSerializer(many=True)
+
+    class Meta:
+        model = models.Lineage
+        exclude = ['created_at', 'created_by', 'updated_at', 'updated_by']
+
+
+"""
+Background
+"""
+
+
+class BackgroundSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Background
+        fields = ['id', 'name', 'hp', 'vitality', 'endurance',
+                  'strength', 'dexterity', 'attunement', 'intelligence', 'faith']
+
+
+"""
+Campaign
+"""
+
+
+class CampaignNotesSerializer(serializers.HyperlinkedModelSerializer):
+    created_by = UserSerializer()
+    updated_by = UserSerializer()
+
+    class Meta:
+        model = models.CampaignNotes
+        fields = ['created_at', 'created_by', 'updated_at',
+                  'updated_by', 'session_title', 'description', 'date']
+        read_only_fields = ['created_by', 'updated_by']
+
+
+class CampaignSerializer(serializers.HyperlinkedModelSerializer):
+    created_by = UserSerializer()
+    users = UserSerializer(many=True)
+    notes = CampaignNotesSerializer(many=True)
+
+    class Meta:
+        model = models.Campaign
+        fields = ['id', 'created_by', 'title',
+                  'description', 'next_session', 'users', 'notes']
+        read_only_fields = ['users']
+
+
+"""
+Characters
+"""
+
+
+class IntegerListField(serializers.ListField):
+    child = serializers.IntegerField()
+    allow_empty = True
+    max_length = 256
+
+
+class BoolDictField(serializers.DictField):
+    child = serializers.BooleanField()
+    allow_empty = True
+
+class CharacterEquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CharacterEquipment
+        exclude = ['id', 'character']
+        depth = 1
+
+
+class CharacterSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.ReadOnlyField()
+    lineage = LineageSerializer()
+    background = BackgroundSerializer()
+    user = UserSerializer()
+    learned_spells = IntegerListField()
+    learned_skills = IntegerListField()
+    learned_spirits = IntegerListField()
+    attuned_spells = BoolDictField()
+    attuned_skills = BoolDictField()
+    attuned_spirits = BoolDictField()
+    equipment = CharacterEquipmentSerializer()
+
+    class Meta:
+        model = models.Character
+        fields = '__all__'
+        read_only_fields = ['user']
