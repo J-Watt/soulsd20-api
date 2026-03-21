@@ -33,27 +33,14 @@ def setup_production_view(request):
     from io import StringIO
     output = StringIO()
 
-    # Load fixtures
+    # Load complete compendium from full dump
     fixtures = [
-        'compendium/fixtures/initialdata_base.json',
-        'compendium/fixtures/initialdata_dependent_fixed.json',
-        'compendium/fixtures/weapondice.json',
-        'compendium/fixtures/weaponscaling.json',
-        'compendium/fixtures/weaponrequirements.json',
-        'compendium/fixtures/spelldice.json',
-        'compendium/fixtures/spellrequirements.json',
-        'compendium/fixtures/spellcharged.json',
-        'compendium/fixtures/spellchargeddice.json',
-        'compendium/fixtures/backgrounds.json',
-        'compendium/fixtures/lineages.json',
-        'compendium/fixtures/weaponproffeats_fixture.json',
-        'compendium/fixtures/spirits_fixture.json',
-        'compendium/fixtures/items_full.json',
-        'compendium/fixtures/rings_full.json',
+        'compendium/fixtures/full_compendium_dump.json',
     ]
 
-    from compendium.models import Weapon
-    if Weapon.objects.count() == 0:
+    from compendium.models import Weapon, Spell
+    # Load if spells are missing (partial load from before)
+    if Spell.objects.count() == 0:
         for f in fixtures:
             try:
                 call_command('loaddata', f, verbosity=0)
