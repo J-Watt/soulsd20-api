@@ -38,17 +38,15 @@ def setup_production_view(request):
         'compendium/fixtures/full_compendium_dump.json',
     ]
 
+    # Always load - loaddata uses primary keys so it overwrites/updates existing records
+    for f in fixtures:
+        try:
+            call_command('loaddata', f, verbosity=0)
+            output.write(f'Loaded {f}\n')
+        except Exception as e:
+            output.write(f'FAILED {f}: {e}\n')
     from compendium.models import Weapon, Spell
-    # Load if spells are missing (partial load from before)
-    if Spell.objects.count() == 0:
-        for f in fixtures:
-            try:
-                call_command('loaddata', f, verbosity=0)
-                output.write(f'Loaded {f}\n')
-            except Exception as e:
-                output.write(f'FAILED {f}: {e}\n')
-    else:
-        output.write(f'Compendium already has {Weapon.objects.count()} weapons, skipping fixtures.\n')
+    output.write(f'Total: {Weapon.objects.count()} weapons, {Spell.objects.count()} spells\n')
 
     # Create superuser
     if not User.objects.filter(username='bell').exists():
