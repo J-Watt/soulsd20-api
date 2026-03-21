@@ -72,42 +72,61 @@ class SpiritViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.SpiritSerializer
 
 
-class ItemViewSet(viewsets.ReadOnlyModelViewSet):
+class CampaignFilteredMixin:
     """
-    API endpoint that allows Items to be viewed.
+    Filters compendium items: official items + custom items from user's campaigns.
     """
+    def get_queryset(self):
+        from django.db.models import Q
+        from campaigns.models import CampaignMembership
+
+        qs = super().get_queryset()
+        user = self.request.user
+
+        if not user.is_authenticated or not hasattr(user, 'profile'):
+            return qs.filter(is_official=True)
+
+        # Get campaign IDs where user is GM or active member
+        profile = user.profile
+        from campaigns.models import Campaign
+        gm_campaigns = Campaign.objects.filter(gm=profile).values_list('id', flat=True)
+        member_campaigns = CampaignMembership.objects.filter(
+            user=profile, status='active'
+        ).values_list('campaign_id', flat=True)
+        user_campaign_ids = set(gm_campaigns) | set(member_campaigns)
+
+        # Official items + custom items from user's campaigns
+        return qs.filter(
+            Q(is_official=True) | Q(campaign_id__in=user_campaign_ids)
+        )
+
+
+class ItemViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Items: official + user's campaign custom items."""
     queryset = Item.objects.all()
     serializer_class = serializers.ItemSerializer
 
 
-class RingViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows rings to be viewed.
-    """
+class RingViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Rings: official + user's campaign custom rings."""
     queryset = Ring.objects.all()
     serializer_class = serializers.RingSerializer
 
 
-class ArtifactViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows artifacts to be viewed.
-    """
+class ArtifactViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Artifacts: official + user's campaign custom artifacts."""
     queryset = Artifact.objects.all()
     serializer_class = serializers.ArtifactSerializer
 
 
-class ArmorViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows armor to be viewed.
-    """
+class ArmorViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Armor: official + user's campaign custom armor."""
     queryset = Armor.objects.all()
     serializer_class = serializers.ArmorSerializer
 
 
-class WeaponViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows weapons to be viewed.
-    """
+class WeaponViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Weapons: official + user's campaign custom weapons."""
     queryset = Weapon.objects.all()
     serializer_class = serializers.WeaponSerializer
 

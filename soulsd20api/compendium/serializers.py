@@ -164,7 +164,31 @@ Spell
 class SpellReqSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.SpellRequirements
-        fields = ['int', 'fai']
+        fields = ['str', 'dex', 'int', 'fai']
+
+
+# CF4: Spell Protection Serializers
+class SpellDamageProtectionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellDamageProtection
+        fields = ['type', 'tiers', 'flat', 'dice_count', 'dice_value', 'percentage',
+                  'percentage_timing', 'duration_turns', 'duration_attacks',
+                  'apply_to_caster', 'apply_to_target', 'stacking', 'scaling_source']
+
+
+class SpellBuildupProtectionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellBuildupProtection
+        fields = ['type', 'flat', 'dice_count', 'dice_value', 'percentage',
+                  'percentage_timing', 'duration_turns', 'duration_attacks',
+                  'apply_to_caster', 'apply_to_target', 'stacking', 'scaling_source']
+
+
+class SpellConditionProtectionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpellConditionProtection
+        fields = ['condition', 'duration_turns',
+                  'apply_to_caster', 'apply_to_target']
 
 
 class SpellBonusesSerializer(serializers.HyperlinkedModelSerializer):
@@ -204,11 +228,16 @@ class SpellSerializer(serializers.HyperlinkedModelSerializer):
     bonuses = SpellBonusesSerializer(many=True)
     dice = SpellDiceSerializer(many=True)
     charged = SpellChargedSerializer()
+    # CF4: Protection fields
+    damage_protection = SpellDamageProtectionSerializer(many=True)
+    buildup_protection = SpellBuildupProtectionSerializer(many=True)
+    condition_protection = SpellConditionProtectionSerializer(many=True)
 
     class Meta:
         model = models.Spell
         fields = ['id', 'name', 'cast_time', 'ap', 'fp', 'range', 'duration', 'description', 'is_official',
-                  'category', 'is_slow', 'att_cost', 'requirements', 'dice', 'bonuses', 'charged']
+                  'category', 'is_slow', 'att_cost', 'requirements', 'dice', 'bonuses', 'charged',
+                  'damage_protection', 'buildup_protection', 'condition_protection']
 
 
 """
@@ -219,7 +248,31 @@ Spirit
 class SpiritReqSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.SpiritRequirements
-        fields = ['int', 'fai']
+        fields = ['str', 'dex', 'int', 'fai']
+
+
+# CF4: Spirit Protection Serializers
+class SpiritDamageProtectionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpiritDamageProtection
+        fields = ['type', 'tiers', 'flat', 'dice_count', 'dice_value', 'percentage',
+                  'percentage_timing', 'duration_turns', 'duration_attacks',
+                  'apply_to_caster', 'apply_to_target', 'stacking', 'scaling_source']
+
+
+class SpiritBuildupProtectionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpiritBuildupProtection
+        fields = ['type', 'flat', 'dice_count', 'dice_value', 'percentage',
+                  'percentage_timing', 'duration_turns', 'duration_attacks',
+                  'apply_to_caster', 'apply_to_target', 'stacking', 'scaling_source']
+
+
+class SpiritConditionProtectionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.SpiritConditionProtection
+        fields = ['condition', 'duration_turns', 'duration_attacks',
+                  'apply_to_caster', 'apply_to_target']
 
 
 class SpiritDiceSerializer(serializers.HyperlinkedModelSerializer):
@@ -232,11 +285,15 @@ class SpiritSerializer(serializers.HyperlinkedModelSerializer):
     requirements = SpiritReqSerializer()
     dice = SpiritDiceSerializer(many=True)
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+    # CF4: Protection fields
+    damage_protection = SpiritDamageProtectionSerializer(many=True)
+    buildup_protection = SpiritBuildupProtectionSerializer(many=True)
+    condition_protection = SpiritConditionProtectionSerializer(many=True)
 
     class Meta:
         model = models.Spirit
         fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'tier', 'creature', 'size', 'range', 'condition', 'description', 'att_cost', 'ap', 'fp', 'requirements',
-                  'dice']
+                  'dice', 'damage_protection', 'buildup_protection', 'condition_protection']
 
 
 """
@@ -471,25 +528,25 @@ class WeaponBonusesSerializer(serializers.HyperlinkedModelSerializer):
 class WeaponScalingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponScaling
-        fields = ['type', 'stat', 'value']
+        fields = ['type', 'stat', 'value', 'form']
 
 
 class SpellScalingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.SpellScaling
-        fields = ['stat', 'requirement', 'value']
+        fields = ['stat', 'requirement', 'value', 'form']
 
 
 class WeaponDiceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponDice
-        fields = ['type', 'count', 'value']
+        fields = ['type', 'count', 'value', 'form']
 
 
 class WeaponReqSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.WeaponRequirements
-        fields = ['str', 'dex', 'int', 'fai']
+        fields = ['str', 'dex', 'int', 'fai', 'form']
 
 
 class WeaponSerializer(serializers.HyperlinkedModelSerializer):
@@ -498,13 +555,17 @@ class WeaponSerializer(serializers.HyperlinkedModelSerializer):
     scaling = WeaponScalingSerializer(many=True)
     spell_scaling = SpellScalingSerializer(many=True)
     dice = WeaponDiceSerializer(many=True)
-    requirements = WeaponReqSerializer()
+    # CF3: Changed from single to many=True (ForeignKey with form field)
+    requirements = WeaponReqSerializer(many=True)
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
 
     class Meta:
         model = models.Weapon
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type', 'ap', 'skill_primary',
-                  'skill_secondary', 'usage_formula', 'description', 'durability', 'infusion', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
+        # CF3: Added second_ap, second_skill_primary, second_skill_secondary, second_infusion
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type',
+                  'ap', 'skill_primary', 'skill_secondary', 'infusion',
+                  'second_ap', 'second_skill_primary', 'second_skill_secondary', 'second_infusion',
+                  'usage_formula', 'description', 'durability', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
 
 
 """

@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from . import views
 
-# Create a router and register our viewsets with it.
+# Router registration for compendium viewsets
 router = DefaultRouter()
 router.register(r'usageFormula', views.UsageFormulaViewSet)
 router.register(r'weaponProfFeat', views.WeaponProfFeatViewSet)
@@ -21,7 +21,7 @@ router.register(r'lineages', views.LineageViewSet)
 router.register(r'bloodlines', views.BloodlineViewSet)
 
 # The API URLs are now determined automatically by the router.
-# Additionally, we include the login URLs for the browsable API.
+# API URLs determined automatically by the router
 urlpatterns = [
     path('', include(router.urls))
 ]

@@ -222,9 +222,6 @@
           "range": 40,
           "special": "Pinpoint creatures via hearing/smell. Auto-fail sight perception, advantage on other perception. Immune to impaired vision; deafened also causes impaired vision"
         },
-        "skill_bonuses": {
-          "Sanity": 1
-        },
         "special_abilities": [
           {
             "name": "Sanity Scaling",
@@ -533,6 +530,12 @@
         ],
         "special_abilities": [
           {
+            "name": "Cannot Be One-Shot",
+            "description": "Cannot be killed in one hit when at full HP (leaves at 1 HP instead)",
+            "type": "passive",
+            "condition": "at_full_hp"
+          },
+          {
             "name": "Dark Damage Healing",
             "description": "When dark damage fully negated, heal that amount instead",
             "type": "passive"
@@ -616,8 +619,7 @@
       "replaces_abilities": ["special_abilities"],
       "new_abilities": {
         "skill_bonuses": {
-          "World History": 3,
-          "Monsters": 3
+          "World/History": 3
         },
         "regeneration": {
           "fp": {
@@ -664,7 +666,7 @@
       "lifespan_max": 70,
       "base_abilities": {
         "skill_bonuses": {
-          "Fire Keeping": 2
+          "Firekeeping": 2
         },
         "resistances": [
           {
@@ -948,7 +950,6 @@
       "lifespan_max": 600,
       "base_abilities": {
         "skill_bonuses": {
-          "Athletics": -2,
           "Cosmic": 3
         },
         "stat_bonuses": {
@@ -959,6 +960,12 @@
           "special": "-2 starting HP for all backgrounds"
         },
         "special_abilities": [
+          {
+            "name": "Physical Skill Penalty",
+            "description": "-2 to Athletics OR Acrobatics (player choice)",
+            "type": "passive",
+            "choice_required": true
+          },
           {
             "name": "Weapon Proficiency Scaling",
             "description": "+1 weapon proficiency at levels 1, 9, 19, 28, 35",
@@ -1270,7 +1277,7 @@
       "replaces_abilities": [],
       "new_abilities": {
         "skill_bonuses": {
-          "Fire Keeping": 1
+          "Firekeeping": 1
         },
         "special_abilities": [
           {

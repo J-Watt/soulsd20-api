@@ -52,7 +52,7 @@ class WeaponProfSubBonusesInline(admin.StackedInline):
 
 
 class WeaponProfFeatAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'weapon_tree', 'level']
+    list_display = ['id', 'name', 'weapon_tree', 'level', 'is_official']
     list_display_links = ['id', 'name']
     search_fields = ['name', 'weapon_tree']
     inlines = [WeaponProfSubParentInline, WeaponProfSubExtendsInline,
@@ -85,6 +85,8 @@ class DestinyBonusesInline(admin.StackedInline):
 
 
 class DestinyAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'cost', 'is_official']
+    list_display_links = ['id', 'name']
     search_fields = ['name', 'description']
     inlines = [DestinyScalingInline, DestinyDiceInline, DestinyBonusesInline]
 
@@ -110,7 +112,7 @@ class WeaponSkillBonusesInline(admin.StackedInline):
 
 
 class WeaponSkillAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'usage_type', 'cost_fp']
+    list_display = ['id', 'name', 'usage_type', 'cost_fp', 'is_official']
     list_display_links = ['id', 'name']
     search_fields = ['name', 'usage_type']
     inlines = [WeaponSkillScalingInline,
@@ -140,12 +142,59 @@ class SpellChargedInline(admin.TabularInline):
     model = models.SpellCharged
     extra = 0
 
+
+class SpellDamageProtectionInline(admin.TabularInline):
+    model = models.SpellDamageProtection
+    extra = 0
+    verbose_name = "Damage Protection"
+    verbose_name_plural = "Damage Protections"
+
+
+class SpellBuildupProtectionInline(admin.TabularInline):
+    model = models.SpellBuildupProtection
+    extra = 0
+    verbose_name = "Buildup Protection"
+    verbose_name_plural = "Buildup Protections"
+
+
+class SpellConditionProtectionInline(admin.TabularInline):
+    model = models.SpellConditionProtection
+    extra = 0
+    verbose_name = "Condition Protection"
+    verbose_name_plural = "Condition Protections"
+
+
+class SpellReduceBuildupInline(admin.TabularInline):
+    model = models.SpellReduceBuildup
+    extra = 0
+    verbose_name = "Reduce Buildup"
+    verbose_name_plural = "Reduce Buildups"
+
+
+class SpellCureConditionInline(admin.TabularInline):
+    model = models.SpellCureCondition
+    extra = 0
+    verbose_name = "Cure Condition"
+    verbose_name_plural = "Cure Conditions"
+
+
+class SpellCureEffectInline(admin.TabularInline):
+    model = models.SpellCureEffect
+    extra = 0
+    verbose_name = "Cure Effect"
+    verbose_name_plural = "Cure Effects"
+
+
 class SpellAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
-    list_display = ['id', 'name', 'category', 'ap', 'fp']
+    list_display = ['id', 'name', 'category', 'ap', 'fp', 'is_official']
     list_display_links = ['id', 'name']
     search_fields = ['name', 'description']
-    inlines = [SpellReqInline, SpellDiceInline, SpellBonusesInline, SpellChargedInline]
+    inlines = [
+        SpellReqInline, SpellDiceInline, SpellBonusesInline, SpellChargedInline,
+        SpellDamageProtectionInline, SpellBuildupProtectionInline, SpellConditionProtectionInline,
+        SpellReduceBuildupInline, SpellCureConditionInline, SpellCureEffectInline
+    ]
 
 
 """
@@ -163,11 +212,57 @@ class SpiritDiceInline(admin.TabularInline):
     extra = 0
 
 
+class SpiritDamageProtectionInline(admin.TabularInline):
+    model = models.SpiritDamageProtection
+    extra = 0
+    verbose_name = "Damage Protection"
+    verbose_name_plural = "Damage Protections"
+
+
+class SpiritBuildupProtectionInline(admin.TabularInline):
+    model = models.SpiritBuildupProtection
+    extra = 0
+    verbose_name = "Buildup Protection"
+    verbose_name_plural = "Buildup Protections"
+
+
+class SpiritConditionProtectionInline(admin.TabularInline):
+    model = models.SpiritConditionProtection
+    extra = 0
+    verbose_name = "Condition Protection"
+    verbose_name_plural = "Condition Protections"
+
+
+class SpiritReduceBuildupInline(admin.TabularInline):
+    model = models.SpiritReduceBuildup
+    extra = 0
+    verbose_name = "Reduce Buildup"
+    verbose_name_plural = "Reduce Buildups"
+
+
+class SpiritCureConditionInline(admin.TabularInline):
+    model = models.SpiritCureCondition
+    extra = 0
+    verbose_name = "Cure Condition"
+    verbose_name_plural = "Cure Conditions"
+
+
+class SpiritCureEffectInline(admin.TabularInline):
+    model = models.SpiritCureEffect
+    extra = 0
+    verbose_name = "Cure Effect"
+    verbose_name_plural = "Cure Effects"
+
+
 class SpiritAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'tier', 'is_official']
     list_display_links = ['id', 'name']
-    inlines = [SpiritReqInline, SpiritDiceInline]
+    inlines = [
+        SpiritReqInline, SpiritDiceInline,
+        SpiritDamageProtectionInline, SpiritBuildupProtectionInline, SpiritConditionProtectionInline,
+        SpiritReduceBuildupInline, SpiritCureConditionInline, SpiritCureEffectInline
+    ]
 
 """
 Items
@@ -192,7 +287,7 @@ class ItemBonusesInline(admin.StackedInline):
 class ItemAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'item_type',
-                    'is_official', 'created_at', 'created_by']
+                    'is_official', 'campaign', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     inlines = [ItemScalingInline, ItemDiceInline, ItemBonusesInline]
 
@@ -219,7 +314,7 @@ class RingBonusesInline(admin.StackedInline):
 
 class RingAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
-    list_display = ['id', 'name', 'tier', 'created_at', 'created_by']
+    list_display = ['id', 'name', 'tier', 'is_official', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     inlines = [RingScalingInline, RingDiceInline, RingBonusesInline]
 
@@ -253,7 +348,7 @@ class ArtifactUpgradeInline(admin.TabularInline):
 
 class ArtifactAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
-    list_display = ['id', 'name', 'created_at', 'created_by']
+    list_display = ['id', 'name', 'is_official', 'campaign', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     search_fields = ['name', 'description']
     inlines = [ArtifactScalingInline,
@@ -278,7 +373,7 @@ class ArmorBonusesInline(admin.StackedInline):
 class ArmorAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'armor_type',
-                    'is_official', 'created_at', 'created_by']
+                    'is_official', 'campaign', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     inlines = [ArmorReqInline, ArmorBonusesInline]
 
@@ -316,10 +411,53 @@ class WeaponBonusesInline(admin.StackedInline):
 class WeaponAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at", "created_by", "updated_by")
     list_display = ['id', 'name', 'weapon_type', 'second_type',
-                    'is_official', 'created_at', 'created_by']
+                    'is_official', 'campaign', 'created_at', 'created_by']
     list_display_links = ['id', 'name']
     inlines = [WeaponScalingInline, WeaponSpellScalingInline,
                WeaponReqInline, WeaponDiceInline, WeaponBonusesInline]
+
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('name', 'is_official', 'campaign', 'is_trick', 'is_twin', 'description', 'durability')
+        }),
+        ('Primary Form', {
+            'fields': ('weapon_type', 'ap', 'skill_primary', 'skill_secondary', 'infusion', 'usage_formula')
+        }),
+        ('Secondary Form (Trick Weapons Only)', {
+            'fields': ('second_type', 'second_ap', 'second_skill_primary', 'second_skill_secondary'),
+            'classes': ('collapse',),
+            'description': 'These fields only apply when "Is trick" is checked.'
+        }),
+        (None, {
+            'fields': ('created_at', 'updated_at', 'created_by', 'updated_by'),
+        }),
+    )
+
+    class Media:
+        js = ('compendium/js/weapon_admin.js',)
+
+    def save_model(self, request, obj, form, change):
+        """Clear trick weapon fields when is_trick is unchecked."""
+        if not obj.is_trick:
+            # Clear secondary form fields
+            obj.second_type = None
+            obj.second_ap = None
+            obj.second_skill_primary = None
+            obj.second_skill_secondary = None
+            obj.second_infusion = None  # Clear this too even though not exposed in admin
+
+        super().save_model(request, obj, form, change)
+
+        # If is_trick was unchecked, also reset all inline form values to primary
+        if not obj.is_trick:
+            # Reset scaling form values
+            obj.scaling.update(form='primary')
+            # Reset spell_scaling form values
+            obj.spell_scaling.update(form='primary')
+            # Reset dice form values
+            obj.dice.update(form='primary')
+            # Delete secondary requirements (since there should only be primary)
+            obj.requirements.filter(form='secondary').delete()
 
 
 """
@@ -334,20 +472,20 @@ class BloodlineInline(admin.TabularInline):
 
 
 class BackgroundAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'starting_hp', 'vitality', 'endurance', 'strength', 'dexterity', 'attunement', 'intelligence', 'faith']
+    list_display = ['id', 'name', 'starting_hp', 'vitality', 'endurance', 'strength', 'dexterity', 'attunement', 'intelligence', 'faith', 'is_official']
     list_display_links = ['id', 'name']
     readonly_fields = ['created_at', 'updated_at']
 
 
 class LineageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'subtitle']
+    list_display = ['id', 'name', 'subtitle', 'is_official']
     list_display_links = ['id', 'name']
     readonly_fields = ['created_at', 'updated_at']
     inlines = [BloodlineInline]
 
 
 class BloodlineAdmin(admin.ModelAdmin):
-    list_display = ['id', 'lineage', 'name', 'has_unlock_requirement']
+    list_display = ['id', 'lineage', 'name', 'has_unlock_requirement', 'is_official']
     list_display_links = ['id', 'name']
     list_filter = ['lineage', 'has_unlock_requirement']
 

@@ -1,0 +1,2312 @@
+[
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 1,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 1,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 2,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 2,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 3,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 3,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 4,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 4,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 5,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 5,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 6,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 6,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 7,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 7,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 8,
+    "fields": {
+      "value": "E",
+      "type": "DARK",
+      "stat": "INT",
+      "weapon": 8,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 9,
+    "fields": {
+      "value": "E",
+      "type": "DARK",
+      "stat": "FAI",
+      "weapon": 8,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 10,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 9,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 11,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 10,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 12,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 11,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 13,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 13,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 14,
+    "fields": {
+      "value": "C",
+      "type": "LIGHTNING",
+      "stat": "DEX",
+      "weapon": 13,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 15,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 14,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 16,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 15,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 17,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 16,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 18,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 18,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 19,
+    "fields": {
+      "value": "E",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 18,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 20,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 19,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 21,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 20,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 22,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 21,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 23,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 21,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 24,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 22,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 25,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 22,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 26,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 23,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 27,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 23,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 28,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 24,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 29,
+    "fields": {
+      "value": "B",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 24,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 30,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 25,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 31,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 26,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 32,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 27,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 33,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 28,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 34,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 28,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 35,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 29,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 36,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 30,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 37,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 30,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 38,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 31,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 39,
+    "fields": {
+      "value": "S",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 32,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 40,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 33,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 41,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 34,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 42,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 35,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 43,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 36,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 44,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 36,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 45,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 37,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 46,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 38,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 47,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 39,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 48,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 39,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 49,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 40,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 50,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 40,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 51,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 41,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 52,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 42,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 53,
+    "fields": {
+      "value": "B",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 42,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 54,
+    "fields": {
+      "value": "A",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 43,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 55,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 44,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 56,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 44,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 57,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 45,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 58,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 45,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 59,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 46,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 60,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 47,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 61,
+    "fields": {
+      "value": "C",
+      "type": "LIGHTNING",
+      "stat": "FAI",
+      "weapon": 47,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 62,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 48,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 63,
+    "fields": {
+      "value": "D",
+      "type": "DARK",
+      "stat": "INT",
+      "weapon": 48,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 64,
+    "fields": {
+      "value": "SS",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 49,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 65,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 50,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 66,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 50,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 67,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 51,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 68,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 52,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 69,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 53,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 70,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 53,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 71,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 54,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 72,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 55,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 73,
+    "fields": {
+      "value": "B",
+      "type": "FIRE",
+      "stat": "FAI",
+      "weapon": 55,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 74,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 56,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 75,
+    "fields": {
+      "value": "D",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 56,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 76,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 57,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 77,
+    "fields": {
+      "value": "E",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 57,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 78,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 58,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 79,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 59,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 80,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 59,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 81,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 60,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 82,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 60,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 83,
+    "fields": {
+      "value": "SS",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 61,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 84,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 62,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 85,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 63,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 86,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 63,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 87,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 64,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 88,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 65,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 89,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 65,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 90,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 66,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 91,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 66,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 92,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 67,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 93,
+    "fields": {
+      "value": "C",
+      "type": "LIGHTNING",
+      "stat": "FAI",
+      "weapon": 67,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 94,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 68,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 95,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 69,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 96,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 69,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 97,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 70,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 98,
+    "fields": {
+      "value": "SS",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 71,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 99,
+    "fields": {
+      "value": "SS",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 72,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 100,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 73,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 101,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 74,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 102,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 74,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 103,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 75,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 104,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 76,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 105,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 77,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 106,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 78,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 107,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 79,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 108,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 79,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 109,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 80,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 110,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 81,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 111,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 81,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 112,
+    "fields": {
+      "value": "SS",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 82,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 113,
+    "fields": {
+      "value": "B",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 82,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 114,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 83,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 115,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 83,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 116,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 84,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 117,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 84,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 118,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 85,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 119,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 85,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 120,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 86,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 121,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 86,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 122,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 87,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 123,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 87,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 124,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 88,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 125,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 88,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 126,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 89,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 127,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 89,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 128,
+    "fields": {
+      "value": "C",
+      "type": "FIRE",
+      "stat": "FAI",
+      "weapon": 89,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 129,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 90,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 130,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 90,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 131,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 91,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 132,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 91,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 133,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 92,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 134,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 92,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 135,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 93,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 136,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 93,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 137,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 94,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 138,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 94,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 139,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 95,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 140,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 95,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 141,
+    "fields": {
+      "value": "C",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 95,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 142,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 96,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 143,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 96,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 144,
+    "fields": {
+      "value": "B",
+      "type": "DARK",
+      "stat": "FAI",
+      "weapon": 96,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 145,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 97,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 146,
+    "fields": {
+      "value": "C",
+      "type": "LIGHTNING",
+      "stat": "FAI",
+      "weapon": 97,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 147,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 98,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 148,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 98,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 149,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 99,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 150,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 100,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 151,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 101,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 152,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "FAI",
+      "weapon": 101,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 153,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 102,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 154,
+    "fields": {
+      "value": "C",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 102,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 155,
+    "fields": {
+      "value": "S",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 103,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 156,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 104,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 157,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 104,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 158,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 105,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 159,
+    "fields": {
+      "value": "B",
+      "type": "MAGIC",
+      "stat": "INT",
+      "weapon": 105,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 160,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 107,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 161,
+    "fields": {
+      "value": "D",
+      "type": "FIRE",
+      "stat": "INT",
+      "weapon": 107,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 162,
+    "fields": {
+      "value": "D",
+      "type": "FIRE",
+      "stat": "FAI",
+      "weapon": 107,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 163,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 108,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 164,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 109,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 165,
+    "fields": {
+      "value": "S",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 110,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 166,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 111,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 167,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 112,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 168,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 113,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 169,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 114,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 170,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 114,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 171,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 115,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 172,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 116,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 173,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 116,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 174,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 117,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 175,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 118,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 176,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 118,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 177,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 119,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 178,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 120,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 179,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 121,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 180,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 121,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 181,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 122,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 182,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 122,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 183,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 123,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 184,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 123,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 185,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 124,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 186,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 125,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 187,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 125,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 188,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 126,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 189,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 126,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 190,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 127,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 191,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 127,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 192,
+    "fields": {
+      "value": "D",
+      "type": "FIRE",
+      "stat": "INT",
+      "weapon": 127,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 193,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 128,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 194,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 129,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 195,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 130,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 196,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 131,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 197,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 132,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 198,
+    "fields": {
+      "value": "S",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 133,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 199,
+    "fields": {
+      "value": "S",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 134,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 200,
+    "fields": {
+      "value": "D",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 135,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 201,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 136,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 202,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 137,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 203,
+    "fields": {
+      "value": "C",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 137,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 204,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 138,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 205,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "DEX",
+      "weapon": 138,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 206,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 139,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 207,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 140,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 208,
+    "fields": {
+      "value": "B",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 141,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 209,
+    "fields": {
+      "value": "E",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 142,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponscaling",
+    "pk": 210,
+    "fields": {
+      "value": "A",
+      "type": "PHYSICAL",
+      "stat": "STR",
+      "weapon": 155,
+      "form": "primary"
+    }
+  }
+]

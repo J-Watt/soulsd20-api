@@ -1,0 +1,1582 @@
+[
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 1,
+    "fields": {
+      "count": 3,
+      "value": 2,
+      "type": "MAGIC",
+      "spell": 1
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 2,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "MAGIC",
+      "spell": 2
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 3,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 3
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 4,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 4
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 5,
+    "fields": {
+      "count": 4,
+      "value": 4,
+      "type": "MAGIC",
+      "spell": 5
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 6,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 6
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 7,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 7
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 8,
+    "fields": {
+      "count": 5,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 10
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 9,
+    "fields": {
+      "count": 5,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 11
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 10,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "MAGIC",
+      "spell": 12
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 11,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 15
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 12,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 16
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 13,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 17
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 14,
+    "fields": {
+      "count": 6,
+      "value": 10,
+      "type": "MAGIC",
+      "spell": 18
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 15,
+    "fields": {
+      "count": 8,
+      "value": 10,
+      "type": "MAGIC",
+      "spell": 19
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 16,
+    "fields": {
+      "count": 10,
+      "value": 10,
+      "type": "MAGIC",
+      "spell": 20
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 17,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 21
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 18,
+    "fields": {
+      "count": 3,
+      "value": 1,
+      "type": "POISE",
+      "spell": 21
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 19,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 22
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 20,
+    "fields": {
+      "count": 4,
+      "value": 1,
+      "type": "POISE",
+      "spell": 22
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 21,
+    "fields": {
+      "count": 3,
+      "value": 2,
+      "type": "FROST",
+      "spell": 23
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 22,
+    "fields": {
+      "count": 2,
+      "value": 2,
+      "type": "FROST",
+      "spell": 24
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 23,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 25
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 24,
+    "fields": {
+      "count": 4,
+      "value": 2,
+      "type": "FROST",
+      "spell": 26
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 25,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "FROST",
+      "spell": 27
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 26,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "FROST",
+      "spell": 27
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 27,
+    "fields": {
+      "count": 2,
+      "value": 1,
+      "type": "FROST",
+      "spell": 27
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 28,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "FROST",
+      "spell": 29
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 29,
+    "fields": {
+      "count": 6,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 29
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 30,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "MAGIC",
+      "spell": 33
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 31,
+    "fields": {
+      "count": 5,
+      "value": 12,
+      "type": "MAGIC",
+      "spell": 41
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 32,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 43
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 33,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "DARK",
+      "spell": 43
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 34,
+    "fields": {
+      "count": 4,
+      "value": 10,
+      "type": "MAGIC",
+      "spell": 45
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 35,
+    "fields": {
+      "count": 2,
+      "value": 8,
+      "type": "DARK",
+      "spell": 45
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 36,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 46
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 37,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 47
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 38,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "DARK",
+      "spell": 47
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 39,
+    "fields": {
+      "count": 10,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 48
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 40,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "DARK",
+      "spell": 51
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 41,
+    "fields": {
+      "count": 4,
+      "value": 10,
+      "type": "MAGIC",
+      "spell": 52
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 42,
+    "fields": {
+      "count": 8,
+      "value": 10,
+      "type": "MAGIC",
+      "spell": 53
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 43,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "DARK",
+      "spell": 54
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 44,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "MAGIC",
+      "spell": 55
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 45,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "DARK",
+      "spell": 56
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 46,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "DARK",
+      "spell": 57
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 47,
+    "fields": {
+      "count": 4,
+      "value": 1,
+      "type": "POISE",
+      "spell": 57
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 48,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "HEAL",
+      "spell": 58
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 49,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "DARK",
+      "spell": 58
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 50,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "spell": 59
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 51,
+    "fields": {
+      "count": 5,
+      "value": 1,
+      "type": "TRUE",
+      "spell": 59
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 52,
+    "fields": {
+      "count": 6,
+      "value": 6,
+      "type": "DARK",
+      "spell": 60
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 53,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "POISE",
+      "spell": 60
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 54,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "DARK",
+      "spell": 61
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 55,
+    "fields": {
+      "count": 2,
+      "value": 2,
+      "type": "FROST",
+      "spell": 61
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 56,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "FP",
+      "spell": 62
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 57,
+    "fields": {
+      "count": 4,
+      "value": 12,
+      "type": "TRUE",
+      "spell": 62
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 58,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "POISE",
+      "spell": 62
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 59,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "HEAL",
+      "spell": 70
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 60,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "HEAL",
+      "spell": 71
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 61,
+    "fields": {
+      "count": 2,
+      "value": 10,
+      "type": "HEAL",
+      "spell": 72
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 62,
+    "fields": {
+      "count": 4,
+      "value": 4,
+      "type": "LIGHTNING",
+      "spell": 74
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 63,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "LIGHTNING",
+      "spell": 75
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 64,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "FROST",
+      "spell": 77
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 65,
+    "fields": {
+      "count": 6,
+      "value": 12,
+      "type": "LIGHTNING",
+      "spell": 78
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 66,
+    "fields": {
+      "count": 8,
+      "value": 12,
+      "type": "LIGHTNING",
+      "spell": 79
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 67,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "LIGHTNING",
+      "spell": 80
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 68,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "LIGHTNING",
+      "spell": 81
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 69,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "FP",
+      "spell": 81
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 70,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "LIGHTNING",
+      "spell": 82
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 71,
+    "fields": {
+      "count": 2,
+      "value": 8,
+      "type": "LIGHTNING",
+      "spell": 83
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 72,
+    "fields": {
+      "count": 2,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 98
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 73,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spell": 100
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 74,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spell": 100
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 75,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spell": 101
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 76,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "PHYSICAL",
+      "spell": 103
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 77,
+    "fields": {
+      "count": 6,
+      "value": 10,
+      "type": "PHYSICAL",
+      "spell": 104
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 78,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spell": 107
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 79,
+    "fields": {
+      "count": 2,
+      "value": 8,
+      "type": "PHYSICAL",
+      "spell": 108
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 80,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "POISE",
+      "spell": 108
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 81,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "DARK",
+      "spell": 109
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 82,
+    "fields": {
+      "count": 8,
+      "value": 8,
+      "type": "DARK",
+      "spell": 114
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 83,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "POISE",
+      "spell": 114
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 84,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "DARK",
+      "spell": 116
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 85,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "BLEED",
+      "spell": 116
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 86,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "DARK",
+      "spell": 117
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 87,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "BLEED",
+      "spell": 117
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 88,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "DARK",
+      "spell": 118
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 89,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "BLEED",
+      "spell": 118
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 90,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "BLEED",
+      "spell": 119
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 91,
+    "fields": {
+      "count": 1,
+      "value": 1,
+      "type": "FP",
+      "spell": 119
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 92,
+    "fields": {
+      "count": 6,
+      "value": 4,
+      "type": "DARK",
+      "spell": 120
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 93,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "DARK",
+      "spell": 121
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 94,
+    "fields": {
+      "count": 4,
+      "value": 1,
+      "type": "POISE",
+      "spell": 121
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 95,
+    "fields": {
+      "count": 4,
+      "value": 2,
+      "type": "POISE",
+      "spell": 122
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 96,
+    "fields": {
+      "count": 4,
+      "value": 2,
+      "type": "POISE",
+      "spell": 123
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 97,
+    "fields": {
+      "count": 5,
+      "value": 12,
+      "type": "DARK",
+      "spell": 124
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 98,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "DARK",
+      "spell": 124
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 99,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "CURSE",
+      "spell": 124
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 100,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "FIRE",
+      "spell": 127
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 101,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "FIRE",
+      "spell": 128
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 102,
+    "fields": {
+      "count": 4,
+      "value": 2,
+      "type": "FIRE",
+      "spell": 129
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 103,
+    "fields": {
+      "count": 3,
+      "value": 10,
+      "type": "FIRE",
+      "spell": 130
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 104,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 131
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 105,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 131
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 106,
+    "fields": {
+      "count": 6,
+      "value": 6,
+      "type": "FIRE",
+      "spell": 132
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 107,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 133
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 108,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "FIRE",
+      "spell": 134
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 109,
+    "fields": {
+      "count": 4,
+      "value": 4,
+      "type": "FIRE",
+      "spell": 135
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 110,
+    "fields": {
+      "count": 2,
+      "value": 1,
+      "type": "POISE",
+      "spell": 135
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 111,
+    "fields": {
+      "count": 4,
+      "value": 6,
+      "type": "FIRE",
+      "spell": 136
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 112,
+    "fields": {
+      "count": 3,
+      "value": 1,
+      "type": "POISE",
+      "spell": 136
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 113,
+    "fields": {
+      "count": 4,
+      "value": 20,
+      "type": "FIRE",
+      "spell": 137
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 114,
+    "fields": {
+      "count": 6,
+      "value": 1,
+      "type": "POISE",
+      "spell": 137
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 115,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 138
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 116,
+    "fields": {
+      "count": 6,
+      "value": 10,
+      "type": "FIRE",
+      "spell": 139
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 117,
+    "fields": {
+      "count": 6,
+      "value": 12,
+      "type": "FIRE",
+      "spell": 140
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 118,
+    "fields": {
+      "count": 4,
+      "value": 10,
+      "type": "FIRE",
+      "spell": 142
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 119,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 143
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 120,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "FIRE",
+      "spell": 144
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 121,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 145
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 122,
+    "fields": {
+      "count": 3,
+      "value": 4,
+      "type": "FIRE",
+      "spell": 146
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 123,
+    "fields": {
+      "count": 4,
+      "value": 10,
+      "type": "PHYSICAL",
+      "spell": 147
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 124,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 148
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 125,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "FIRE",
+      "spell": 149
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 126,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "POISON",
+      "spell": 150
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 127,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "TOXIC",
+      "spell": 150
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 128,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "MAGIC",
+      "spell": 151
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 129,
+    "fields": {
+      "count": 6,
+      "value": 8,
+      "type": "DARK",
+      "spell": 152
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 130,
+    "fields": {
+      "count": 4,
+      "value": 1,
+      "type": "POISE",
+      "spell": 153
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 131,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "spell": 155
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 132,
+    "fields": {
+      "count": 3,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spell": 156
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 133,
+    "fields": {
+      "count": 2,
+      "value": 2,
+      "type": "POISON",
+      "spell": 156
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 134,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "POISON",
+      "spell": 157
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 135,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "TOXIC",
+      "spell": 158
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 136,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "DURABILITY",
+      "spell": 159
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 137,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "POISON",
+      "spell": 160
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 138,
+    "fields": {
+      "count": 4,
+      "value": 10,
+      "type": "PHYSICAL",
+      "spell": 162
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 139,
+    "fields": {
+      "count": 2,
+      "value": 1,
+      "type": "POISE",
+      "spell": 162
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 140,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "PHYSICAL",
+      "spell": 163
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 141,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "spell": 164
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 142,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "HEAL",
+      "spell": 178
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 143,
+    "fields": {
+      "count": 3,
+      "value": 12,
+      "type": "DARK",
+      "spell": 180
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 144,
+    "fields": {
+      "count": 4,
+      "value": 8,
+      "type": "DARK",
+      "spell": 182
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 145,
+    "fields": {
+      "count": 2,
+      "value": 1,
+      "type": "POISE",
+      "spell": 182
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 146,
+    "fields": {
+      "count": 6,
+      "value": 6,
+      "type": "DARK",
+      "spell": 183
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 147,
+    "fields": {
+      "count": 2,
+      "value": 1,
+      "type": "POISE",
+      "spell": 183
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 148,
+    "fields": {
+      "count": 8,
+      "value": 6,
+      "type": "DARK",
+      "spell": 184
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 149,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "FIRE",
+      "spell": 184
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 150,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "DARK",
+      "spell": 185
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 151,
+    "fields": {
+      "count": 3,
+      "value": 2,
+      "type": "FROST",
+      "spell": 185
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 152,
+    "fields": {
+      "count": 6,
+      "value": 6,
+      "type": "DARK",
+      "spell": 186
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 153,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "FROST",
+      "spell": 186
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 154,
+    "fields": {
+      "count": 6,
+      "value": 12,
+      "type": "DARK",
+      "spell": 187
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 155,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "FROST",
+      "spell": 187
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 156,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "TOXIC",
+      "spell": 188
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 157,
+    "fields": {
+      "count": 2,
+      "value": 10,
+      "type": "DARK",
+      "spell": 190
+    }
+  },
+  {
+    "model": "compendium.spellchargeddice",
+    "pk": 158,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "DARK",
+      "spell": 190
+    }
+  }
+]

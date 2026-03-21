@@ -1,0 +1,2103 @@
+[
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 1,
+    "fields": {
+      "int": 10,
+      "fai": 0,
+      "spell": 1,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 2,
+    "fields": {
+      "int": 10,
+      "fai": 0,
+      "spell": 2,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 3,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 3,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 4,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 4,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 5,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 5,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 6,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spell": 6,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 7,
+    "fields": {
+      "int": 18,
+      "fai": 0,
+      "spell": 7,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 8,
+    "fields": {
+      "int": 12,
+      "fai": 0,
+      "spell": 8,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 9,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 9,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 10,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 10,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 11,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spell": 11,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 12,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 12,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 13,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 13,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 14,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 14,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 15,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spell": 15,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 16,
+    "fields": {
+      "int": 17,
+      "fai": 0,
+      "spell": 16,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 17,
+    "fields": {
+      "int": 18,
+      "fai": 0,
+      "spell": 17,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 18,
+    "fields": {
+      "int": 18,
+      "fai": 0,
+      "spell": 18,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 19,
+    "fields": {
+      "int": 20,
+      "fai": 0,
+      "spell": 19,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 20,
+    "fields": {
+      "int": 22,
+      "fai": 0,
+      "spell": 20,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 21,
+    "fields": {
+      "int": 13,
+      "fai": 0,
+      "spell": 21,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 22,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 22,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 23,
+    "fields": {
+      "int": 12,
+      "fai": 0,
+      "spell": 23,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 24,
+    "fields": {
+      "int": 13,
+      "fai": 0,
+      "spell": 24,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 25,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 25,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 26,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 26,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 27,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spell": 27,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 28,
+    "fields": {
+      "int": 17,
+      "fai": 0,
+      "spell": 28,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 29,
+    "fields": {
+      "int": 20,
+      "fai": 0,
+      "spell": 29,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 30,
+    "fields": {
+      "int": 10,
+      "fai": 0,
+      "spell": 30,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 31,
+    "fields": {
+      "int": 11,
+      "fai": 0,
+      "spell": 31,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 32,
+    "fields": {
+      "int": 12,
+      "fai": 0,
+      "spell": 32,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 33,
+    "fields": {
+      "int": 13,
+      "fai": 0,
+      "spell": 33,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 34,
+    "fields": {
+      "int": 10,
+      "fai": 0,
+      "spell": 34,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 35,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 35,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 36,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 36,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 37,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 37,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 38,
+    "fields": {
+      "int": 13,
+      "fai": 0,
+      "spell": 38,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 39,
+    "fields": {
+      "int": 14,
+      "fai": 0,
+      "spell": 39,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 40,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spell": 40,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 41,
+    "fields": {
+      "int": 17,
+      "fai": 0,
+      "spell": 41,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 42,
+    "fields": {
+      "int": 12,
+      "fai": 0,
+      "spell": 42,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 43,
+    "fields": {
+      "int": 15,
+      "fai": 0,
+      "spell": 43,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 44,
+    "fields": {
+      "int": 16,
+      "fai": 0,
+      "spell": 44,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 45,
+    "fields": {
+      "int": 17,
+      "fai": 0,
+      "spell": 45,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 46,
+    "fields": {
+      "int": 18,
+      "fai": 0,
+      "spell": 46,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 47,
+    "fields": {
+      "int": 20,
+      "fai": 0,
+      "spell": 47,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 48,
+    "fields": {
+      "int": 22,
+      "fai": 0,
+      "spell": 48,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 49,
+    "fields": {
+      "int": 22,
+      "fai": 0,
+      "spell": 49,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 50,
+    "fields": {
+      "int": 25,
+      "fai": 0,
+      "spell": 50,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 51,
+    "fields": {
+      "int": 12,
+      "fai": 0,
+      "spell": 51,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 52,
+    "fields": {
+      "int": 16,
+      "fai": 10,
+      "spell": 52,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 53,
+    "fields": {
+      "int": 20,
+      "fai": 14,
+      "spell": 53,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 54,
+    "fields": {
+      "int": 18,
+      "fai": 12,
+      "spell": 54,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 55,
+    "fields": {
+      "int": 16,
+      "fai": 10,
+      "spell": 55,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 56,
+    "fields": {
+      "int": 18,
+      "fai": 12,
+      "spell": 56,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 57,
+    "fields": {
+      "int": 14,
+      "fai": 10,
+      "spell": 57,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 58,
+    "fields": {
+      "int": 16,
+      "fai": 13,
+      "spell": 58,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 59,
+    "fields": {
+      "int": 14,
+      "fai": 12,
+      "spell": 59,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 60,
+    "fields": {
+      "int": 14,
+      "fai": 11,
+      "spell": 60,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 61,
+    "fields": {
+      "int": 16,
+      "fai": 10,
+      "spell": 61,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 62,
+    "fields": {
+      "int": 20,
+      "fai": 16,
+      "spell": 62,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 63,
+    "fields": {
+      "int": 22,
+      "fai": 0,
+      "spell": 63,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 64,
+    "fields": {
+      "int": 22,
+      "fai": 0,
+      "spell": 64,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 65,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spell": 65,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 66,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spell": 66,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 67,
+    "fields": {
+      "int": 0,
+      "fai": 12,
+      "spell": 67,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 68,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 68,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 69,
+    "fields": {
+      "int": 0,
+      "fai": 19,
+      "spell": 69,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 70,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spell": 70,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 71,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 71,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 72,
+    "fields": {
+      "int": 0,
+      "fai": 17,
+      "spell": 72,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 73,
+    "fields": {
+      "int": 0,
+      "fai": 25,
+      "spell": 73,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 74,
+    "fields": {
+      "int": 0,
+      "fai": 12,
+      "spell": 74,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 75,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 75,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 76,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 76,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 77,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spell": 77,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 78,
+    "fields": {
+      "int": 0,
+      "fai": 18,
+      "spell": 78,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 79,
+    "fields": {
+      "int": 0,
+      "fai": 22,
+      "spell": 79,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 80,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 80,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 81,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spell": 81,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 82,
+    "fields": {
+      "int": 0,
+      "fai": 20,
+      "spell": 82,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 83,
+    "fields": {
+      "int": 0,
+      "fai": 18,
+      "spell": 83,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 84,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spell": 84,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 85,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spell": 85,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 86,
+    "fields": {
+      "int": 0,
+      "fai": 12,
+      "spell": 86,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 87,
+    "fields": {
+      "int": 0,
+      "fai": 12,
+      "spell": 87,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 88,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 88,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 89,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 89,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 90,
+    "fields": {
+      "int": 0,
+      "fai": 18,
+      "spell": 90,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 91,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 91,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 92,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spell": 92,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 93,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spell": 93,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 94,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 94,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 95,
+    "fields": {
+      "int": 0,
+      "fai": 16,
+      "spell": 95,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 96,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spell": 96,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 97,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 97,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 98,
+    "fields": {
+      "int": 0,
+      "fai": 18,
+      "spell": 98,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 99,
+    "fields": {
+      "int": 0,
+      "fai": 10,
+      "spell": 99,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 100,
+    "fields": {
+      "int": 0,
+      "fai": 12,
+      "spell": 100,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 101,
+    "fields": {
+      "int": 0,
+      "fai": 13,
+      "spell": 101,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 102,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 102,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 103,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 103,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 104,
+    "fields": {
+      "int": 0,
+      "fai": 18,
+      "spell": 104,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 105,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 105,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 106,
+    "fields": {
+      "int": 0,
+      "fai": 15,
+      "spell": 106,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 107,
+    "fields": {
+      "int": 0,
+      "fai": 17,
+      "spell": 107,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 108,
+    "fields": {
+      "int": 0,
+      "fai": 17,
+      "spell": 108,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 109,
+    "fields": {
+      "int": 10,
+      "fai": 16,
+      "spell": 109,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 110,
+    "fields": {
+      "int": 0,
+      "fai": 12,
+      "spell": 110,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 111,
+    "fields": {
+      "int": 12,
+      "fai": 13,
+      "spell": 111,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 112,
+    "fields": {
+      "int": 10,
+      "fai": 15,
+      "spell": 112,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 113,
+    "fields": {
+      "int": 10,
+      "fai": 18,
+      "spell": 113,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 114,
+    "fields": {
+      "int": 14,
+      "fai": 18,
+      "spell": 114,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 115,
+    "fields": {
+      "int": 16,
+      "fai": 18,
+      "spell": 115,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 116,
+    "fields": {
+      "int": 0,
+      "fai": 14,
+      "spell": 116,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 117,
+    "fields": {
+      "int": 12,
+      "fai": 16,
+      "spell": 117,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 118,
+    "fields": {
+      "int": 10,
+      "fai": 15,
+      "spell": 118,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 119,
+    "fields": {
+      "int": 12,
+      "fai": 16,
+      "spell": 119,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 120,
+    "fields": {
+      "int": 14,
+      "fai": 18,
+      "spell": 120,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 121,
+    "fields": {
+      "int": 10,
+      "fai": 16,
+      "spell": 121,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 122,
+    "fields": {
+      "int": 13,
+      "fai": 13,
+      "spell": 122,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 123,
+    "fields": {
+      "int": 18,
+      "fai": 18,
+      "spell": 123,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 124,
+    "fields": {
+      "int": 15,
+      "fai": 17,
+      "spell": 124,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 125,
+    "fields": {
+      "int": 40,
+      "fai": 40,
+      "spell": 125,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 126,
+    "fields": {
+      "int": 0,
+      "fai": 22,
+      "spell": 126,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 127,
+    "fields": {
+      "int": 10,
+      "fai": 10,
+      "spell": 127,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 128,
+    "fields": {
+      "int": 11,
+      "fai": 10,
+      "spell": 128,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 129,
+    "fields": {
+      "int": 10,
+      "fai": 12,
+      "spell": 129,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 130,
+    "fields": {
+      "int": 12,
+      "fai": 12,
+      "spell": 130,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 131,
+    "fields": {
+      "int": 12,
+      "fai": 14,
+      "spell": 131,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 132,
+    "fields": {
+      "int": 16,
+      "fai": 12,
+      "spell": 132,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 133,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 133,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 134,
+    "fields": {
+      "int": 15,
+      "fai": 14,
+      "spell": 134,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 135,
+    "fields": {
+      "int": 10,
+      "fai": 10,
+      "spell": 135,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 136,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 136,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 137,
+    "fields": {
+      "int": 14,
+      "fai": 16,
+      "spell": 137,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 138,
+    "fields": {
+      "int": 14,
+      "fai": 16,
+      "spell": 138,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 139,
+    "fields": {
+      "int": 16,
+      "fai": 16,
+      "spell": 139,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 140,
+    "fields": {
+      "int": 16,
+      "fai": 18,
+      "spell": 140,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 141,
+    "fields": {
+      "int": 16,
+      "fai": 18,
+      "spell": 141,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 142,
+    "fields": {
+      "int": 18,
+      "fai": 16,
+      "spell": 142,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 143,
+    "fields": {
+      "int": 18,
+      "fai": 16,
+      "spell": 143,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 144,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 144,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 145,
+    "fields": {
+      "int": 10,
+      "fai": 12,
+      "spell": 145,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 146,
+    "fields": {
+      "int": 11,
+      "fai": 13,
+      "spell": 146,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 147,
+    "fields": {
+      "int": 11,
+      "fai": 15,
+      "spell": 147,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 148,
+    "fields": {
+      "int": 11,
+      "fai": 15,
+      "spell": 148,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 149,
+    "fields": {
+      "int": 11,
+      "fai": 17,
+      "spell": 149,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 150,
+    "fields": {
+      "int": 11,
+      "fai": 17,
+      "spell": 150,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 151,
+    "fields": {
+      "int": 11,
+      "fai": 17,
+      "spell": 151,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 152,
+    "fields": {
+      "int": 13,
+      "fai": 22,
+      "spell": 152,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 153,
+    "fields": {
+      "int": 13,
+      "fai": 20,
+      "spell": 153,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 154,
+    "fields": {
+      "int": 10,
+      "fai": 10,
+      "spell": 154,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 155,
+    "fields": {
+      "int": 11,
+      "fai": 11,
+      "spell": 155,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 156,
+    "fields": {
+      "int": 12,
+      "fai": 12,
+      "spell": 156,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 157,
+    "fields": {
+      "int": 10,
+      "fai": 12,
+      "spell": 157,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 158,
+    "fields": {
+      "int": 10,
+      "fai": 14,
+      "spell": 158,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 159,
+    "fields": {
+      "int": 12,
+      "fai": 14,
+      "spell": 159,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 160,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 160,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 161,
+    "fields": {
+      "int": 13,
+      "fai": 14,
+      "spell": 161,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 162,
+    "fields": {
+      "int": 13,
+      "fai": 15,
+      "spell": 162,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 163,
+    "fields": {
+      "int": 13,
+      "fai": 13,
+      "spell": 163,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 164,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 164,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 165,
+    "fields": {
+      "int": 16,
+      "fai": 16,
+      "spell": 165,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 166,
+    "fields": {
+      "int": 10,
+      "fai": 10,
+      "spell": 166,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 167,
+    "fields": {
+      "int": 15,
+      "fai": 15,
+      "spell": 167,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 168,
+    "fields": {
+      "int": 17,
+      "fai": 15,
+      "spell": 168,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 169,
+    "fields": {
+      "int": 11,
+      "fai": 11,
+      "spell": 169,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 170,
+    "fields": {
+      "int": 12,
+      "fai": 14,
+      "spell": 170,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 171,
+    "fields": {
+      "int": 14,
+      "fai": 12,
+      "spell": 171,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 172,
+    "fields": {
+      "int": 16,
+      "fai": 14,
+      "spell": 172,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 173,
+    "fields": {
+      "int": 16,
+      "fai": 16,
+      "spell": 173,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 174,
+    "fields": {
+      "int": 11,
+      "fai": 13,
+      "spell": 174,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 175,
+    "fields": {
+      "int": 12,
+      "fai": 11,
+      "spell": 175,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 176,
+    "fields": {
+      "int": 16,
+      "fai": 12,
+      "spell": 176,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 177,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 177,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 178,
+    "fields": {
+      "int": 10,
+      "fai": 18,
+      "spell": 178,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 179,
+    "fields": {
+      "int": 11,
+      "fai": 13,
+      "spell": 179,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 180,
+    "fields": {
+      "int": 11,
+      "fai": 14,
+      "spell": 180,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 181,
+    "fields": {
+      "int": 12,
+      "fai": 14,
+      "spell": 181,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 182,
+    "fields": {
+      "int": 13,
+      "fai": 15,
+      "spell": 182,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 183,
+    "fields": {
+      "int": 14,
+      "fai": 16,
+      "spell": 183,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 184,
+    "fields": {
+      "int": 15,
+      "fai": 20,
+      "spell": 184,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 185,
+    "fields": {
+      "int": 14,
+      "fai": 11,
+      "spell": 185,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 186,
+    "fields": {
+      "int": 16,
+      "fai": 14,
+      "spell": 186,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 187,
+    "fields": {
+      "int": 20,
+      "fai": 15,
+      "spell": 187,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 188,
+    "fields": {
+      "int": 16,
+      "fai": 14,
+      "spell": 188,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 189,
+    "fields": {
+      "int": 14,
+      "fai": 14,
+      "spell": 189,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 190,
+    "fields": {
+      "int": 14,
+      "fai": 16,
+      "spell": 190,
+      "str": 0,
+      "dex": 0
+    }
+  },
+  {
+    "model": "compendium.spellrequirements",
+    "pk": 191,
+    "fields": {
+      "int": 22,
+      "fai": 22,
+      "spell": 191,
+      "str": 0,
+      "dex": 0
+    }
+  }
+]

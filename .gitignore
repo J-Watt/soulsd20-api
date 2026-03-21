@@ -8,3 +8,20 @@ venv/
 
 # IDE
 .vscode
+# Uploaded media files
+soulsd20api/media/
+
+# Collected static files
+soulsd20api/staticfiles/
+
+# Python bytecode
+__pycache__/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+
+# Test files
+**/tests.py

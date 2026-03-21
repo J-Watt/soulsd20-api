@@ -1,0 +1,2103 @@
+[
+  {
+    "model": "compendium.weapondice",
+    "pk": 1,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 1,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 2,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 2,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 3,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "PHYSICAL",
+      "weapon": 3,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 4,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 4,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 5,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 5,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 6,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 6,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 7,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 6,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 8,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 7,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 9,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 7,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 10,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "DARK",
+      "weapon": 8,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 11,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 9,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 12,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 9,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 13,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 10,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 14,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "FROST",
+      "weapon": 10,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 15,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 11,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 16,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 11,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 17,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 12,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 18,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 12,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 19,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 13,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 20,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "LIGHTNING",
+      "weapon": 13,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 21,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 14,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 22,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 15,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 23,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "PHYSICAL",
+      "weapon": 16,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 24,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 17,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 25,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 17,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 26,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 18,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 27,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "MAGIC",
+      "weapon": 18,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 28,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 19,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 29,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 19,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 30,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 20,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 31,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 20,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 32,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 21,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 33,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 22,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 34,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 23,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 35,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 24,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 36,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "MAGIC",
+      "weapon": 24,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 37,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 25,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 38,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 26,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 39,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 27,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 40,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 28,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 41,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 29,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 42,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 30,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 43,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 31,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 44,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 31,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 45,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 32,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 46,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 32,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 47,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 33,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 48,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 33,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 49,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 34,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 50,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 35,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 51,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 35,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 52,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 36,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 53,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 36,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 54,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 37,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 55,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 38,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 56,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 39,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 57,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 40,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 58,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 41,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 59,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 42,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 60,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "MAGIC",
+      "weapon": 42,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 61,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "MAGIC",
+      "weapon": 43,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 62,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 44,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 63,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 45,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 64,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 46,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 65,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 47,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 66,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "LIGHTNING",
+      "weapon": 47,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 67,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 48,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 68,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "DARK",
+      "weapon": 48,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 69,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 49,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 70,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 50,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 71,
+    "fields": {
+      "count": 2,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 50,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 72,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 51,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 73,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 52,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 74,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 53,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 75,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 54,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 76,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 55,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 77,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "FIRE",
+      "weapon": 55,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 78,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 56,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 79,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "MAGIC",
+      "weapon": 56,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 80,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 57,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 81,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "MAGIC",
+      "weapon": 57,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 82,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 58,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 83,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 59,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 84,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 60,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 85,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 61,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 86,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 62,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 87,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 63,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 88,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 64,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 89,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 65,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 90,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 65,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 91,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 66,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 92,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "FROST",
+      "weapon": 66,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 93,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 67,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 94,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "LIGHTNING",
+      "weapon": 67,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 95,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 68,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 96,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 69,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 97,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 70,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 98,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 71,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 99,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 72,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 100,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 73,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 101,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 74,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 102,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 75,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 103,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 76,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 104,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 77,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 105,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "POISON",
+      "weapon": 77,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 106,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 78,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 107,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 79,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 108,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 80,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 109,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 80,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 110,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 81,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 111,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "TOXIC",
+      "weapon": 81,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 112,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 82,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 113,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "MAGIC",
+      "weapon": 82,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 114,
+    "fields": {
+      "count": 2,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 83,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 115,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 84,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 116,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 85,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 117,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 86,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 118,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "POISON",
+      "weapon": 86,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 119,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 87,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 120,
+    "fields": {
+      "count": 1,
+      "value": 2,
+      "type": "BLEED",
+      "weapon": 87,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 121,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 88,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 122,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 89,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 123,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "FIRE",
+      "weapon": 89,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 124,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 90,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 125,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "PHYSICAL",
+      "weapon": 91,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 126,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 92,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 127,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 93,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 128,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 94,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 129,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 95,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 130,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "MAGIC",
+      "weapon": 95,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 131,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 96,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 132,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "DARK",
+      "weapon": 96,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 133,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 97,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 134,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "LIGHTNING",
+      "weapon": 97,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 135,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 98,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 136,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 99,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 137,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 99,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 138,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 100,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 139,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "BLEED",
+      "weapon": 100,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 140,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 101,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 141,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 101,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 142,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 102,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 143,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "MAGIC",
+      "weapon": 102,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 144,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 103,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 145,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "BLEED",
+      "weapon": 103,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 146,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 104,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 147,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 105,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 148,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "MAGIC",
+      "weapon": 105,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 149,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 106,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 150,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 107,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 151,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "FIRE",
+      "weapon": 107,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 152,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 108,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 153,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "POISON",
+      "weapon": 108,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 154,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 109,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 155,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "BLEED",
+      "weapon": 109,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 156,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 110,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 157,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 111,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 158,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 112,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 159,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 113,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 160,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 114,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 161,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 115,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 162,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 116,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 163,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 117,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 164,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 118,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 165,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 119,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 166,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 120,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 167,
+    "fields": {
+      "count": 1,
+      "value": 6,
+      "type": "PHYSICAL",
+      "weapon": 121,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 168,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 122,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 169,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 123,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 170,
+    "fields": {
+      "count": 1,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 124,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 171,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 125,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 172,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 126,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 173,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 127,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 174,
+    "fields": {
+      "count": 1,
+      "value": 4,
+      "type": "FIRE",
+      "weapon": 127,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 175,
+    "fields": {
+      "count": 1,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 128,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 176,
+    "fields": {
+      "count": 3,
+      "value": 8,
+      "type": "PHYSICAL",
+      "weapon": 129,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 177,
+    "fields": {
+      "count": 3,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 130,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 178,
+    "fields": {
+      "count": 3,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 131,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 179,
+    "fields": {
+      "count": 3,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 132,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 180,
+    "fields": {
+      "count": 3,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 133,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 181,
+    "fields": {
+      "count": 3,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 134,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 182,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 135,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 183,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 136,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 184,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 137,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 185,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 138,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 186,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 139,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 187,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 140,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 188,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 141,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 189,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "FIRE",
+      "weapon": 141,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 190,
+    "fields": {
+      "count": 1,
+      "value": 10,
+      "type": "PHYSICAL",
+      "weapon": 142,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weapondice",
+    "pk": 191,
+    "fields": {
+      "count": 2,
+      "value": 12,
+      "type": "PHYSICAL",
+      "weapon": 155,
+      "form": "primary"
+    }
+  }
+]

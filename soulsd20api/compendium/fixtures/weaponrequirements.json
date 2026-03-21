@@ -1,0 +1,2162 @@
+[
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 1,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 1,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 2,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 2,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 3,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 3,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 4,
+    "fields": {
+      "str": 0,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 4,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 5,
+    "fields": {
+      "str": 10,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 5,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 6,
+    "fields": {
+      "str": 0,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 6,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 7,
+    "fields": {
+      "str": 13,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 7,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 8,
+    "fields": {
+      "str": 10,
+      "dex": 10,
+      "int": 10,
+      "fai": 10,
+      "weapon": 8,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 9,
+    "fields": {
+      "str": 0,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 9,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 10,
+    "fields": {
+      "str": 16,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 10,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 11,
+    "fields": {
+      "str": 18,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 11,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 12,
+    "fields": {
+      "str": 18,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 12,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 13,
+    "fields": {
+      "str": 14,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 13,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 14,
+    "fields": {
+      "str": 0,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 14,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 15,
+    "fields": {
+      "str": 0,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 15,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 16,
+    "fields": {
+      "str": 0,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 16,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 17,
+    "fields": {
+      "str": 0,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 17,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 18,
+    "fields": {
+      "str": 0,
+      "dex": 14,
+      "int": 10,
+      "fai": 0,
+      "weapon": 18,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 19,
+    "fields": {
+      "str": 0,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 19,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 20,
+    "fields": {
+      "str": 0,
+      "dex": 18,
+      "int": 0,
+      "fai": 0,
+      "weapon": 20,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 21,
+    "fields": {
+      "str": 10,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 21,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 22,
+    "fields": {
+      "str": 13,
+      "dex": 11,
+      "int": 0,
+      "fai": 0,
+      "weapon": 22,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 23,
+    "fields": {
+      "str": 11,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 23,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 24,
+    "fields": {
+      "str": 0,
+      "dex": 14,
+      "int": 16,
+      "fai": 0,
+      "weapon": 24,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 25,
+    "fields": {
+      "str": 0,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 25,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 26,
+    "fields": {
+      "str": 0,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 26,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 27,
+    "fields": {
+      "str": 0,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 27,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 28,
+    "fields": {
+      "str": 10,
+      "dex": 18,
+      "int": 0,
+      "fai": 0,
+      "weapon": 28,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 29,
+    "fields": {
+      "str": 0,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 29,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 30,
+    "fields": {
+      "str": 14,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 30,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 31,
+    "fields": {
+      "str": 10,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 31,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 32,
+    "fields": {
+      "str": 13,
+      "dex": 18,
+      "int": 0,
+      "fai": 0,
+      "weapon": 32,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 33,
+    "fields": {
+      "str": 0,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 33,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 34,
+    "fields": {
+      "str": 0,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 34,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 35,
+    "fields": {
+      "str": 0,
+      "dex": 15,
+      "int": 0,
+      "fai": 10,
+      "weapon": 35,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 36,
+    "fields": {
+      "str": 10,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 36,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 37,
+    "fields": {
+      "str": 0,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 37,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 38,
+    "fields": {
+      "str": 12,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 38,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 39,
+    "fields": {
+      "str": 16,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 39,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 40,
+    "fields": {
+      "str": 14,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 40,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 41,
+    "fields": {
+      "str": 18,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 41,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 42,
+    "fields": {
+      "str": 16,
+      "dex": 0,
+      "int": 16,
+      "fai": 0,
+      "weapon": 42,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 43,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 20,
+      "fai": 0,
+      "weapon": 43,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 44,
+    "fields": {
+      "str": 17,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 44,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 45,
+    "fields": {
+      "str": 14,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 45,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 46,
+    "fields": {
+      "str": 20,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 46,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 47,
+    "fields": {
+      "str": 19,
+      "dex": 0,
+      "int": 0,
+      "fai": 14,
+      "weapon": 47,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 48,
+    "fields": {
+      "str": 22,
+      "dex": 0,
+      "int": 10,
+      "fai": 10,
+      "weapon": 48,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 49,
+    "fields": {
+      "str": 20,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 49,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 50,
+    "fields": {
+      "str": 20,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 50,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 51,
+    "fields": {
+      "str": 12,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 51,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 52,
+    "fields": {
+      "str": 13,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 52,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 53,
+    "fields": {
+      "str": 12,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 53,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 54,
+    "fields": {
+      "str": 15,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 54,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 55,
+    "fields": {
+      "str": 17,
+      "dex": 0,
+      "int": 0,
+      "fai": 14,
+      "weapon": 55,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 56,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 12,
+      "fai": 0,
+      "weapon": 56,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 57,
+    "fields": {
+      "str": 16,
+      "dex": 0,
+      "int": 10,
+      "fai": 0,
+      "weapon": 57,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 58,
+    "fields": {
+      "str": 20,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 58,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 59,
+    "fields": {
+      "str": 18,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 59,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 60,
+    "fields": {
+      "str": 17,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 60,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 61,
+    "fields": {
+      "str": 24,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 61,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 62,
+    "fields": {
+      "str": 10,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 62,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 63,
+    "fields": {
+      "str": 13,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 63,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 64,
+    "fields": {
+      "str": 15,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 64,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 65,
+    "fields": {
+      "str": 14,
+      "dex": 11,
+      "int": 0,
+      "fai": 0,
+      "weapon": 65,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 66,
+    "fields": {
+      "str": 15,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 66,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 67,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 0,
+      "fai": 16,
+      "weapon": 67,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 68,
+    "fields": {
+      "str": 20,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 68,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 69,
+    "fields": {
+      "str": 18,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 69,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 70,
+    "fields": {
+      "str": 20,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 70,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 71,
+    "fields": {
+      "str": 24,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 71,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 72,
+    "fields": {
+      "str": 26,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 72,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 73,
+    "fields": {
+      "str": 22,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 73,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 74,
+    "fields": {
+      "str": 15,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 74,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 75,
+    "fields": {
+      "str": 10,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 75,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 76,
+    "fields": {
+      "str": 10,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 76,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 77,
+    "fields": {
+      "str": 10,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 77,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 78,
+    "fields": {
+      "str": 10,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 78,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 79,
+    "fields": {
+      "str": 14,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 79,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 80,
+    "fields": {
+      "str": 10,
+      "dex": 18,
+      "int": 0,
+      "fai": 0,
+      "weapon": 80,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 81,
+    "fields": {
+      "str": 16,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 81,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 82,
+    "fields": {
+      "str": 10,
+      "dex": 20,
+      "int": 15,
+      "fai": 0,
+      "weapon": 82,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 83,
+    "fields": {
+      "str": 18,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 83,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 84,
+    "fields": {
+      "str": 12,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 84,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 85,
+    "fields": {
+      "str": 12,
+      "dex": 12,
+      "int": 0,
+      "fai": 10,
+      "weapon": 85,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 86,
+    "fields": {
+      "str": 10,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 86,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 87,
+    "fields": {
+      "str": 14,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 87,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 88,
+    "fields": {
+      "str": 13,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 88,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 89,
+    "fields": {
+      "str": 18,
+      "dex": 12,
+      "int": 0,
+      "fai": 12,
+      "weapon": 89,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 90,
+    "fields": {
+      "str": 16,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 90,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 91,
+    "fields": {
+      "str": 14,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 91,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 92,
+    "fields": {
+      "str": 12,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 92,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 93,
+    "fields": {
+      "str": 14,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 93,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 94,
+    "fields": {
+      "str": 14,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 94,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 95,
+    "fields": {
+      "str": 13,
+      "dex": 12,
+      "int": 16,
+      "fai": 0,
+      "weapon": 95,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 96,
+    "fields": {
+      "str": 18,
+      "dex": 10,
+      "int": 0,
+      "fai": 14,
+      "weapon": 96,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 97,
+    "fields": {
+      "str": 18,
+      "dex": 0,
+      "int": 0,
+      "fai": 16,
+      "weapon": 97,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 98,
+    "fields": {
+      "str": 18,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 98,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 99,
+    "fields": {
+      "str": 8,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 99,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 100,
+    "fields": {
+      "str": 12,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 100,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 101,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 0,
+      "fai": 13,
+      "weapon": 101,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 102,
+    "fields": {
+      "str": 10,
+      "dex": 18,
+      "int": 13,
+      "fai": 0,
+      "weapon": 102,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 103,
+    "fields": {
+      "str": 12,
+      "dex": 19,
+      "int": 0,
+      "fai": 0,
+      "weapon": 103,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 104,
+    "fields": {
+      "str": 16,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 104,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 105,
+    "fields": {
+      "str": 10,
+      "dex": 20,
+      "int": 14,
+      "fai": 0,
+      "weapon": 105,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 106,
+    "fields": {
+      "str": 0,
+      "dex": 11,
+      "int": 0,
+      "fai": 0,
+      "weapon": 106,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 107,
+    "fields": {
+      "str": 0,
+      "dex": 12,
+      "int": 12,
+      "fai": 12,
+      "weapon": 107,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 108,
+    "fields": {
+      "str": 0,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 108,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 109,
+    "fields": {
+      "str": 0,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 109,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 110,
+    "fields": {
+      "str": 0,
+      "dex": 17,
+      "int": 0,
+      "fai": 0,
+      "weapon": 110,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 111,
+    "fields": {
+      "str": 0,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 111,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 112,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 112,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 113,
+    "fields": {
+      "str": 12,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 113,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 114,
+    "fields": {
+      "str": 12,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 114,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 115,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 115,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 116,
+    "fields": {
+      "str": 16,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 116,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 117,
+    "fields": {
+      "str": 17,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 117,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 118,
+    "fields": {
+      "str": 17,
+      "dex": 13,
+      "int": 0,
+      "fai": 0,
+      "weapon": 118,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 119,
+    "fields": {
+      "str": 0,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 119,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 120,
+    "fields": {
+      "str": 0,
+      "dex": 14,
+      "int": 0,
+      "fai": 0,
+      "weapon": 120,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 121,
+    "fields": {
+      "str": 15,
+      "dex": 15,
+      "int": 0,
+      "fai": 0,
+      "weapon": 121,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 122,
+    "fields": {
+      "str": 10,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 122,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 123,
+    "fields": {
+      "str": 10,
+      "dex": 20,
+      "int": 0,
+      "fai": 0,
+      "weapon": 123,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 124,
+    "fields": {
+      "str": 18,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 124,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 125,
+    "fields": {
+      "str": 17,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 125,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 126,
+    "fields": {
+      "str": 20,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 126,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 127,
+    "fields": {
+      "str": 18,
+      "dex": 12,
+      "int": 10,
+      "fai": 0,
+      "weapon": 127,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 128,
+    "fields": {
+      "str": 23,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 128,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 129,
+    "fields": {
+      "str": 17,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 129,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 130,
+    "fields": {
+      "str": 18,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 130,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 131,
+    "fields": {
+      "str": 20,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 131,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 132,
+    "fields": {
+      "str": 22,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 132,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 133,
+    "fields": {
+      "str": 24,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 133,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 134,
+    "fields": {
+      "str": 26,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 134,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 135,
+    "fields": {
+      "str": 0,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 135,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 136,
+    "fields": {
+      "str": 10,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 136,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 137,
+    "fields": {
+      "str": 14,
+      "dex": 16,
+      "int": 0,
+      "fai": 0,
+      "weapon": 137,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 138,
+    "fields": {
+      "str": 10,
+      "dex": 10,
+      "int": 0,
+      "fai": 16,
+      "weapon": 138,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 139,
+    "fields": {
+      "str": 12,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 139,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 140,
+    "fields": {
+      "str": 15,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 140,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 141,
+    "fields": {
+      "str": 18,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 141,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 142,
+    "fields": {
+      "str": 19,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 142,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 143,
+    "fields": {
+      "str": 10,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 143,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 144,
+    "fields": {
+      "str": 10,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 144,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 145,
+    "fields": {
+      "str": 12,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 145,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 146,
+    "fields": {
+      "str": 13,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 146,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 147,
+    "fields": {
+      "str": 15,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 147,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 148,
+    "fields": {
+      "str": 12,
+      "dex": 0,
+      "int": 16,
+      "fai": 0,
+      "weapon": 148,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 149,
+    "fields": {
+      "str": 14,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 149,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 150,
+    "fields": {
+      "str": 14,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 150,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 151,
+    "fields": {
+      "str": 15,
+      "dex": 10,
+      "int": 0,
+      "fai": 0,
+      "weapon": 151,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 152,
+    "fields": {
+      "str": 16,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 152,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 153,
+    "fields": {
+      "str": 18,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 153,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 154,
+    "fields": {
+      "str": 18,
+      "dex": 12,
+      "int": 0,
+      "fai": 0,
+      "weapon": 154,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 155,
+    "fields": {
+      "str": 23,
+      "dex": 0,
+      "int": 0,
+      "fai": 0,
+      "weapon": 155,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 156,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 10,
+      "fai": 0,
+      "weapon": 156,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 157,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 12,
+      "fai": 12,
+      "weapon": 157,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 158,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 14,
+      "fai": 0,
+      "weapon": 158,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 159,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 14,
+      "fai": 14,
+      "weapon": 159,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 160,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 16,
+      "fai": 0,
+      "weapon": 160,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 161,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 18,
+      "fai": 16,
+      "weapon": 161,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 162,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 20,
+      "fai": 0,
+      "weapon": 162,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 163,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 10,
+      "fai": 18,
+      "weapon": 163,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 164,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 12,
+      "weapon": 164,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 165,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 12,
+      "weapon": 165,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 166,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 14,
+      "weapon": 166,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 167,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 12,
+      "fai": 14,
+      "weapon": 167,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 168,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 16,
+      "weapon": 168,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 169,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 0,
+      "fai": 20,
+      "weapon": 169,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 170,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 16,
+      "fai": 18,
+      "weapon": 170,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 171,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 10,
+      "fai": 10,
+      "weapon": 171,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 172,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 12,
+      "fai": 14,
+      "weapon": 172,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 173,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 14,
+      "fai": 12,
+      "weapon": 173,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 174,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 13,
+      "fai": 16,
+      "weapon": 174,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 175,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 15,
+      "fai": 16,
+      "weapon": 175,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 176,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 18,
+      "fai": 18,
+      "weapon": 176,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 177,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 10,
+      "fai": 10,
+      "weapon": 177,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 178,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 13,
+      "fai": 13,
+      "weapon": 178,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 179,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 15,
+      "fai": 15,
+      "weapon": 179,
+      "form": "primary"
+    }
+  },
+  {
+    "model": "compendium.weaponrequirements",
+    "pk": 180,
+    "fields": {
+      "str": 0,
+      "dex": 0,
+      "int": 18,
+      "fai": 18,
+      "weapon": 180,
+      "form": "primary"
+    }
+  }
+]

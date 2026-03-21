@@ -51,25 +51,43 @@ class SizeCategories(models.TextChoices):
     ASTRONOMICAL = "ASTRONOMICAL", _("Astronomical")
 
 
+class WeaponForm(models.TextChoices):
+    """For trick weapons - identifies which form a related entry belongs to."""
+    PRIMARY = "primary", _("Primary Form")
+    SECONDARY = "secondary", _("Secondary Form")
+
+
 class ElementTypeExpanded(models.TextChoices):
+    # Damage Types (8)
     PHYSICAL = "PHYSICAL", _("Physical")
     MAGIC = "MAGIC", _("Magic")
     FIRE = "FIRE", _("Fire")
     LIGHTNING = "LIGHTNING", _("Lightning")
     DARK = "DARK", _("Dark")
     TRUE = "TRUE", _("True Damage")
-    VARYING = "VARYING", _("Varying Damage Type")
-    REDUCE = "REDUCE", _("Damage Reduction")
-    HEAL = "HEAL", _("HP Healing")
-    FOCUS = "FOCUS", _("FP Regeneration")
-    UNFOCUS = "UNFOCUS", _("FP Degeneration")
-    FROST = "FROST", _("Frostbite")
+    DAMAGE_FP = "DAMAGE_FP", _("FP Damage")  # Renamed from UNFOCUS
+    DAMAGE_AP = "DAMAGE_AP", _("AP Damage")  # New
+
+    # Status Buildup (6)
     BLEED = "BLEED", _("Bleed")
     POISON = "POISON", _("Poison")
     TOXIC = "TOXIC", _("Toxic")
+    FROST = "FROST", _("Frostbite")
     CURSE = "CURSE", _("Curse")
     POISE = "POISE", _("Poise")
+
+    # Restoration (3)
+    HEAL = "HEAL", _("HP Healing")
+    RESTORE_FP = "RESTORE_FP", _("FP Restoration")  # Renamed from FOCUS
+    RESTORE_AP = "RESTORE_AP", _("AP Restoration")  # New
+
+    # Manual/User-Defined (1)
+    VARYING = "VARYING", _("Varying")  # Foundry ignores - users define manually
+
+    # Equipment (1)
     DURABILITY = "DURABILITY", _("Durability")
+
+    # REMOVED: REDUCE (replaced by CF4 Protection System)
 
 
 class WeaponProfTree(models.TextChoices):
@@ -147,6 +165,7 @@ class WeaponProfFeat(models.Model):
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
     description = models.TextField(max_length=4096)
+    is_official = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return f"{self.weapon_tree}: (Lv{self.level}) {self.name}"
@@ -171,6 +190,7 @@ class DestinyFeat(models.Model):
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
     description = models.TextField(max_length=16384)
+    is_official = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return f"{self.name}: (cost {self.cost})"
@@ -191,6 +211,7 @@ class WeaponSkill(models.Model):
     is_slow = models.BooleanField(default=False)
     usage_type = models.CharField(max_length=6, choices=UsageType.choices)
     description = models.TextField(max_length=1024)
+    is_official = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return self.name
@@ -237,6 +258,8 @@ class Spell(SpellBase):
         User, models.DO_NOTHING, blank=True, null=True, related_name="spell_updated_by")
     name = models.CharField(max_length=200)
     is_official = models.BooleanField(default=False)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_spells")
     category = models.CharField(max_length=20, choices=SpellType.choices)
     is_slow = models.BooleanField(default=False)
     att_cost = models.IntegerField(default=1)
@@ -264,6 +287,8 @@ class Spirit(models.Model):
     updated_by = models.ForeignKey(
         User, models.DO_NOTHING, blank=True, null=True, related_name="spirit_updated_by")
     is_official = models.BooleanField(default=False)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_spirits")
     tier = models.CharField(max_length=5, choices=SpiritTier.choices, default=SpiritTier.ONE)
     creature = models.CharField(max_length=200, blank=True, default="")
     size = models.CharField(max_length=12, choices=SizeCategories.choices, default=SizeCategories.MEDIUM)
@@ -292,6 +317,8 @@ class Item(models.Model):
     updated_by = models.ForeignKey(
         User, models.DO_NOTHING, blank=True, null=True, related_name="item_updated_by")
     is_official = models.BooleanField(default=False)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_items")
     item_type = models.CharField(
         max_length=8,
         choices=ItemType.choices
@@ -316,6 +343,9 @@ class Ring(models.Model):
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
     description = models.TextField(max_length=2048)
+    is_official = models.BooleanField(default=True)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_rings")
 
     def __str__(self) -> str:
         return self.name
@@ -332,6 +362,9 @@ class Artifact(models.Model):
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
     description = models.TextField(max_length=2048)
+    is_official = models.BooleanField(default=True)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_artifacts")
 
     def __str__(self) -> str:
         return self.name
@@ -431,6 +464,8 @@ class Armor(models.Model):
     updated_by = models.ForeignKey(
         User, models.DO_NOTHING, blank=True, null=True, related_name="armor_updated_by")
     is_official = models.BooleanField(default=False)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_armors")
     armor_type = models.CharField(
         max_length=6,
         choices=ArmorType.choices
@@ -490,6 +525,8 @@ class Weapon(models.Model):
     updated_by = models.ForeignKey(
         User, models.DO_NOTHING, blank=True, null=True, related_name="weapon_updated_by")
     is_official = models.BooleanField(default=False)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', models.CASCADE, blank=True, null=True, related_name="custom_weapons")
 
     is_trick = models.BooleanField(default=False)
     is_twin = models.BooleanField(default=False)
@@ -497,26 +534,39 @@ class Weapon(models.Model):
     second_type = models.CharField(
         max_length=25, choices=WeaponType.choices, blank=True, null=True, default=None)
 
+    # Primary form stats
     ap = models.IntegerField(default=3)
     skill_primary = models.ForeignKey(
         WeaponSkill, models.SET_NULL, blank=True, null=True, default=None)
     skill_secondary = models.ForeignKey(
         WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="weapon_skill_secondary")
+    infusion = models.CharField(
+        max_length=9, choices=ElementType.choices, blank=True, null=True, default=None)
+
+    # CF3: Secondary form stats (for trick weapons)
+    second_ap = models.IntegerField(blank=True, null=True, default=None)
+    second_skill_primary = models.ForeignKey(
+        WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="weapon_second_skill_primary")
+    second_skill_secondary = models.ForeignKey(
+        WeaponSkill, models.SET_NULL, blank=True, null=True, default=None, related_name="weapon_second_skill_secondary")
+    second_infusion = models.CharField(
+        max_length=9, choices=ElementType.choices, blank=True, null=True, default=None)
 
     usage_formula = models.ForeignKey(
         UsageFormula, models.SET_NULL, blank=True, null=True, default=None)
 
     description = models.TextField(max_length=512)
     durability = models.IntegerField(default=10)
-    infusion = models.CharField(
-        max_length=9, choices=ElementType.choices, blank=True, null=True, default=None)
 
     def __str__(self) -> str:
         return self.name
 
 
 class SpellScaling(models.Model):
+    """Spell scaling for catalyst weapons (staffs, talismans, etc.)."""
     class SpellStat(models.TextChoices):
+        STRENGTH = "STR", _("Strength")
+        DEXTERITY = "DEX", _("Dexterity")
         INTELLIGENCE = "INT", _("Intelligence")
         FAITH = "FAI", _("Faith")
     stat = models.CharField(max_length=3, choices=SpellStat.choices)
@@ -524,6 +574,9 @@ class SpellScaling(models.Model):
     value = models.CharField(max_length=2, choices=ScalingValue.choices)
     weapon = models.ForeignKey(
         Weapon, on_delete=models.CASCADE, related_name="spell_scaling")
+    # CF3: Trick Weapon System - form field for per-form spell scaling
+    form = models.CharField(
+        max_length=9, choices=WeaponForm.choices, default=WeaponForm.PRIMARY)
 
     def __str__(self) -> str:
         return f"{self.value}-{self.stat} | Req: {self.requirement} "
@@ -547,14 +600,14 @@ class WeaponScaling(Scaling):
         FIRE = "FIRE", _("Fire")
         LIGHTNING = "LIGHTNING", _("Lightning")
         DARK = "DARK", _("Dark")
-        TONE = "TONE", _("Tier One Summon")
-        TTWO = "TTWO", _("Tier Two Summon")
-        TTHREE = "TTHREE", _("Tier Three Summon")
-        TFOUR = "TFOUR", _("Tier Four Summon")
+        # Spirit tiers removed - see SpiritScaling for spirit tier scaling
     type = models.CharField(max_length=9, choices=ScalingType.choices)
     stat = models.CharField(max_length=3, choices=ScalingStat.choices)
     weapon = models.ForeignKey(
         Weapon, on_delete=models.CASCADE, related_name="scaling")
+    # CF3: Trick Weapon System - form field for per-form scaling
+    form = models.CharField(
+        max_length=9, choices=WeaponForm.choices, default=WeaponForm.PRIMARY)
 
 
 class WeaponProfScaling(Scaling):
@@ -606,6 +659,9 @@ class Dice(models.Model):
 class WeaponDice(Dice):
     weapon = models.ForeignKey(
         Weapon, on_delete=models.CASCADE, related_name="dice")
+    # CF3: Trick Weapon System - form field for per-form dice
+    form = models.CharField(
+        max_length=9, choices=WeaponForm.choices, default=WeaponForm.PRIMARY)
 
 
 class WeaponProfDice(Dice):
@@ -672,13 +728,23 @@ class ArmorRequirements(Requirements):
 
 
 class WeaponRequirements(Requirements):
-    weapon = models.OneToOneField(
-        Weapon, on_delete=models.CASCADE, primary_key=True, related_name="requirements")
+    # CF3: Changed from OneToOneField to ForeignKey to support per-form requirements
+    weapon = models.ForeignKey(
+        Weapon, on_delete=models.CASCADE, related_name="requirements")
+    # CF3: Trick Weapon System - form field for per-form requirements
+    form = models.CharField(
+        max_length=9, choices=WeaponForm.choices, default=WeaponForm.PRIMARY)
+
+    class Meta:
+        # Ensure only one requirement entry per weapon + form combination
+        unique_together = ['weapon', 'form']
 
     def __str__(self) -> str:
-        return f"{self.weapon.name} Requirements"
+        return f"{self.weapon.name} Requirements ({self.form})"
     
 class SpellRequirements(models.Model):
+    str = models.IntegerField(default=0)
+    dex = models.IntegerField(default=0)
     int = models.IntegerField(default=0)
     fai = models.IntegerField(default=0)
     spell = models.OneToOneField(
@@ -686,8 +752,10 @@ class SpellRequirements(models.Model):
 
     def __str__(self) -> str:
         return f"{self.spell.name} Requirements"
-    
+
 class SpiritRequirements(models.Model):
+    str = models.IntegerField(default=0)
+    dex = models.IntegerField(default=0)
     int = models.IntegerField(default=0)
     fai = models.IntegerField(default=0)
     spirit = models.OneToOneField(
@@ -816,7 +884,7 @@ class ItemBonuses(Bonuses):
         Item, on_delete=models.CASCADE, related_name="bonuses")
 
     def __str__(self) -> str:
-        return f"{self.ring.name} Bonuses"
+        return f"{self.item.name} Bonuses"
 
 class RingBonuses(Bonuses):
     ring = models.ForeignKey(
@@ -877,6 +945,7 @@ class Background(models.Model):
     special_rules = models.TextField(max_length=1024, blank=True)
 
     # Metadata
+    is_official = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -928,6 +997,7 @@ class Lineage(models.Model):
     )
 
     # Metadata
+    is_official = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -988,6 +1058,7 @@ class Bloodline(models.Model):
     )
 
     # Metadata
+    is_official = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -997,6 +1068,282 @@ class Bloodline(models.Model):
     class Meta:
         ordering = ['lineage__name', 'name']
         unique_together = ['lineage', 'name']
+
+
+# =============================================================================
+# Protection System Models (CF4)
+# =============================================================================
+
+class ProtectionDamageType(models.TextChoices):
+    """Damage types that can be protected against. TRUE is excluded (bypasses all protection)."""
+    PHYSICAL = "PHYSICAL", _("Physical")
+    MAGIC = "MAGIC", _("Magic")
+    FIRE = "FIRE", _("Fire")
+    LIGHTNING = "LIGHTNING", _("Lightning")
+    DARK = "DARK", _("Dark")
+
+
+class ProtectionBuildupType(models.TextChoices):
+    """Status buildup types that can be protected against."""
+    BLEED = "BLEED", _("Bleed")
+    POISON = "POISON", _("Poison")
+    TOXIC = "TOXIC", _("Toxic")
+    FROST = "FROST", _("Frost")
+    CURSE = "CURSE", _("Curse")
+    POISE = "POISE", _("Poise")
+
+
+class ProtectionConditionType(models.TextChoices):
+    """All conditions that can be protected against (includes effect-triggered)."""
+    # Direct conditions
+    GRAPPLED = "GRAPPLED", _("Grappled")
+    RESTRAINED = "RESTRAINED", _("Restrained")
+    PRONE = "PRONE", _("Prone")
+    MOUNTING = "MOUNTING", _("Mounting")
+    IMPAIRED_VISION = "IMPAIRED_VISION", _("Impaired Vision")
+    DEAFENED = "DEAFENED", _("Deafened")
+    DAZED = "DAZED", _("Dazed")
+    LIMB_FRACTURE = "LIMB_FRACTURE", _("Limb Fracture")
+    LOCKED_UP = "LOCKED_UP", _("Locked Up")
+    FRENZY = "FRENZY", _("Frenzy")
+    BERSERK = "BERSERK", _("Berserk")
+    EXHAUSTION = "EXHAUSTION", _("Exhaustion")
+    # Effect-triggered conditions (from buildup)
+    STAGGERED = "STAGGERED", _("Staggered")
+    BLED_OUT = "BLED_OUT", _("Bled Out")
+    POISONED = "POISONED", _("Poisoned")
+    BADLY_POISONED = "BADLY_POISONED", _("Badly Poisoned")
+    FROSTBITTEN = "FROSTBITTEN", _("Frostbitten")
+    CURSED = "CURSED", _("Cursed")
+
+
+class PercentageTiming(models.TextChoices):
+    """When percentage reduction is applied in the damage pipeline."""
+    INITIAL = "INITIAL", _("Before Reductions")
+    FINAL = "FINAL", _("After Reductions")
+
+
+class StackingBehavior(models.TextChoices):
+    """How protection from the same source stacks."""
+    APPEND = "APPEND", _("Append")
+    OVERWRITE = "OVERWRITE", _("Overwrite")
+
+
+class SpellDamageProtection(models.Model):
+    """Damage protection granted by a spell."""
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE, related_name="damage_protection")
+    type = models.CharField(max_length=10, choices=ProtectionDamageType.choices)
+    tiers = models.IntegerField(default=0)
+    flat = models.IntegerField(default=0)
+    dice_count = models.IntegerField(default=0)  # e.g., 1 for 1d6
+    dice_value = models.IntegerField(default=0)  # e.g., 6 for 1d6
+    percentage = models.IntegerField(default=0)  # 0-100
+    percentage_timing = models.CharField(max_length=7, choices=PercentageTiming.choices, default=PercentageTiming.FINAL)
+    duration_turns = models.IntegerField(default=0)
+    duration_attacks = models.IntegerField(default=0)
+    apply_to_caster = models.BooleanField(default=False)
+    apply_to_target = models.BooleanField(default=True)
+    stacking = models.CharField(max_length=9, choices=StackingBehavior.choices, default=StackingBehavior.OVERWRITE)
+    scaling_source = models.JSONField(default=dict, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} - {self.type} Protection"
+
+
+class SpellBuildupProtection(models.Model):
+    """Status buildup protection granted by a spell."""
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE, related_name="buildup_protection")
+    type = models.CharField(max_length=10, choices=ProtectionBuildupType.choices)
+    flat = models.IntegerField(default=0)  # NO tiers for buildup
+    dice_count = models.IntegerField(default=0)
+    dice_value = models.IntegerField(default=0)
+    percentage = models.IntegerField(default=0)
+    percentage_timing = models.CharField(max_length=7, choices=PercentageTiming.choices, default=PercentageTiming.FINAL)
+    duration_turns = models.IntegerField(default=0)
+    duration_attacks = models.IntegerField(default=0)
+    apply_to_caster = models.BooleanField(default=False)
+    apply_to_target = models.BooleanField(default=True)
+    stacking = models.CharField(max_length=9, choices=StackingBehavior.choices, default=StackingBehavior.OVERWRITE)
+    scaling_source = models.JSONField(default=dict, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} - {self.type} Buildup Protection"
+
+
+class SpellConditionProtection(models.Model):
+    """Condition immunity granted by a spell."""
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE, related_name="condition_protection")
+    condition = models.CharField(max_length=20, choices=ProtectionConditionType.choices)
+    duration_turns = models.IntegerField(default=0)
+    apply_to_caster = models.BooleanField(default=False)
+    apply_to_target = models.BooleanField(default=True)
+    # NO stacking - immunity is binary
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} - {self.condition} Immunity"
+
+
+class SpiritDamageProtection(models.Model):
+    """Damage protection granted by a spirit."""
+    spirit = models.ForeignKey(Spirit, on_delete=models.CASCADE, related_name="damage_protection")
+    type = models.CharField(max_length=10, choices=ProtectionDamageType.choices)
+    tiers = models.IntegerField(default=0)
+    flat = models.IntegerField(default=0)
+    dice_count = models.IntegerField(default=0)
+    dice_value = models.IntegerField(default=0)
+    percentage = models.IntegerField(default=0)
+    percentage_timing = models.CharField(max_length=7, choices=PercentageTiming.choices, default=PercentageTiming.FINAL)
+    duration_turns = models.IntegerField(default=0)
+    duration_attacks = models.IntegerField(default=0)
+    apply_to_caster = models.BooleanField(default=False)
+    apply_to_target = models.BooleanField(default=True)
+    stacking = models.CharField(max_length=9, choices=StackingBehavior.choices, default=StackingBehavior.OVERWRITE)
+    scaling_source = models.JSONField(default=dict, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.spirit.name} - {self.type} Protection"
+
+
+class SpiritBuildupProtection(models.Model):
+    """Status buildup protection granted by a spirit."""
+    spirit = models.ForeignKey(Spirit, on_delete=models.CASCADE, related_name="buildup_protection")
+    type = models.CharField(max_length=10, choices=ProtectionBuildupType.choices)
+    flat = models.IntegerField(default=0)
+    dice_count = models.IntegerField(default=0)
+    dice_value = models.IntegerField(default=0)
+    percentage = models.IntegerField(default=0)
+    percentage_timing = models.CharField(max_length=7, choices=PercentageTiming.choices, default=PercentageTiming.FINAL)
+    duration_turns = models.IntegerField(default=0)
+    duration_attacks = models.IntegerField(default=0)
+    apply_to_caster = models.BooleanField(default=False)
+    apply_to_target = models.BooleanField(default=True)
+    stacking = models.CharField(max_length=9, choices=StackingBehavior.choices, default=StackingBehavior.OVERWRITE)
+    scaling_source = models.JSONField(default=dict, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.spirit.name} - {self.type} Buildup Protection"
+
+
+class SpiritConditionProtection(models.Model):
+    """Condition immunity granted by a spirit."""
+    spirit = models.ForeignKey(Spirit, on_delete=models.CASCADE, related_name="condition_protection")
+    condition = models.CharField(max_length=20, choices=ProtectionConditionType.choices)
+    duration_turns = models.IntegerField(default=0)
+    apply_to_caster = models.BooleanField(default=False)
+    apply_to_target = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return f"{self.spirit.name} - {self.condition} Immunity"
+
+
+# =============================================================================
+# Restoration System Models (Reduce Buildup, Cure Condition, Cure Effect)
+# =============================================================================
+
+class CurableConditionType(models.TextChoices):
+    """Conditions that can be cured via cure-condition.
+    Excludes effect-triggered conditions (BledOut, Poisoned, etc.) which require cure-effect."""
+    GRAPPLED = "GRAPPLED", _("Grappled")
+    RESTRAINED = "RESTRAINED", _("Restrained")
+    PRONE = "PRONE", _("Prone")
+    MOUNTING = "MOUNTING", _("Mounting")
+    IMPAIRED_VISION = "IMPAIRED_VISION", _("Impaired Vision")
+    DEAFENED = "DEAFENED", _("Deafened")
+    DAZED = "DAZED", _("Dazed")
+    LIMB_FRACTURE = "LIMB_FRACTURE", _("Limb Fracture")
+    LOCKED_UP = "LOCKED_UP", _("Locked Up")
+    FRENZY = "FRENZY", _("Frenzy")
+    BERSERK = "BERSERK", _("Berserk")
+    EXHAUSTION = "EXHAUSTION", _("Exhaustion")
+
+
+class StatusEffectType(models.TextChoices):
+    """Status effects that can be cured via cure-effect.
+    These are buildup-triggered effects - curing also resets the buildup."""
+    BLEED = "BLEED", _("Bleed (cures Bled Out)")
+    POISON = "POISON", _("Poison (cures Poisoned)")
+    TOXIC = "TOXIC", _("Toxic (cures Badly Poisoned)")
+    FROST = "FROST", _("Frost (cures Frostbitten)")
+    CURSE = "CURSE", _("Curse (cures Cursed)")
+    POISE = "POISE", _("Poise (cures Staggered)")
+
+
+class SpellReduceBuildup(models.Model):
+    """Buildup reduction granted by a spell."""
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE, related_name="reduce_buildup")
+    buildup_type = models.CharField(max_length=10, choices=ProtectionBuildupType.choices)
+    dice_count = models.IntegerField(default=0, help_text="Number of dice (e.g., 1 for 1d4)")
+    dice_value = models.IntegerField(default=0, help_text="Dice sides (e.g., 4 for 1d4)")
+    flat_bonus = models.IntegerField(default=0, help_text="Flat amount added to roll")
+    scaling_source = models.JSONField(default=dict, blank=True, help_text="Optional scaling source")
+
+    def __str__(self) -> str:
+        dice_str = f"{self.dice_count}d{self.dice_value}" if self.dice_count > 0 else ""
+        flat_str = f"+{self.flat_bonus}" if self.flat_bonus > 0 else ""
+        return f"{self.spell.name} - Reduce {self.buildup_type} {dice_str}{flat_str}"
+
+
+class SpiritReduceBuildup(models.Model):
+    """Buildup reduction granted by a spirit."""
+    spirit = models.ForeignKey(Spirit, on_delete=models.CASCADE, related_name="reduce_buildup")
+    buildup_type = models.CharField(max_length=10, choices=ProtectionBuildupType.choices)
+    dice_count = models.IntegerField(default=0, help_text="Number of dice (e.g., 1 for 1d4)")
+    dice_value = models.IntegerField(default=0, help_text="Dice sides (e.g., 4 for 1d4)")
+    flat_bonus = models.IntegerField(default=0, help_text="Flat amount added to roll")
+    scaling_source = models.JSONField(default=dict, blank=True, help_text="Optional scaling source")
+
+    def __str__(self) -> str:
+        dice_str = f"{self.dice_count}d{self.dice_value}" if self.dice_count > 0 else ""
+        flat_str = f"+{self.flat_bonus}" if self.flat_bonus > 0 else ""
+        return f"{self.spirit.name} - Reduce {self.buildup_type} {dice_str}{flat_str}"
+
+
+class SpellCureCondition(models.Model):
+    """Condition curing granted by a spell. One entry per condition cured."""
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE, related_name="cure_conditions")
+    condition = models.CharField(max_length=20, choices=CurableConditionType.choices)
+
+    class Meta:
+        unique_together = ['spell', 'condition']
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} - Cures {self.condition}"
+
+
+class SpiritCureCondition(models.Model):
+    """Condition curing granted by a spirit. One entry per condition cured."""
+    spirit = models.ForeignKey(Spirit, on_delete=models.CASCADE, related_name="cure_conditions")
+    condition = models.CharField(max_length=20, choices=CurableConditionType.choices)
+
+    class Meta:
+        unique_together = ['spirit', 'condition']
+
+    def __str__(self) -> str:
+        return f"{self.spirit.name} - Cures {self.condition}"
+
+
+class SpellCureEffect(models.Model):
+    """Status effect curing granted by a spell. Cures the triggered condition AND resets buildup."""
+    spell = models.ForeignKey(Spell, on_delete=models.CASCADE, related_name="cure_effects")
+    effect_type = models.CharField(max_length=10, choices=StatusEffectType.choices)
+
+    class Meta:
+        unique_together = ['spell', 'effect_type']
+
+    def __str__(self) -> str:
+        return f"{self.spell.name} - Cures {self.effect_type} effect"
+
+
+class SpiritCureEffect(models.Model):
+    """Status effect curing granted by a spirit. Cures the triggered condition AND resets buildup."""
+    spirit = models.ForeignKey(Spirit, on_delete=models.CASCADE, related_name="cure_effects")
+    effect_type = models.CharField(max_length=10, choices=StatusEffectType.choices)
+
+    class Meta:
+        unique_together = ['spirit', 'effect_type']
+
+    def __str__(self) -> str:
+        return f"{self.spirit.name} - Cures {self.effect_type} effect"
 
 
 """

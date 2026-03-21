@@ -14,16 +14,39 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework import routers
-from compendium import views
+
+# Customize admin site headers
+admin.site.site_header = 'SD20 Administration'
+admin.site.site_title = 'SD20 Admin'
+admin.site.index_title = 'Welcome to SD20 Administration'
 
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('', include('compendium.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # Admin
     path('admin/', admin.site.urls),
+
+    # Browsable API authentication
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    # Compendium API (existing read-only endpoints)
+    # Endpoints: /weapons/, /armor/, /spells/, /spirits/, /lineages/, etc.
+    path('', include('compendium.urls')),
+
+    # New API endpoints under /api/
+    # Authentication: /api/auth/login/, /api/auth/logout/, /api/auth/me/
+    path('api/', include('accounts.urls')),
+
+    # Characters: /api/characters/
+    path('api/', include('characters.urls')),
+
+    # Campaigns: /api/campaigns/
+    path('api/campaigns/', include('campaigns.urls')),
 ]
+
+# Serve media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
