@@ -18,7 +18,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from django.http import HttpResponse
 
 # Customize admin site headers
 admin.site.site_header = 'SD20 Administration'
@@ -26,49 +25,7 @@ admin.site.site_title = 'SD20 Admin'
 admin.site.index_title = 'Welcome to SD20 Administration'
 
 
-def setup_production_view(request):
-    """One-time setup endpoint. Visit once then remove."""
-    from django.core.management import call_command
-    from django.contrib.auth.models import User
-    from io import StringIO
-    output = StringIO()
-
-    # Load complete compendium from full dump
-    fixtures = [
-        'compendium/fixtures/full_compendium_dump.json',
-    ]
-
-    # Always load - loaddata uses primary keys so it overwrites/updates existing records
-    for f in fixtures:
-        try:
-            call_command('loaddata', f, verbosity=0)
-            output.write(f'Loaded {f}\n')
-        except Exception as e:
-            output.write(f'FAILED {f}: {e}\n')
-    from compendium.models import Weapon, Spell
-    output.write(f'Total: {Weapon.objects.count()} weapons, {Spell.objects.count()} spells\n')
-
-    # Create superuser
-    if not User.objects.filter(username='bell').exists():
-        user = User.objects.create_superuser('bell', 'belminsestic55@gmail.com', 'Kjhhjkkk1!')
-        output.write('Superuser "bell" created.\n')
-        from accounts.models import UserProfile
-        if not hasattr(user, 'profile'):
-            UserProfile.objects.create(
-                user=user, user_type='permanent', subscription_status='active_patron',
-                is_admin=True, max_characters=50, max_campaigns_as_gm=20,
-            )
-            output.write('UserProfile created.\n')
-    else:
-        output.write('Superuser "bell" already exists.\n')
-
-    return HttpResponse(f'<pre>{output.getvalue()}</pre>')
-
-
 urlpatterns = [
-    # One-time setup (remove after use)
-    path('setup-production-xyz/', setup_production_view),
-
     # Admin
     path('admin/', admin.site.urls),
 
