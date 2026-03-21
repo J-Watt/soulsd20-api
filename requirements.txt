@@ -30,3 +30,4 @@ requests>=2.31.0                # HTTP requests library
 # Production server
 gunicorn>=21.2.0                # WSGI HTTP server for production
 whitenoise>=6.6.0               # Static file serving for production
+
