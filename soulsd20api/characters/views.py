@@ -324,26 +324,40 @@ class CharacterViewSet(viewsets.ModelViewSet):
             # Resize to max 512x512, preserving aspect ratio
             img.thumbnail((512, 512), PILImage.LANCZOS)
 
-            # Save to media directory
-            media_dir = os.path.join(settings.MEDIA_ROOT, 'character_images')
-            os.makedirs(media_dir, exist_ok=True)
-
-            filename = f'{instance.id}.jpg'
-            filepath = os.path.join(media_dir, filename)
-
             # Delete old file if it exists (replacing image)
             self._delete_image_file(instance)
 
-            # Save new image
+            # Save to buffer
             buffer = io.BytesIO()
             img.save(buffer, format='JPEG', quality=85)
             buffer.seek(0)
 
-            with open(filepath, 'wb') as f:
-                f.write(buffer.read())
+            filename = f'character_images/{instance.id}.jpg'
 
-            # Build the URL
-            image_url = f'{settings.MEDIA_URL}character_images/{filename}'
+            if settings.USE_CLOUD_STORAGE:
+                # Upload to Cloudflare R2 via boto3
+                import boto3
+                s3 = boto3.client(
+                    's3',
+                    endpoint_url=settings.AWS_S3_ENDPOINT_URL,
+                    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                )
+                s3.put_object(
+                    Bucket=settings.AWS_STORAGE_BUCKET_NAME,
+                    Key=filename,
+                    Body=buffer.read(),
+                    ContentType='image/jpeg',
+                )
+                image_url = f'https://{settings.AWS_S3_CUSTOM_DOMAIN}/{filename}'
+            else:
+                # Local filesystem (development)
+                media_dir = os.path.join(settings.MEDIA_ROOT, 'character_images')
+                os.makedirs(media_dir, exist_ok=True)
+                filepath = os.path.join(media_dir, f'{instance.id}.jpg')
+                with open(filepath, 'wb') as f:
+                    f.write(buffer.read())
+                image_url = f'{settings.MEDIA_URL}{filename}'
 
             # Update character's image_url field
             instance.image_url = image_url
@@ -367,15 +381,30 @@ class CharacterViewSet(viewsets.ModelViewSet):
             )
 
     def _delete_image_file(self, instance):
-        """Delete the character's image file from disk if it exists."""
-        import os
+        """Delete the character's image file from storage."""
         from django.conf import settings
 
         if not instance.image_url:
             return
 
-        # Only delete managed files (in /media/character_images/)
-        if 'character_images/' in str(instance.image_url):
+        if settings.USE_CLOUD_STORAGE and 'r2.dev' in str(instance.image_url):
+            # Delete from R2
+            try:
+                import boto3
+                s3 = boto3.client(
+                    's3',
+                    endpoint_url=settings.AWS_S3_ENDPOINT_URL,
+                    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                )
+                key = f'character_images/{instance.id}.jpg'
+                s3.delete_object(Bucket=settings.AWS_STORAGE_BUCKET_NAME, Key=key)
+                print(f'[SD20 API] Deleted image from R2: {key}')
+            except Exception as e:
+                print(f'[SD20 API] Failed to delete image from R2: {e}')
+        elif 'character_images/' in str(instance.image_url):
+            # Delete from local filesystem
+            import os
             filepath = os.path.join(
                 settings.MEDIA_ROOT,
                 'character_images',
