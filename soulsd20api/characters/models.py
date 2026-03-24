@@ -660,7 +660,7 @@ class CharacterObtainedFeat(models.Model):
     feat_type = models.CharField(max_length=20, choices=FEAT_TYPE_CHOICES)
     weapon_tree = models.CharField(max_length=30, blank=True)  # For weapon feats
     source = models.CharField(max_length=50, blank=True)  # How it was obtained
-    source_feat_id = models.IntegerField(null=True, blank=True)
+    source_feat_id = models.BigIntegerField(null=True, blank=True)
     is_greyed_out = models.BooleanField(default=False)
     modifications = models.JSONField(default=dict, blank=True)
 
