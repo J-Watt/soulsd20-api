@@ -222,14 +222,3 @@ PATREON_REDIRECT_URI = os.environ.get('PATREON_REDIRECT_URI', 'http://localhost:
 PATREON_CAMPAIGN_ID = os.environ.get('PATREON_CAMPAIGN_ID', '')
 
 
-# =============================================================================
-# Cloud Storage Configuration (Cloudflare R2)
-# =============================================================================
-# These will be configured in Phase 1 when setting up image storage
-AWS_ACCESS_KEY_ID = os.environ.get('R2_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = os.environ.get('R2_SECRET_ACCESS_KEY', '')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('R2_BUCKET_NAME', 'sd20-images')
-AWS_S3_ENDPOINT_URL = os.environ.get('R2_ENDPOINT_URL', '')
-AWS_S3_REGION_NAME = 'auto'
-AWS_DEFAULT_ACL = 'public-read'
-AWS_QUERYSTRING_AUTH = False
