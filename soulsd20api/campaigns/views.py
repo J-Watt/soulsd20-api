@@ -464,6 +464,10 @@ class CampaignItemViewSet(viewsets.ViewSet):
         'armor': 'compendium.Armor',
         'artifact': 'compendium.Artifact',
         'item': 'compendium.Item',
+        'ring': 'compendium.Ring',
+        'spell': 'compendium.Spell',
+        'spirit': 'compendium.Spirit',
+        'weapon_skill': 'compendium.WeaponSkill',
     }
 
     def _get_campaign_and_check_membership(self, request, campaign_pk):
@@ -491,12 +495,16 @@ class CampaignItemViewSet(viewsets.ViewSet):
 
     def _get_model(self, item_type):
         """Get the Django model class for the item type."""
-        from compendium.models import Weapon, Armor, Artifact, Item
+        from compendium.models import Weapon, Armor, Artifact, Item, Ring, Spell, Spirit, WeaponSkill
         model_map = {
             'weapon': Weapon,
             'armor': Armor,
             'artifact': Artifact,
             'item': Item,
+            'ring': Ring,
+            'spell': Spell,
+            'spirit': Spirit,
+            'weapon_skill': WeaponSkill,
         }
         return model_map.get(item_type)
 
@@ -506,10 +514,13 @@ class CampaignItemViewSet(viewsets.ViewSet):
         if error:
             return error
 
-        from compendium.models import Weapon, Armor, Artifact, Item
+        from compendium.models import Weapon, Armor, Artifact, Item, Ring, Spell, Spirit, WeaponSkill
 
         items = []
-        for model, type_name in [(Weapon, 'weapon'), (Armor, 'armor'), (Artifact, 'artifact'), (Item, 'item')]:
+        for model, type_name in [
+            (Weapon, 'weapon'), (Armor, 'armor'), (Artifact, 'artifact'), (Item, 'item'),
+            (Ring, 'ring'), (Spell, 'spell'), (Spirit, 'spirit'), (WeaponSkill, 'weapon_skill'),
+        ]:
             qs = model.objects.filter(campaign=campaign, is_official=False)
             if type_name == 'weapon':
                 qs = qs.prefetch_related('dice', 'scaling', 'spell_scaling', 'requirements', 'bonuses')
@@ -519,6 +530,20 @@ class CampaignItemViewSet(viewsets.ViewSet):
                 qs = qs.prefetch_related('bonuses', 'upgrades')
             elif type_name == 'item':
                 qs = qs.prefetch_related('bonuses')
+            elif type_name == 'ring':
+                qs = qs.prefetch_related('dice', 'scaling', 'bonuses')
+            elif type_name == 'spell':
+                qs = qs.prefetch_related(
+                    'dice', 'bonuses', 'damage_protection', 'buildup_protection',
+                    'condition_protection', 'reduce_buildup', 'cure_conditions', 'cure_effects'
+                ).select_related('requirements', 'charged')
+            elif type_name == 'spirit':
+                qs = qs.prefetch_related(
+                    'dice', 'damage_protection', 'buildup_protection',
+                    'condition_protection', 'reduce_buildup', 'cure_conditions', 'cure_effects'
+                ).select_related('requirements')
+            elif type_name == 'weapon_skill':
+                qs = qs.prefetch_related('dice', 'scaling', 'bonuses')
 
             for obj in qs:
                 item_data = {
@@ -587,6 +612,26 @@ class CampaignItemViewSet(viewsets.ViewSet):
                         'item_type': obj.item_type,
                         'range': obj.range,
                         'duration': obj.duration,
+                        'bonuses': [{'type': b.type, 'value': b.value} for b in obj.bonuses.all()],
+                    })
+                elif type_name == 'ring':
+                    item_data.update({
+                        'tier': obj.tier,
+                        'dice': [{'type': d.type, 'count': d.count, 'value': d.value} for d in obj.dice.all()],
+                        'scaling': [{'type': s.type, 'stat': s.stat, 'value': s.value} for s in obj.scaling.all()],
+                        'bonuses': [{'type': b.type, 'value': b.value} for b in obj.bonuses.all()],
+                    })
+                elif type_name == 'spell':
+                    item_data.update(self._serialize_spell(obj))
+                elif type_name == 'spirit':
+                    item_data.update(self._serialize_spirit(obj))
+                elif type_name == 'weapon_skill':
+                    item_data.update({
+                        'cost_fp': obj.cost_fp,
+                        'is_slow': obj.is_slow,
+                        'usage_type': obj.usage_type,
+                        'dice': [{'type': d.type, 'count': d.count, 'value': d.value} for d in obj.dice.all()],
+                        'scaling': [{'type': s.type, 'stat': s.stat, 'value': s.value} for s in obj.scaling.all()],
                         'bonuses': [{'type': b.type, 'value': b.value} for b in obj.bonuses.all()],
                     })
 
@@ -664,6 +709,30 @@ class CampaignItemViewSet(viewsets.ViewSet):
             create_kwargs['item_type'] = request.data.get('item_type', 'MISC')
             create_kwargs['range'] = request.data.get('range', '')
             create_kwargs['duration'] = request.data.get('duration', '')
+        elif item_type == 'ring':
+            create_kwargs['tier'] = request.data.get('tier', 1)
+        elif item_type == 'spell':
+            create_kwargs['category'] = request.data.get('category', 'SOUL_CRYSTAL')
+            create_kwargs['cast_time'] = request.data.get('cast_time', '')
+            create_kwargs['ap'] = request.data.get('ap', 0)
+            create_kwargs['fp'] = request.data.get('fp', 0)
+            create_kwargs['range'] = request.data.get('range', '')
+            create_kwargs['duration'] = request.data.get('duration', '')
+            create_kwargs['is_slow'] = request.data.get('is_slow', False)
+            create_kwargs['att_cost'] = request.data.get('att_cost', 1)
+        elif item_type == 'spirit':
+            create_kwargs['tier'] = request.data.get('tier', 'ONE')
+            create_kwargs['creature'] = request.data.get('creature', '')
+            create_kwargs['size'] = request.data.get('size', 'MEDIUM')
+            create_kwargs['range'] = request.data.get('range', '')
+            create_kwargs['condition'] = request.data.get('condition', '')
+            create_kwargs['att_cost'] = request.data.get('att_cost', 1)
+            create_kwargs['ap'] = request.data.get('ap', 0)
+            create_kwargs['fp'] = request.data.get('fp', 0)
+        elif item_type == 'weapon_skill':
+            create_kwargs['cost_fp'] = request.data.get('cost_fp', 0)
+            create_kwargs['is_slow'] = request.data.get('is_slow', False)
+            create_kwargs['usage_type'] = request.data.get('usage_type', 'MELEE')
 
         try:
             obj = Model.objects.create(**create_kwargs)
@@ -674,13 +743,140 @@ class CampaignItemViewSet(viewsets.ViewSet):
         except Exception as e:
             return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response({
+        # Build response with full data so frontend compendium store gets a complete object
+        response_data = {
             'id': obj.id,
             'type': item_type,
             'name': obj.name,
             'description': obj.description if hasattr(obj, 'description') else '',
             'campaign_id': str(campaign.id),
-        }, status=status.HTTP_201_CREATED)
+        }
+
+        # Refresh from DB to get related objects
+        obj.refresh_from_db()
+
+        if item_type == 'ring':
+            response_data['tier'] = obj.tier
+            response_data['bonuses'] = [{'type': b.type, 'value': b.value} for b in obj.bonuses.all()]
+            response_data['dice'] = [{'type': d.type, 'count': d.count, 'value': d.value} for d in obj.dice.all()]
+            response_data['scaling'] = [{'type': s.type, 'stat': s.stat, 'value': s.value} for s in obj.scaling.all()]
+        elif item_type == 'spell':
+            response_data.update(self._serialize_spell(obj))
+        elif item_type == 'spirit':
+            response_data.update(self._serialize_spirit(obj))
+        elif item_type == 'weapon_skill':
+            response_data['cost_fp'] = obj.cost_fp
+            response_data['is_slow'] = obj.is_slow
+            response_data['usage_type'] = obj.usage_type
+            response_data['dice'] = [{'type': d.type, 'count': d.count, 'value': d.value} for d in obj.dice.all()]
+            response_data['scaling'] = [{'type': s.type, 'stat': s.stat, 'value': s.value} for s in obj.scaling.all()]
+            response_data['bonuses'] = [{'type': b.type, 'value': b.value} for b in obj.bonuses.all()]
+        elif item_type == 'weapon':
+            response_data['weapon_type'] = obj.weapon_type
+            response_data['ap'] = obj.ap
+            response_data['durability'] = obj.durability
+        elif item_type == 'armor':
+            response_data['armor_type'] = obj.armor_type
+            response_data['durability'] = obj.durability
+
+        return Response(response_data, status=status.HTTP_201_CREATED)
+
+    def _serialize_protection_fields(self, obj):
+        """Serialize protection/restoration related fields for spells and spirits."""
+        data = {}
+        data['damage_protection'] = [{
+            'type': p.type, 'tiers': p.tiers, 'flat': p.flat,
+            'dice_count': p.dice_count, 'dice_value': p.dice_value,
+            'percentage': p.percentage, 'percentage_timing': p.percentage_timing,
+            'duration_turns': p.duration_turns, 'duration_attacks': p.duration_attacks,
+            'apply_to_caster': p.apply_to_caster, 'apply_to_target': p.apply_to_target,
+            'stacking': p.stacking, 'scaling_source': p.scaling_source,
+        } for p in obj.damage_protection.all()]
+        data['buildup_protection'] = [{
+            'type': p.type, 'flat': p.flat,
+            'dice_count': p.dice_count, 'dice_value': p.dice_value,
+            'percentage': p.percentage, 'percentage_timing': p.percentage_timing,
+            'duration_turns': p.duration_turns, 'duration_attacks': p.duration_attacks,
+            'apply_to_caster': p.apply_to_caster, 'apply_to_target': p.apply_to_target,
+            'stacking': p.stacking, 'scaling_source': p.scaling_source,
+        } for p in obj.buildup_protection.all()]
+        data['condition_protection'] = [{
+            'condition': p.condition,
+            'duration_turns': p.duration_turns,
+            'apply_to_caster': p.apply_to_caster,
+            'apply_to_target': p.apply_to_target,
+        } for p in obj.condition_protection.all()]
+        data['reduce_buildup'] = [{
+            'buildup_type': r.buildup_type,
+            'dice_count': r.dice_count, 'dice_value': r.dice_value,
+            'flat_bonus': r.flat_bonus, 'scaling_source': r.scaling_source,
+        } for r in obj.reduce_buildup.all()]
+        data['cure_conditions'] = [{'condition': c.condition} for c in obj.cure_conditions.all()]
+        data['cure_effects'] = [{'effect_type': c.effect_type} for c in obj.cure_effects.all()]
+        return data
+
+    def _serialize_spell(self, obj):
+        """Serialize spell-specific fields."""
+        data = {
+            'category': obj.category,
+            'cast_time': obj.cast_time,
+            'ap': obj.ap,
+            'fp': obj.fp,
+            'range': obj.range,
+            'duration': obj.duration,
+            'is_slow': obj.is_slow,
+            'att_cost': obj.att_cost,
+            'requirements': None,
+            'dice': [{'type': d.type, 'count': d.count, 'value': d.value} for d in obj.dice.all()],
+            'bonuses': [{'type': b.type, 'value': b.value} for b in obj.bonuses.all()],
+            'charged': None,
+        }
+        try:
+            reqs = obj.requirements
+            if reqs:
+                data['requirements'] = {'str': reqs.str, 'dex': reqs.dex, 'int': reqs.int, 'fai': reqs.fai}
+        except Exception:
+            pass
+        try:
+            charged = obj.charged
+            if charged:
+                data['charged'] = {
+                    'cast_time': charged.cast_time,
+                    'ap': charged.ap,
+                    'fp': charged.fp,
+                    'range': charged.range,
+                    'duration': charged.duration,
+                    'description': charged.description,
+                    'dice': [{'type': d.type, 'count': d.count, 'value': d.value} for d in charged.dice.all()],
+                    'bonuses': [{'type': b.type, 'value': b.value} for b in charged.bonuses.all()],
+                }
+        except Exception:
+            pass
+        data.update(self._serialize_protection_fields(obj))
+        return data
+
+    def _serialize_spirit(self, obj):
+        """Serialize spirit-specific fields."""
+        data = {
+            'tier': obj.tier,
+            'creature': obj.creature,
+            'size': obj.size,
+            'range': obj.range,
+            'condition': obj.condition,
+            'att_cost': obj.att_cost,
+            'ap': obj.ap,
+            'fp': obj.fp,
+            'requirements': None,
+            'dice': [{'type': d.type, 'count': d.count, 'value': d.value} for d in obj.dice.all()],
+        }
+        try:
+            reqs = obj.requirements
+            if reqs:
+                data['requirements'] = {'str': reqs.str, 'dex': reqs.dex, 'int': reqs.int, 'fai': reqs.fai}
+        except Exception:
+            pass
+        data.update(self._serialize_protection_fields(obj))
+        return data
 
     def _clear_related_models(self, item_type, obj):
         """Clear all related models before recreating (for updates)."""
@@ -701,13 +897,58 @@ class CampaignItemViewSet(viewsets.ViewSet):
             obj.upgrades.all().delete()
         elif item_type == 'item':
             obj.bonuses.all().delete()
+        elif item_type == 'ring':
+            obj.dice.all().delete()
+            obj.scaling.all().delete()
+            obj.bonuses.all().delete()
+        elif item_type == 'spell':
+            obj.dice.all().delete()
+            obj.bonuses.all().delete()
+            obj.damage_protection.all().delete()
+            obj.buildup_protection.all().delete()
+            obj.condition_protection.all().delete()
+            obj.reduce_buildup.all().delete()
+            obj.cure_conditions.all().delete()
+            obj.cure_effects.all().delete()
+            try:
+                obj.requirements.delete()
+            except Exception:
+                pass
+            try:
+                obj.charged.delete()
+            except Exception:
+                pass
+        elif item_type == 'spirit':
+            obj.dice.all().delete()
+            obj.damage_protection.all().delete()
+            obj.buildup_protection.all().delete()
+            obj.condition_protection.all().delete()
+            obj.reduce_buildup.all().delete()
+            obj.cure_conditions.all().delete()
+            obj.cure_effects.all().delete()
+            try:
+                obj.requirements.delete()
+            except Exception:
+                pass
+        elif item_type == 'weapon_skill':
+            obj.dice.all().delete()
+            obj.scaling.all().delete()
+            obj.bonuses.all().delete()
 
     def _create_related_models(self, item_type, obj, data):
-        """Create related models (dice, scaling, requirements, bonuses, upgrades)."""
+        """Create related models (dice, scaling, requirements, bonuses, upgrades, protections)."""
         from compendium.models import (
             WeaponDice, WeaponScaling, SpellScaling, WeaponRequirements,
             WeaponBonuses, ArmorRequirements, ArmorBonuses,
-            ArtifactBonuses, ArtifactUpgrade, ItemBonuses
+            ArtifactBonuses, ArtifactUpgrade, ItemBonuses,
+            RingDice, RingScaling, RingBonuses,
+            SpellDice, SpellBonuses, SpellRequirements, SpellCharged,
+            SpellDamageProtection, SpellBuildupProtection, SpellConditionProtection,
+            SpellReduceBuildup, SpellCureCondition, SpellCureEffect,
+            SpiritDice, SpiritRequirements,
+            SpiritDamageProtection, SpiritBuildupProtection, SpiritConditionProtection,
+            SpiritReduceBuildup, SpiritCureCondition, SpiritCureEffect,
+            WeaponSkillDice, WeaponSkillScaling, WeaponSkillBonuses,
         )
 
         # Requirements (weapon + armor)
@@ -814,6 +1055,197 @@ class CampaignItemViewSet(viewsets.ViewSet):
                     requirements_visible=upgrade.get('requirements_visible', False),
                 )
 
+        # Ring related models
+        if item_type == 'ring':
+            for die in data.get('dice', []):
+                RingDice.objects.create(
+                    ring=obj,
+                    type=die.get('type', 'PHYSICAL'),
+                    count=die.get('count', 1),
+                    value=die.get('value', 6),
+                )
+            for scale in data.get('scaling', []):
+                RingScaling.objects.create(
+                    ring=obj,
+                    type=scale.get('type', 'PHYSICAL'),
+                    stat=scale.get('stat', 'STR'),
+                    value=scale.get('value', 'D'),
+                )
+            for bonus in data.get('bonuses', []):
+                RingBonuses.objects.create(
+                    ring=obj,
+                    type=bonus.get('type', 'MAX_HP'),
+                    value=bonus.get('value', 0),
+                )
+
+        # Spell related models
+        if item_type == 'spell':
+            # Requirements
+            requirements = data.get('requirements')
+            if requirements:
+                SpellRequirements.objects.create(
+                    spell=obj,
+                    str=requirements.get('str', 0),
+                    dex=requirements.get('dex', 0),
+                    int=requirements.get('int', 0),
+                    fai=requirements.get('fai', 0),
+                )
+            # Dice
+            for die in data.get('dice', []):
+                SpellDice.objects.create(
+                    spell=obj,
+                    type=die.get('type', 'PHYSICAL'),
+                    count=die.get('count', 1),
+                    value=die.get('value', 6),
+                )
+            # Bonuses
+            for bonus in data.get('bonuses', []):
+                SpellBonuses.objects.create(
+                    spell=obj,
+                    type=bonus.get('type', 'MAX_HP'),
+                    value=bonus.get('value', 0),
+                )
+            # Charged variant
+            charged_data = data.get('charged')
+            if charged_data:
+                charged = SpellCharged.objects.create(
+                    spell=obj,
+                    cast_time=charged_data.get('cast_time', ''),
+                    ap=charged_data.get('ap', 0),
+                    fp=charged_data.get('fp', 0),
+                    range=charged_data.get('range', ''),
+                    duration=charged_data.get('duration', ''),
+                    description=charged_data.get('description', ''),
+                )
+            # Protection fields
+            self._create_protection_models(
+                data, obj,
+                SpellDamageProtection, SpellBuildupProtection, SpellConditionProtection,
+                SpellReduceBuildup, SpellCureCondition, SpellCureEffect,
+                'spell'
+            )
+
+        # Spirit related models
+        if item_type == 'spirit':
+            # Requirements
+            requirements = data.get('requirements')
+            if requirements:
+                SpiritRequirements.objects.create(
+                    spirit=obj,
+                    str=requirements.get('str', 0),
+                    dex=requirements.get('dex', 0),
+                    int=requirements.get('int', 0),
+                    fai=requirements.get('fai', 0),
+                )
+            # Dice
+            for die in data.get('dice', []):
+                SpiritDice.objects.create(
+                    spirit=obj,
+                    type=die.get('type', 'PHYSICAL'),
+                    count=die.get('count', 1),
+                    value=die.get('value', 6),
+                )
+            # Protection fields
+            self._create_protection_models(
+                data, obj,
+                SpiritDamageProtection, SpiritBuildupProtection, SpiritConditionProtection,
+                SpiritReduceBuildup, SpiritCureCondition, SpiritCureEffect,
+                'spirit'
+            )
+
+        # Weapon Skill related models
+        if item_type == 'weapon_skill':
+            for die in data.get('dice', []):
+                WeaponSkillDice.objects.create(
+                    weapon_skill=obj,
+                    type=die.get('type', 'PHYSICAL'),
+                    count=die.get('count', 1),
+                    value=die.get('value', 6),
+                )
+            for scale in data.get('scaling', []):
+                WeaponSkillScaling.objects.create(
+                    weapon_skill=obj,
+                    type=scale.get('type', 'PHYSICAL'),
+                    stat=scale.get('stat', 'STR'),
+                    value=scale.get('value', 'D'),
+                )
+            for bonus in data.get('bonuses', []):
+                WeaponSkillBonuses.objects.create(
+                    weapon_skill=obj,
+                    type=bonus.get('type', 'MAX_HP'),
+                    value=bonus.get('value', 0),
+                )
+
+    def _create_protection_models(self, data, obj, DmgModel, BuildupModel, CondModel, ReduceModel, CureCondModel, CureEffModel, fk_name):
+        """Create protection/restoration related models for spells and spirits."""
+        fk_kwargs = {fk_name: obj}
+
+        for p in data.get('damage_protection', []):
+            DmgModel.objects.create(
+                **fk_kwargs,
+                type=p.get('type', 'PHYSICAL'),
+                tiers=p.get('tiers', 0),
+                flat=p.get('flat', 0),
+                dice_count=p.get('dice_count', 0),
+                dice_value=p.get('dice_value', 0),
+                percentage=p.get('percentage', 0),
+                percentage_timing=p.get('percentage_timing', 'INITIAL'),
+                duration_turns=p.get('duration_turns', 0),
+                duration_attacks=p.get('duration_attacks', 0),
+                apply_to_caster=p.get('apply_to_caster', False),
+                apply_to_target=p.get('apply_to_target', True),
+                stacking=p.get('stacking', 'APPEND'),
+                scaling_source=p.get('scaling_source', {}),
+            )
+
+        for p in data.get('buildup_protection', []):
+            BuildupModel.objects.create(
+                **fk_kwargs,
+                type=p.get('type', 'BLEED'),
+                flat=p.get('flat', 0),
+                dice_count=p.get('dice_count', 0),
+                dice_value=p.get('dice_value', 0),
+                percentage=p.get('percentage', 0),
+                percentage_timing=p.get('percentage_timing', 'INITIAL'),
+                duration_turns=p.get('duration_turns', 0),
+                duration_attacks=p.get('duration_attacks', 0),
+                apply_to_caster=p.get('apply_to_caster', False),
+                apply_to_target=p.get('apply_to_target', True),
+                stacking=p.get('stacking', 'APPEND'),
+                scaling_source=p.get('scaling_source', {}),
+            )
+
+        for p in data.get('condition_protection', []):
+            CondModel.objects.create(
+                **fk_kwargs,
+                condition=p.get('condition', 'GRAPPLED'),
+                duration_turns=p.get('duration_turns', 0),
+                apply_to_caster=p.get('apply_to_caster', False),
+                apply_to_target=p.get('apply_to_target', True),
+            )
+
+        for r in data.get('reduce_buildup', []):
+            ReduceModel.objects.create(
+                **fk_kwargs,
+                buildup_type=r.get('buildup_type', 'BLEED'),
+                dice_count=r.get('dice_count', 0),
+                dice_value=r.get('dice_value', 0),
+                flat_bonus=r.get('flat_bonus', 0),
+                scaling_source=r.get('scaling_source', {}),
+            )
+
+        for c in data.get('cure_conditions', []):
+            CureCondModel.objects.create(
+                **fk_kwargs,
+                condition=c.get('condition', 'GRAPPLED'),
+            )
+
+        for c in data.get('cure_effects', []):
+            CureEffModel.objects.create(
+                **fk_kwargs,
+                effect_type=c.get('effect_type', 'BLEED'),
+            )
+
     def partial_update(self, request, campaign_pk=None, pk=None):
         """Edit a custom item (creator or GM only)."""
         campaign, is_gm, error = self._get_campaign_and_check_membership(request, campaign_pk)
@@ -858,12 +1290,31 @@ class CampaignItemViewSet(viewsets.ViewSet):
             for field in ['item_type', 'range', 'duration']:
                 if field in request.data:
                     setattr(obj, field, request.data[field])
+        elif item_type == 'ring':
+            if 'tier' in request.data:
+                obj.tier = request.data['tier']
+        elif item_type == 'spell':
+            for field in ['category', 'cast_time', 'ap', 'fp', 'range', 'duration', 'is_slow', 'att_cost']:
+                if field in request.data:
+                    setattr(obj, field, request.data[field])
+        elif item_type == 'spirit':
+            for field in ['tier', 'creature', 'size', 'range', 'condition', 'att_cost', 'ap', 'fp']:
+                if field in request.data:
+                    setattr(obj, field, request.data[field])
+        elif item_type == 'weapon_skill':
+            for field in ['cost_fp', 'is_slow', 'usage_type']:
+                if field in request.data:
+                    setattr(obj, field, request.data[field])
 
         obj.updated_by = request.user
         obj.save()
 
         # Clear and recreate related models if provided
-        if any(k in request.data for k in ['dice', 'scaling', 'spell_scaling', 'requirements', 'bonuses', 'upgrades']):
+        if any(k in request.data for k in [
+            'dice', 'scaling', 'spell_scaling', 'requirements', 'bonuses', 'upgrades',
+            'charged', 'damage_protection', 'buildup_protection', 'condition_protection',
+            'reduce_buildup', 'cure_conditions', 'cure_effects',
+        ]):
             self._clear_related_models(item_type, obj)
             self._create_related_models(item_type, obj, request.data)
 
@@ -881,9 +1332,9 @@ class CampaignItemViewSet(viewsets.ViewSet):
             return error
 
         # Try each model type (type is unknown for delete by ID)
-        from compendium.models import Weapon, Armor, Artifact, Item
+        from compendium.models import Weapon, Armor, Artifact, Item, Ring, Spell, Spirit, WeaponSkill
         obj = None
-        for Model in [Weapon, Armor, Artifact, Item]:
+        for Model in [Weapon, Armor, Artifact, Item, Ring, Spell, Spirit, WeaponSkill]:
             try:
                 obj = Model.objects.get(pk=pk, campaign=campaign, is_official=False)
                 break

@@ -50,28 +50,6 @@ class DestinyFeatViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.DestinySerializer
 
 
-class WeaponSkillViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows WeaponSkills to be viewed.
-    """
-    queryset = WeaponSkill.objects.all()
-    serializer_class = serializers.WeaponSkillSerializer
-
-class SpellViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows Spells to be viewed.
-    """
-    queryset = Spell.objects.all()
-    serializer_class = serializers.SpellSerializer
-
-class SpiritViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    API endpoint that allows Spirits to be viewed.
-    """
-    queryset = Spirit.objects.all()
-    serializer_class = serializers.SpiritSerializer
-
-
 class CampaignFilteredMixin:
     """
     Filters compendium items: official items + custom items from user's campaigns.
@@ -99,6 +77,22 @@ class CampaignFilteredMixin:
         return qs.filter(
             Q(is_official=True) | Q(campaign_id__in=user_campaign_ids)
         )
+
+
+class WeaponSkillViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Weapon Skills: official + user's campaign custom weapon skills."""
+    queryset = WeaponSkill.objects.all()
+    serializer_class = serializers.WeaponSkillSerializer
+
+class SpellViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Spells: official + user's campaign custom spells."""
+    queryset = Spell.objects.all()
+    serializer_class = serializers.SpellSerializer
+
+class SpiritViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
+    """Spirits: official + user's campaign custom spirits."""
+    queryset = Spirit.objects.all()
+    serializer_class = serializers.SpiritSerializer
 
 
 class ItemViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):

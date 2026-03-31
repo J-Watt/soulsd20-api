@@ -212,6 +212,17 @@ class WeaponSkill(models.Model):
     usage_type = models.CharField(max_length=6, choices=UsageType.choices)
     description = models.TextField(max_length=1024)
     is_official = models.BooleanField(default=True)
+    campaign = models.ForeignKey(
+        'campaigns.Campaign', on_delete=models.CASCADE, blank=True, null=True,
+        help_text="If set, this weapon skill belongs to a specific campaign (custom)")
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    created_by = models.ForeignKey(
+        'auth.User', on_delete=models.DO_NOTHING, blank=True, null=True,
+        related_name='created_weapon_skills')
+    updated_at = models.DateTimeField(auto_now=True, null=True)
+    updated_by = models.ForeignKey(
+        'auth.User', on_delete=models.DO_NOTHING, blank=True, null=True,
+        related_name='updated_weapon_skills')
 
     def __str__(self) -> str:
         return self.name
