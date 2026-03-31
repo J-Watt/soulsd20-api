@@ -271,7 +271,7 @@ class SpiritBuildupProtectionSerializer(serializers.HyperlinkedModelSerializer):
 class SpiritConditionProtectionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.SpiritConditionProtection
-        fields = ['condition', 'duration_turns', 'duration_attacks',
+        fields = ['condition', 'duration_turns',
                   'apply_to_caster', 'apply_to_target']
 
 

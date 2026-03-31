@@ -61,22 +61,24 @@ class CampaignFilteredMixin:
         qs = super().get_queryset()
         user = self.request.user
 
-        if not user.is_authenticated or not hasattr(user, 'profile'):
-            return qs.filter(is_official=True)
+        try:
+            if not user.is_authenticated or not hasattr(user, 'profile'):
+                return qs.filter(is_official=True)
 
-        # Get campaign IDs where user is GM or active member
-        profile = user.profile
-        from campaigns.models import Campaign
-        gm_campaigns = Campaign.objects.filter(gm=profile).values_list('id', flat=True)
-        member_campaigns = CampaignMembership.objects.filter(
-            user=profile, status='active'
-        ).values_list('campaign_id', flat=True)
-        user_campaign_ids = set(gm_campaigns) | set(member_campaigns)
+            profile = user.profile
+            from campaigns.models import Campaign
+            gm_campaigns = Campaign.objects.filter(gm=profile).values_list('id', flat=True)
+            member_campaigns = CampaignMembership.objects.filter(
+                user=profile, status='active'
+            ).values_list('campaign_id', flat=True)
+            user_campaign_ids = set(gm_campaigns) | set(member_campaigns)
 
-        # Official items + custom items from user's campaigns
-        return qs.filter(
-            Q(is_official=True) | Q(campaign_id__in=user_campaign_ids)
-        )
+            return qs.filter(
+                Q(is_official=True) | Q(campaign_id__in=user_campaign_ids)
+            )
+        except Exception as e:
+            print(f'[SD20] CampaignFilteredMixin error: {e}')
+            return qs
 
 
 class WeaponSkillViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):
