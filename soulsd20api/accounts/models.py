@@ -76,6 +76,8 @@ class UserProfile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     last_login = models.DateTimeField(blank=True, null=True)
+    token_last_used = models.DateTimeField(blank=True, null=True)
+    last_foundry_login = models.DateTimeField(blank=True, null=True)
 
     # Limits (can be overridden per-user)
     max_characters = models.IntegerField(default=10)
@@ -127,3 +129,34 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     if hasattr(instance, 'profile'):
         instance.profile.save()
+
+
+class PairingCode(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='pairing_codes'
+    )
+    code = models.CharField(max_length=12, unique=True, db_index=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()
+    redeemed_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.code} ({self.user.username})"
+
+    @property
+    def is_redeemed(self):
+        return self.redeemed_at is not None
+
+    @property
+    def is_expired(self):
+        from django.utils import timezone
+        return timezone.now() > self.expires_at
+
+    @property
+    def is_valid(self):
+        return not self.is_redeemed and not self.is_expired

@@ -173,7 +173,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Django REST Framework configuration
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'accounts.authentication.ExpiringTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
@@ -183,12 +183,22 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': None
 }
 
+TOKEN_HARD_CAP_DAYS = 6
+TOKEN_FOUNDRY_HARD_CAP_HOURS = 12
+TOKEN_SLIDING_WINDOW_HOURS = 24
 
-# CORS configuration - reads from environment for production, falls back to localhost for dev
+
 CORS_ALLOWED_ORIGINS = os.environ.get(
     'CORS_ALLOWED_ORIGINS',
     'http://localhost:3000,http://127.0.0.1:3000'
 ).split(',')
+
+# Authentication is via the Authorization header (token in localStorage), not
+# cookies, so allowing arbitrary origins does not expose a CSRF or credential
+# leak path. Do not switch to cookie-based auth without also tightening this.
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r for r in os.environ.get('CORS_ALLOWED_ORIGIN_REGEXES', '').split(',') if r
+]
 
 # CSRF trusted origins (required for admin login on production domain)
 CSRF_TRUSTED_ORIGINS = os.environ.get(

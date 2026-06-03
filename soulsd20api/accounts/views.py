@@ -1,3 +1,6 @@
+from datetime import timedelta
+import secrets
+
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -11,8 +14,13 @@ from django.utils import timezone
 import requests
 import urllib.parse
 
-from .models import UserProfile
+from .models import UserProfile, PairingCode
 from .serializers import UserProfileSerializer, MeSerializer
+
+
+PAIRING_CODE_TTL_MINUTES = 10
+PAIRING_CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'
+PAIRING_CODE_LENGTH = 8
 
 
 # =============================================================================
@@ -120,13 +128,23 @@ def login(request):
             status=status.HTTP_403_FORBIDDEN
         )
 
-    # Get or create auth token
-    token, _ = Token.objects.get_or_create(user=user)
+    # Fresh login always starts a brand-new token so both the sliding window
+    # and the hard creation cap reset. Any previous token is invalidated.
+    Token.objects.filter(user=user).delete()
+    token = Token.objects.create(user=user)
 
-    # Update last login
-    from django.utils import timezone
-    user.profile.last_login = timezone.now()
-    user.profile.save(update_fields=['last_login'])
+    now = timezone.now()
+    user.profile.last_login = now
+    user.profile.token_last_used = now
+    update_fields = ['last_login', 'token_last_used']
+
+    # ExpiringTokenAuthentication reads last_foundry_login to apply the 12h cap.
+    source = request.data.get('source') or request.query_params.get('source')
+    if source == 'foundry':
+        user.profile.last_foundry_login = now
+        update_fields.append('last_foundry_login')
+
+    user.profile.save(update_fields=update_fields)
 
     return Response({
         'token': token.key,
@@ -147,6 +165,110 @@ def logout(request):
         return Response({'message': 'Successfully logged out'})
     except Exception:
         return Response({'message': 'Logged out'})
+
+
+def _generate_pairing_code():
+    while True:
+        code = ''.join(secrets.choice(PAIRING_CODE_ALPHABET) for _ in range(PAIRING_CODE_LENGTH))
+        if not PairingCode.objects.filter(code=code).exists():
+            return code
+
+
+def _normalize_pairing_code(raw):
+    if not raw:
+        return ''
+    return ''.join(raw.split()).replace('-', '').upper()
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def foundry_pair_code(request):
+    """POST /api/auth/foundry-pair-code/ -> {code, expires_at, ttl_seconds}."""
+    PairingCode.objects.filter(
+        user=request.user,
+        redeemed_at__isnull=True
+    ).delete()
+
+    now = timezone.now()
+    expires_at = now + timedelta(minutes=PAIRING_CODE_TTL_MINUTES)
+    code = _generate_pairing_code()
+    PairingCode.objects.create(
+        user=request.user,
+        code=code,
+        expires_at=expires_at
+    )
+
+    return Response({
+        'code': code,
+        'expires_at': expires_at.isoformat(),
+        'ttl_seconds': PAIRING_CODE_TTL_MINUTES * 60
+    })
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def foundry_pair_redeem(request):
+    """POST /api/auth/foundry-pair-redeem/ {code} -> {token, user}."""
+    code = _normalize_pairing_code(request.data.get('code', ''))
+    if not code:
+        return Response(
+            {'error': 'Pairing code is required.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    try:
+        pairing = PairingCode.objects.select_related('user', 'user__profile').get(code=code)
+    except PairingCode.DoesNotExist:
+        return Response(
+            {'error': 'Invalid pairing code.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    if pairing.is_redeemed:
+        return Response(
+            {'error': 'Pairing code has already been used.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    if pairing.is_expired:
+        return Response(
+            {'error': 'Pairing code has expired. Generate a new one in the App.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
+    user = pairing.user
+
+    if not user.is_active:
+        return Response(
+            {'error': 'Account is disabled.'},
+            status=status.HTTP_403_FORBIDDEN
+        )
+
+    profile = getattr(user, 'profile', None)
+    if profile is None:
+        profile, _ = UserProfile.objects.get_or_create(user=user)
+
+    if profile.account_locked:
+        return Response(
+            {'error': 'Account is locked. Please renew your subscription.'},
+            status=status.HTTP_403_FORBIDDEN
+        )
+
+    Token.objects.filter(user=user).delete()
+    token = Token.objects.create(user=user)
+
+    now = timezone.now()
+    pairing.redeemed_at = now
+    pairing.save(update_fields=['redeemed_at'])
+
+    profile.last_foundry_login = now
+    profile.token_last_used = now
+    profile.save(update_fields=['last_foundry_login', 'token_last_used'])
+
+    return Response({
+        'token': token.key,
+        'user': MeSerializer(profile).data
+    })
 
 
 @api_view(['POST'])
@@ -199,6 +321,7 @@ def register(request):
 
     # Profile is created via signal, update it to permanent member
     user.profile.user_type = 'permanent'
+    user.profile.token_last_used = timezone.now()
     user.profile.save()
 
     # Create auth token
@@ -390,8 +513,11 @@ def patreon_callback(request):
 
     profile.save()
 
-    # Get or create auth token
-    token, _ = Token.objects.get_or_create(user=user)
+    # Fresh login restarts the token windows (same rule as password login).
+    Token.objects.filter(user=user).delete()
+    token = Token.objects.create(user=user)
+    profile.token_last_used = timezone.now()
+    profile.save(update_fields=['token_last_used'])
 
     return Response({
         'token': token.key,
