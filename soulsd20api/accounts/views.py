@@ -5,7 +5,6 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -14,7 +13,7 @@ from django.utils import timezone
 import requests
 import urllib.parse
 
-from .models import UserProfile, PairingCode
+from .models import UserProfile, PairingCode, AuthToken
 from .serializers import UserProfileSerializer, MeSerializer
 
 
@@ -128,23 +127,17 @@ def login(request):
             status=status.HTTP_403_FORBIDDEN
         )
 
-    # Fresh login always starts a brand-new token so both the sliding window
-    # and the hard creation cap reset. Any previous token is invalidated.
-    Token.objects.filter(user=user).delete()
-    token = Token.objects.create(user=user)
-
+    # Source-scoped: kick other App sessions, leave any Foundry pairing alone.
+    AuthToken.objects.filter(user=user, source=AuthToken.SOURCE_APP).delete()
     now = timezone.now()
+    token = AuthToken.objects.create(
+        user=user,
+        source=AuthToken.SOURCE_APP,
+        last_used=now,
+    )
+
     user.profile.last_login = now
-    user.profile.token_last_used = now
-    update_fields = ['last_login', 'token_last_used']
-
-    # ExpiringTokenAuthentication reads last_foundry_login to apply the 12h cap.
-    source = request.data.get('source') or request.query_params.get('source')
-    if source == 'foundry':
-        user.profile.last_foundry_login = now
-        update_fields.append('last_foundry_login')
-
-    user.profile.save(update_fields=update_fields)
+    user.profile.save(update_fields=['last_login'])
 
     return Response({
         'token': token.key,
@@ -155,16 +148,13 @@ def login(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def logout(request):
-    """
-    Logout - invalidates the auth token.
+    """Sign out of the context this token represents only.
     POST /api/auth/logout/
-    """
-    try:
-        # Delete the user's token
-        request.user.auth_token.delete()
-        return Response({'message': 'Successfully logged out'})
-    except Exception:
-        return Response({'message': 'Logged out'})
+    Other AuthToken rows for this user (e.g. their Foundry pairing while the
+    App signs out) are untouched."""
+    if request.auth is not None:
+        request.auth.delete()
+    return Response({'message': 'Successfully logged out'})
 
 
 def _generate_pairing_code():
@@ -254,16 +244,16 @@ def foundry_pair_redeem(request):
             status=status.HTTP_403_FORBIDDEN
         )
 
-    Token.objects.filter(user=user).delete()
-    token = Token.objects.create(user=user)
-
+    AuthToken.objects.filter(user=user, source=AuthToken.SOURCE_FOUNDRY).delete()
     now = timezone.now()
+    token = AuthToken.objects.create(
+        user=user,
+        source=AuthToken.SOURCE_FOUNDRY,
+        last_used=now,
+    )
+
     pairing.redeemed_at = now
     pairing.save(update_fields=['redeemed_at'])
-
-    profile.last_foundry_login = now
-    profile.token_last_used = now
-    profile.save(update_fields=['last_foundry_login', 'token_last_used'])
 
     return Response({
         'token': token.key,
@@ -319,13 +309,14 @@ def register(request):
         password=password
     )
 
-    # Profile is created via signal, update it to permanent member
     user.profile.user_type = 'permanent'
-    user.profile.token_last_used = timezone.now()
     user.profile.save()
 
-    # Create auth token
-    token = Token.objects.create(user=user)
+    token = AuthToken.objects.create(
+        user=user,
+        source=AuthToken.SOURCE_APP,
+        last_used=timezone.now(),
+    )
 
     return Response({
         'token': token.key,
@@ -513,11 +504,12 @@ def patreon_callback(request):
 
     profile.save()
 
-    # Fresh login restarts the token windows (same rule as password login).
-    Token.objects.filter(user=user).delete()
-    token = Token.objects.create(user=user)
-    profile.token_last_used = timezone.now()
-    profile.save(update_fields=['token_last_used'])
+    AuthToken.objects.filter(user=user, source=AuthToken.SOURCE_APP).delete()
+    token = AuthToken.objects.create(
+        user=user,
+        source=AuthToken.SOURCE_APP,
+        last_used=timezone.now(),
+    )
 
     return Response({
         'token': token.key,

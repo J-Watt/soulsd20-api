@@ -1,8 +1,11 @@
+import binascii
+import os
+import uuid
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-import uuid
 
 
 class UserProfile(models.Model):
@@ -76,8 +79,6 @@ class UserProfile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     last_login = models.DateTimeField(blank=True, null=True)
-    token_last_used = models.DateTimeField(blank=True, null=True)
-    last_foundry_login = models.DateTimeField(blank=True, null=True)
 
     # Limits (can be overridden per-user)
     max_characters = models.IntegerField(default=10)
@@ -129,6 +130,49 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     if hasattr(instance, 'profile'):
         instance.profile.save()
+
+
+class AuthToken(models.Model):
+    SOURCE_APP = 'app'
+    SOURCE_FOUNDRY = 'foundry'
+    SOURCE_CHOICES = [
+        (SOURCE_APP, 'App'),
+        (SOURCE_FOUNDRY, 'Foundry'),
+    ]
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='auth_tokens'
+    )
+    key = models.CharField(max_length=40, unique=True, db_index=True)
+    source = models.CharField(
+        max_length=10,
+        choices=SOURCE_CHOICES,
+        default=SOURCE_APP,
+        db_index=True
+    )
+    created = models.DateTimeField(auto_now_add=True)
+    last_used = models.DateTimeField(blank=True, null=True)
+    label = models.CharField(max_length=80, blank=True, default='')
+
+    class Meta:
+        ordering = ['-created']
+        indexes = [
+            models.Index(fields=['user', 'source']),
+        ]
+
+    def __str__(self):
+        return f"{self.source} token for {self.user.username}"
+
+    def save(self, *args, **kwargs):
+        if not self.key:
+            self.key = self.generate_key()
+        super().save(*args, **kwargs)
+
+    @staticmethod
+    def generate_key():
+        return binascii.hexlify(os.urandom(20)).decode()
 
 
 class PairingCode(models.Model):
