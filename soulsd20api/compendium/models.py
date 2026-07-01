@@ -1383,3 +1383,13 @@ class Character(models.Model):
         return self.name
 
 """
+
+
+class CompendiumGlobalVersion(models.Model):
+    """Singleton row (pk=1). Bumps when any official compendium item changes.
+    Clients use this alongside per-campaign versions to invalidate their caches."""
+    version = models.IntegerField(default=1)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"Global compendium version: {self.version}"

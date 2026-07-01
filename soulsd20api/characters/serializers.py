@@ -253,6 +253,47 @@ class CharacterListSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'owner', 'created_at', 'last_played']
 
 
+class CharacterLightListSerializer(serializers.ModelSerializer):
+    """
+    Ultra-lightweight serializer for the dashboard character list.
+    Used by GET /api/characters/lightlist/. Owner is implicit (request.user).
+    Optimization 1: replaces the full CharacterDetailSerializer payload for the
+    dashboard, which never needs the nested combat/equipment data.
+
+    campaigns is included so the dashboard can show campaign badges without
+    N+1 lookups. Same shape as CharacterDetailSerializer.get_campaigns.
+    """
+    campaigns = serializers.SerializerMethodField()
+
+    def get_campaigns(self, obj):
+        memberships = CharacterCampaignMembership.objects.filter(
+            character=obj, is_active=True
+        ).select_related('campaign')
+        return [
+            {'id': str(m.campaign.id), 'name': m.campaign.name}
+            for m in memberships
+        ]
+
+    class Meta:
+        model = Character
+        fields = [
+            'id',
+            'name',
+            'level',
+            'image_url',
+            'is_finalized',
+            'is_active',
+            'background_id',
+            'lineage_id',
+            'bloodline_id',
+            'created_at',
+            'updated_at',
+            'last_played',
+            'campaigns',
+        ]
+        read_only_fields = fields
+
+
 class CharacterDetailSerializer(serializers.ModelSerializer):
     """
     Serializer for character detail view.

@@ -52,6 +52,10 @@ class Campaign(models.Model):
     # Campaign-specific settings (JSON for flexibility)
     settings = models.JSONField(default=dict, blank=True)
 
+    # Bumped by signals whenever a custom compendium item in this campaign changes.
+    # Clients compare this to their cached copy to decide whether to refetch.
+    compendium_version = models.IntegerField(default=1)
+
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

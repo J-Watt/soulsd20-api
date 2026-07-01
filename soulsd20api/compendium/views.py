@@ -1,11 +1,13 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from . import serializers
 
 from compendium.models import (UsageFormula, WeaponProfFeat, DestinyFeat, Item, Ring,
                                Artifact, Armor, Weapon, WeaponSkill, Spell, Spirit,
-                               Background, Lineage, Bloodline)
+                               Background, Lineage, Bloodline, CompendiumGlobalVersion)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -53,10 +55,15 @@ class DestinyFeatViewSet(viewsets.ReadOnlyModelViewSet):
 class CampaignFilteredMixin:
     """
     Filters compendium items: official items + custom items from user's campaigns.
+
+    Supports optional layer filtering for per-layer refetch (Optimization 7):
+     - ?layer=core         only official items
+     - ?campaign=<uuid>    only that campaign's custom items (if user has access)
+     - no filter           merged view (official + all user's campaigns), unchanged default
     """
     def get_queryset(self):
         from django.db.models import Q
-        from campaigns.models import CampaignMembership
+        from campaigns.models import CampaignMembership, Campaign
 
         qs = super().get_queryset()
         user = self.request.user
@@ -66,12 +73,26 @@ class CampaignFilteredMixin:
                 return qs.filter(is_official=True)
 
             profile = user.profile
-            from campaigns.models import Campaign
             gm_campaigns = Campaign.objects.filter(gm=profile).values_list('id', flat=True)
             member_campaigns = CampaignMembership.objects.filter(
                 user=profile, status='active'
             ).values_list('campaign_id', flat=True)
             user_campaign_ids = set(gm_campaigns) | set(member_campaigns)
+
+            layer = self.request.query_params.get('layer')
+            campaign_param = self.request.query_params.get('campaign')
+
+            if layer == 'core':
+                return qs.filter(is_official=True)
+
+            if campaign_param:
+                try:
+                    campaign_uuid = campaign_param
+                    if campaign_uuid not in {str(cid) for cid in user_campaign_ids}:
+                        return qs.none()
+                    return qs.filter(is_official=False, campaign_id=campaign_uuid)
+                except Exception:
+                    return qs.none()
 
             return qs.filter(
                 Q(is_official=True) | Q(campaign_id__in=user_campaign_ids)
@@ -79,6 +100,39 @@ class CampaignFilteredMixin:
         except Exception as e:
             print(f'[SD20] CampaignFilteredMixin error: {e}')
             return qs
+
+
+class CompendiumVersionView(APIView):
+    """
+    GET /api/compendium/versions/
+    Returns { core: <int>, campaigns: { <campaign_uuid_str>: <int>, ... } }
+    Campaigns dict only includes campaigns the user is a member of.
+    Clients compare these to their cached versions to decide which layers to refetch.
+    """
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        from campaigns.models import Campaign, CampaignMembership
+
+        global_obj, _ = CompendiumGlobalVersion.objects.get_or_create(pk=1)
+        profile = request.user.profile
+
+        gm_pairs = Campaign.objects.filter(gm=profile).values_list('id', 'compendium_version')
+        member_campaign_ids = CampaignMembership.objects.filter(
+            user=profile, status='active'
+        ).values_list('campaign_id', flat=True)
+        member_pairs = Campaign.objects.filter(
+            id__in=list(member_campaign_ids)
+        ).values_list('id', 'compendium_version')
+
+        campaigns = {}
+        for cid, ver in list(gm_pairs) + list(member_pairs):
+            campaigns[str(cid)] = ver
+
+        return Response({
+            'core': global_obj.version,
+            'campaigns': campaigns,
+        })
 
 
 class WeaponSkillViewSet(CampaignFilteredMixin, viewsets.ReadOnlyModelViewSet):

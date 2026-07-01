@@ -37,6 +37,7 @@ from .models import (
 )
 from .serializers import (
     CharacterListSerializer,
+    CharacterLightListSerializer,
     CharacterDetailSerializer,
     CharacterCreateSerializer,
     CharacterUpdateSerializer,
@@ -413,6 +414,33 @@ class CharacterViewSet(viewsets.ModelViewSet):
             if os.path.exists(filepath):
                 os.remove(filepath)
                 print(f'[SD20 API] Deleted image file: {filepath}')
+
+    @action(detail=False, methods=['get'], url_path='lightlist')
+    def lightlist(self, request):
+        """
+        Ultra-lightweight list of the user's characters for the dashboard.
+        Optimization 1: dashboard never renders combat/equipment/companions data,
+        so we skip the ~50KB nested detail payload and send ~1KB per character.
+        Response fields: id, name, level, image_url, is_finalized, is_active,
+        background_id, lineage_id, bloodline_id, created_at, updated_at, last_played.
+        """
+        if not hasattr(request.user, 'profile'):
+            return Response([])
+
+        profile = request.user.profile
+        show_inactive = request.query_params.get('show_inactive', 'false').lower() == 'true'
+
+        qs = Character.objects.filter(owner=profile)
+        if not show_inactive:
+            qs = qs.filter(is_active=True)
+
+        qs = qs.only(
+            'id', 'name', 'level', 'image_url', 'is_finalized', 'is_active',
+            'background_id', 'lineage_id', 'bloodline_id',
+            'created_at', 'updated_at', 'last_played',
+        )
+        serializer = CharacterLightListSerializer(qs, many=True)
+        return Response(serializer.data)
 
     @action(detail=False, methods=['post'], url_path='import')
     def import_character(self, request):

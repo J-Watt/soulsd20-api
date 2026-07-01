@@ -23,5 +23,6 @@ router.register(r'bloodlines', views.BloodlineViewSet)
 # The API URLs are now determined automatically by the router.
 # API URLs determined automatically by the router
 urlpatterns = [
+    path('versions/', views.CompendiumVersionView.as_view(), name='compendium-versions'),
     path('', include(router.urls))
 ]
