@@ -77,6 +77,9 @@ class MeSerializer(serializers.ModelSerializer):
     character_count = serializers.IntegerField(read_only=True)
     can_create_character = serializers.BooleanField(read_only=True)
     is_active_subscriber = serializers.BooleanField(read_only=True)
+    is_exempt_from_lockout = serializers.BooleanField(read_only=True)
+    days_until_lockout = serializers.IntegerField(read_only=True)
+    should_show_grace_toast = serializers.BooleanField(read_only=True)
     patreon_connected = serializers.SerializerMethodField()
 
     class Meta:
@@ -94,12 +97,17 @@ class MeSerializer(serializers.ModelSerializer):
             'subscription_tier',
             'last_charge_date',
             'account_locked',
+            'lock_reason',
+            'lock_date',
             'grace_period_notified',
             'max_characters',
             'max_campaigns_as_gm',
             'character_count',
             'can_create_character',
             'is_active_subscriber',
+            'is_exempt_from_lockout',
+            'days_until_lockout',
+            'should_show_grace_toast',
             'created_at',
         ]
         read_only_fields = fields

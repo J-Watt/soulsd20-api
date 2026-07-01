@@ -547,3 +547,17 @@ admin.site.register(models.ArtifactUpgrade, ArtifactUpgradeAdmin)
 admin.site.register(models.Armor, ArmorAdmin)
 admin.site.register(models.Weapon, WeaponAdmin)
 
+
+@admin.register(models.CompendiumGlobalVersion)
+class CompendiumGlobalVersionAdmin(admin.ModelAdmin):
+    """Singleton row (pk=1) tracking the core compendium version.
+    Signal-managed. Read-only in the admin."""
+    list_display = ('pk', 'version', 'updated_at')
+    readonly_fields = ('version', 'updated_at')
+
+    def has_add_permission(self, request):
+        return not models.CompendiumGlobalVersion.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+

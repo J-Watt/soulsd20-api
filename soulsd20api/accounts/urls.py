@@ -15,6 +15,9 @@ urlpatterns = [
     path('auth/foundry-pair-code/', views.foundry_pair_code, name='foundry-pair-code'),
     path('auth/foundry-pair-redeem/', views.foundry_pair_redeem, name='foundry-pair-redeem'),
 
+    # Grace-period acknowledgement
+    path('auth/acknowledge-grace-notification/', views.acknowledge_grace_notification, name='auth-acknowledge-grace'),
+
     # Patreon OAuth endpoints
     path('auth/patreon/', views.patreon_auth_url, name='patreon-auth-url'),
     path('auth/patreon/callback/', views.patreon_callback, name='patreon-callback'),

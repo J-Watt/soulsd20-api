@@ -17,10 +17,10 @@ class CampaignInviteInline(admin.TabularInline):
 
 @admin.register(Campaign)
 class CampaignAdmin(admin.ModelAdmin):
-    list_display = ['name', 'gm', 'player_count', 'max_players', 'created_at']
+    list_display = ['name', 'gm', 'player_count', 'max_players', 'compendium_version', 'created_at']
     list_filter = ['created_at']
     search_fields = ['name', 'gm__user__username']
-    readonly_fields = ['id', 'invite_code', 'created_at', 'updated_at']
+    readonly_fields = ['id', 'invite_code', 'created_at', 'updated_at', 'compendium_version']
     inlines = [CampaignMembershipInline, CampaignInviteInline]
 
     fieldsets = (
@@ -38,6 +38,10 @@ class CampaignAdmin(admin.ModelAdmin):
         }),
         ('Campaign Settings (JSON)', {
             'fields': ('settings',),
+            'classes': ('collapse',)
+        }),
+        ('Compendium versioning', {
+            'fields': ('compendium_version',),
             'classes': ('collapse',)
         }),
         ('Timestamps', {

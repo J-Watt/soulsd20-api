@@ -38,6 +38,13 @@ class ExpiringTokenAuthentication(TokenAuthentication):
             token.delete()
             raise AuthenticationFailed('Token expired (inactive).')
 
+        # Belt-and-suspenders: an account that got locked between issuing this
+        # token and now must not be able to keep operating on it.
+        profile = getattr(user, 'profile', None)
+        if profile is not None and profile.account_locked:
+            token.delete()
+            raise AuthenticationFailed('Account is locked.')
+
         token.last_used = now
         token.save(update_fields=['last_used'])
 

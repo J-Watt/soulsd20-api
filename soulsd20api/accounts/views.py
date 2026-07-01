@@ -13,13 +13,58 @@ from django.utils import timezone
 import requests
 import urllib.parse
 
-from .models import UserProfile, PairingCode, AuthToken
+from .models import UserProfile, PairingCode, AuthToken, AccountAuditLog
 from .serializers import UserProfileSerializer, MeSerializer
 
 
 PAIRING_CODE_TTL_MINUTES = 10
 PAIRING_CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'
 PAIRING_CODE_LENGTH = 8
+
+def _patreon_url():
+    return getattr(settings, 'PATREON_RESUBSCRIBE_URL', 'https://www.patreon.com/soulsd20')
+
+
+LOCK_MESSAGE_ADMIN = 'Your account has been locked by the Souls D20 team.'
+LOCK_MESSAGE_GENERIC = 'Your account is locked.'
+
+
+def _lock_message_patreon_lapsed():
+    return (
+        'Your Souls D20 access has ended. Renew your Patreon pledge to restore '
+        f'access: {_patreon_url()}'
+    )
+
+
+def _signup_rejected_message():
+    return (
+        'An active Patreon pledge is required to sign up for Souls D20. '
+        f'Pledge at {_patreon_url()} and try again.'
+    )
+
+
+def _lock_message(profile):
+    if profile.lock_reason == 'patreon_lapsed':
+        return _lock_message_patreon_lapsed()
+    if profile.lock_reason == 'admin_action':
+        return LOCK_MESSAGE_ADMIN
+    return LOCK_MESSAGE_GENERIC
+
+
+def _apply_lockout_if_expired(profile):
+    """If lock_date has passed and user is not currently active, lock them."""
+    if profile.is_exempt_from_lockout:
+        return False
+    if profile.account_locked:
+        return False
+    if profile.subscription_status == 'active_patron':
+        return False
+    if not profile.lock_date:
+        return False
+    if profile.lock_date > timezone.now():
+        return False
+    profile.apply_lockout('patreon_lapsed', actor='system', note='lock_date passed at login')
+    return True
 
 
 # =============================================================================
@@ -120,10 +165,20 @@ def login(request):
     if not hasattr(user, 'profile'):
         UserProfile.objects.create(user=user)
 
-    # Check if account is locked
-    if user.profile.account_locked:
+    profile = user.profile
+
+    # Refresh Patreon status on login for non-exempt users. Failures are
+    # tolerated silently so a Patreon outage does not block active users.
+    if not profile.is_exempt_from_lockout:
+        _refresh_patreon_status_silent(profile)
+        _apply_lockout_if_expired(profile)
+
+    if profile.account_locked:
         return Response(
-            {'error': 'Account is locked. Please renew your subscription.'},
+            {
+                'error': _lock_message(profile),
+                'lock_reason': profile.lock_reason or 'unknown',
+            },
             status=status.HTTP_403_FORBIDDEN
         )
 
@@ -136,12 +191,12 @@ def login(request):
         last_used=now,
     )
 
-    user.profile.last_login = now
-    user.profile.save(update_fields=['last_login'])
+    profile.last_login = now
+    profile.save(update_fields=['last_login'])
 
     return Response({
         'token': token.key,
-        'user': MeSerializer(user.profile).data
+        'user': MeSerializer(profile).data
     })
 
 
@@ -238,9 +293,14 @@ def foundry_pair_redeem(request):
     if profile is None:
         profile, _ = UserProfile.objects.get_or_create(user=user)
 
+    # Foundry pairing does not re-check Patreon (App login is where refresh
+    # happens). The stored account_locked state is authoritative here.
     if profile.account_locked:
         return Response(
-            {'error': 'Account is locked. Please renew your subscription.'},
+            {
+                'error': _lock_message(profile),
+                'lock_reason': profile.lock_reason or 'unknown',
+            },
             status=status.HTTP_403_FORBIDDEN
         )
 
@@ -449,26 +509,47 @@ def patreon_callback(request):
             status=status.HTTP_400_BAD_REQUEST
         )
 
-    # Find or create user
-    is_new_user = False
+    # Look up an existing profile without creating anything yet. If the caller
+    # is not an active patron, the signup path is rejected without touching
+    # the User table.
+    profile = None
     try:
         profile = UserProfile.objects.get(patreon_id=patreon_id)
         user = profile.user
     except UserProfile.DoesNotExist:
-        # Try to find by email
         try:
             user = User.objects.get(email=email)
             profile = user.profile
         except User.DoesNotExist:
-            # Create new user
-            is_new_user = True
-            username = _generate_username(full_name, email)
-            user = User.objects.create_user(
-                username=username,
-                email=email,
-                password=None  # No password - Patreon auth only
-            )
-            profile = user.profile
+            user = None
+
+    included = identity_data.get('included', [])
+    membership = _find_campaign_membership(included, settings.PATREON_CAMPAIGN_ID)
+    member_attrs = membership.get('attributes', {}) if membership else {}
+    mapped_status = _map_patron_status(member_attrs.get('patron_status')) if membership else 'never_patron'
+
+    # Signup gate: brand-new accounts require an active pledge. Existing
+    # accounts get to attempt login even if their pledge lapsed (they may
+    # already have a grace window running).
+    if profile is None and mapped_status != 'active_patron':
+        return Response(
+            {
+                'error': _signup_rejected_message(),
+                'lock_reason': 'patreon_lapsed',
+            },
+            status=status.HTTP_403_FORBIDDEN
+        )
+
+    is_new_user = False
+    if profile is None:
+        is_new_user = True
+        username = _generate_username(full_name, email)
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=None
+        )
+        profile = user.profile
 
     # Update profile with Patreon data
     profile.patreon_id = patreon_id
@@ -476,33 +557,35 @@ def patreon_callback(request):
     profile.patreon_access_token = access_token
     profile.patreon_refresh_token = refresh_token
 
-    # Parse membership data
-    included = identity_data.get('included', [])
-    membership = _find_campaign_membership(included, settings.PATREON_CAMPAIGN_ID)
-
     if membership:
-        member_attrs = membership.get('attributes', {})
-        profile.subscription_status = _map_patron_status(member_attrs.get('patron_status'))
-        profile.last_charge_date = member_attrs.get('last_charge_date')
         profile.last_charge_status = member_attrs.get('last_charge_status')
-
-        # Get tier info
         tier_cents = member_attrs.get('currently_entitled_amount_cents', 0)
         profile.subscription_tier = _get_tier_name(tier_cents)
-
-        # Update limits based on tier
         limits = _get_tier_limits(tier_cents)
         profile.max_characters = limits.get('max_characters', 10)
         profile.max_campaigns_as_gm = limits.get('max_campaigns', 5)
 
-        # Unlock account if active patron
-        if profile.subscription_status == 'active_patron':
-            profile.account_locked = False
-    else:
-        # Not a member of the Patreon campaign
-        profile.subscription_status = 'never_patron'
-
     profile.save()
+
+    # Apply the Patreon status through the model helper so lock_date rolls
+    # forward on active status and the audit trail records the transition.
+    if not profile.is_exempt_from_lockout:
+        profile.apply_patreon_status(
+            mapped_status,
+            member_attrs.get('last_charge_date'),
+            actor='system',
+            note='patreon_callback',
+        )
+        _apply_lockout_if_expired(profile)
+
+    if profile.account_locked:
+        return Response(
+            {
+                'error': _lock_message(profile),
+                'lock_reason': profile.lock_reason or 'unknown',
+            },
+            status=status.HTTP_403_FORBIDDEN
+        )
 
     AuthToken.objects.filter(user=user, source=AuthToken.SOURCE_APP).delete()
     token = AuthToken.objects.create(
@@ -680,6 +763,99 @@ def _map_patron_status(status):
         'former_patron': 'former_patron',
     }
     return status_map.get(status, 'never_patron')
+
+
+def _refresh_patreon_status_silent(profile):
+    """Refresh Patreon status against Patreon's /identity endpoint.
+    Returns True on success, False on any failure. Never raises.
+    Failures leave lock_date and subscription_status untouched so a Patreon
+    outage cannot extend or shorten anyone's access."""
+    if not profile.patreon_refresh_token:
+        return False
+    try:
+        token_response = requests.post(
+            PATREON_OAUTH_TOKEN_URL,
+            data={
+                'grant_type': 'refresh_token',
+                'refresh_token': profile.patreon_refresh_token,
+                'client_id': settings.PATREON_CLIENT_ID,
+                'client_secret': settings.PATREON_CLIENT_SECRET,
+            },
+            timeout=5,
+        )
+        if not token_response.ok:
+            return False
+        token_data = token_response.json()
+        access_token = token_data.get('access_token')
+        if not access_token:
+            return False
+        new_refresh = token_data.get('refresh_token')
+        profile.patreon_access_token = access_token
+        if new_refresh:
+            profile.patreon_refresh_token = new_refresh
+        profile.save(update_fields=['patreon_access_token', 'patreon_refresh_token'])
+
+        identity_response = requests.get(
+            f"{PATREON_API_URL}/identity",
+            headers={'Authorization': f'Bearer {access_token}'},
+            params={
+                'include': 'memberships,memberships.campaign',
+                'fields[member]': 'patron_status,last_charge_date,last_charge_status,currently_entitled_amount_cents'
+            },
+            timeout=5,
+        )
+        if not identity_response.ok:
+            return False
+
+        identity_data = identity_response.json()
+        included = identity_data.get('included', [])
+        membership = _find_campaign_membership(included, settings.PATREON_CAMPAIGN_ID)
+
+        if membership:
+            member_attrs = membership.get('attributes', {})
+            mapped = _map_patron_status(member_attrs.get('patron_status'))
+            profile.last_charge_status = member_attrs.get('last_charge_status')
+            tier_cents = member_attrs.get('currently_entitled_amount_cents', 0)
+            profile.subscription_tier = _get_tier_name(tier_cents)
+            limits = _get_tier_limits(tier_cents)
+            profile.max_characters = limits.get('max_characters', 10)
+            profile.max_campaigns_as_gm = limits.get('max_campaigns', 5)
+            profile.save(update_fields=[
+                'last_charge_status', 'subscription_tier',
+                'max_characters', 'max_campaigns_as_gm',
+            ])
+            profile.apply_patreon_status(
+                mapped,
+                member_attrs.get('last_charge_date'),
+                actor='system',
+                note='login refresh',
+            )
+        else:
+            profile.apply_patreon_status(
+                'former_patron',
+                profile.last_charge_date,
+                actor='system',
+                note='login refresh, no membership',
+            )
+        return True
+    except Exception:
+        return False
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def acknowledge_grace_notification(request):
+    """POST /api/auth/acknowledge-grace-notification/
+    Marks the current grace warning as acknowledged so it does not re-show
+    until the next billing cycle rolls."""
+    profile = getattr(request.user, 'profile', None)
+    if profile is None:
+        return Response(
+            {'error': 'User profile not found'},
+            status=status.HTTP_404_NOT_FOUND
+        )
+    profile.mark_grace_notified(actor=request.user.username)
+    return Response({'user': MeSerializer(profile).data})
 
 
 def _get_tier_name(cents):
