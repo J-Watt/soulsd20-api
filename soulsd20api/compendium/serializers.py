@@ -149,11 +149,15 @@ class WeaponSkillSerializer(serializers.HyperlinkedModelSerializer):
     bonuses = WeaponSkillBonusesSerializer(many=True)
     scaling = WeaponSkillScalingSerializer(many=True)
     dice = WeaponSkillDiceSerializer(many=True)
+    # Item 7 (Batch C): expose layer identity so the client can partition
+    # cached items by layer during granular refetches.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.WeaponSkill
         fields = ['id', 'name', 'cost_fp', 'is_slow', 'usage_type',
-                  'description', 'scaling', 'dice', 'bonuses']
+                  'description', 'scaling', 'dice', 'bonuses',
+                  'is_official', 'campaign']
 
 
 """
@@ -232,11 +236,13 @@ class SpellSerializer(serializers.HyperlinkedModelSerializer):
     damage_protection = SpellDamageProtectionSerializer(many=True)
     buildup_protection = SpellBuildupProtectionSerializer(many=True)
     condition_protection = SpellConditionProtectionSerializer(many=True)
+    # Item 7 (Batch C): layer identity for client-side partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Spell
         fields = ['id', 'name', 'cast_time', 'ap', 'fp', 'range', 'duration', 'description', 'is_official',
-                  'category', 'is_slow', 'att_cost', 'requirements', 'dice', 'bonuses', 'charged',
+                  'campaign', 'category', 'is_slow', 'att_cost', 'requirements', 'dice', 'bonuses', 'charged',
                   'damage_protection', 'buildup_protection', 'condition_protection']
 
 
@@ -289,10 +295,12 @@ class SpiritSerializer(serializers.HyperlinkedModelSerializer):
     damage_protection = SpiritDamageProtectionSerializer(many=True)
     buildup_protection = SpiritBuildupProtectionSerializer(many=True)
     condition_protection = SpiritConditionProtectionSerializer(many=True)
+    # Item 7 (Batch C): layer identity for client partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Spirit
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'tier', 'creature', 'size', 'range', 'condition', 'description', 'att_cost', 'ap', 'fp', 'requirements',
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'campaign', 'tier', 'creature', 'size', 'range', 'condition', 'description', 'att_cost', 'ap', 'fp', 'requirements',
                   'dice', 'damage_protection', 'buildup_protection', 'condition_protection']
 
 
@@ -324,10 +332,12 @@ class ItemSerializer(serializers.HyperlinkedModelSerializer):
     scaling = ItemScalingSerializer(many=True)
     dice = ItemDiceSerializer(many=True)
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+    # Item 7 (Batch C): layer identity for client partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Item
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'item_type',
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'campaign', 'item_type',
                   'range', 'duration', 'description', 'scaling', 'dice', 'bonuses']
 
 
@@ -360,10 +370,12 @@ class RingSerializer(serializers.HyperlinkedModelSerializer):
     scaling = RingScalingSerializer(many=True)
     dice = RingDiceSerializer(many=True)
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+    # Item 7 (Batch C): layer identity for client partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Ring
-        fields = ['id', 'name', 'created_at', 'created_by', 'tier',
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'campaign', 'tier',
                   'usage_formula', 'description', 'scaling', 'dice', 'bonuses']
 
 
@@ -472,6 +484,8 @@ class ArtifactSerializer(serializers.HyperlinkedModelSerializer):
     dice = ArtifactDiceSerializer(many=True)
     upgrades = serializers.SerializerMethodField()
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+    # Item 7 (Batch C): layer identity for client partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     def get_upgrades(self, obj):
         """Return upgrades if either visible OR requirements_visible is True"""
@@ -481,7 +495,7 @@ class ArtifactSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Artifact
-        fields = ['id', 'name', 'created_at', 'created_by',
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'campaign',
                   'usage_formula', 'description', 'scaling', 'dice', 'bonuses', 'upgrades']
 
 
@@ -507,10 +521,12 @@ class ArmorSerializer(serializers.HyperlinkedModelSerializer):
     bonuses = ArmorBonusesSerializer(many=True)
     requirements = ArmorReqSerializer()
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+    # Item 7 (Batch C): layer identity for client partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Armor
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official',
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'campaign',
                   'armor_type', 'usage_formula', 'description', 'requirements', 'bonuses']
 
 
@@ -558,11 +574,13 @@ class WeaponSerializer(serializers.HyperlinkedModelSerializer):
     # CF3: Changed from single to many=True (ForeignKey with form field)
     requirements = WeaponReqSerializer(many=True)
     created_by = serializers.StringRelatedField()  # Use string representation instead of hyperlink
+    # Item 7 (Batch C): layer identity for client partitioning.
+    campaign = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = models.Weapon
         # CF3: Added second_ap, second_skill_primary, second_skill_secondary, second_infusion
-        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'is_trick', 'is_twin', 'weapon_type', 'second_type',
+        fields = ['id', 'name', 'created_at', 'created_by', 'is_official', 'campaign', 'is_trick', 'is_twin', 'weapon_type', 'second_type',
                   'ap', 'skill_primary', 'skill_secondary', 'infusion',
                   'second_ap', 'second_skill_primary', 'second_skill_secondary', 'second_infusion',
                   'usage_formula', 'description', 'durability', 'requirements', 'scaling', 'spell_scaling', 'dice', 'bonuses']
